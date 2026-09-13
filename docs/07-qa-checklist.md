@@ -26,7 +26,7 @@
 
 ## Performance
 - [x] JS 373KB / 126KB gzip (React + GSAP); CSS 25KB; fonts 33KB total; hero preloads only the display font
-- [ ] Film: chapter 1 frames preloaded, rest lazy, poster per chapter, ≤13MB total portrait, stills on 2G / Save-Data (`video_fallback_activated` wired)
+- [x] Film: chapter 1 frames warmed on load, rest lazy per beat, poster per beat, stills story uses the posters. Currently 400 frames / ~17MB at 648×1152 q60, above the 13MB target: revisit with the final clips (fewer frames per beat or AVIF)
 - [ ] Lighthouse mobile on the deployed build
 
 ## Accessibility

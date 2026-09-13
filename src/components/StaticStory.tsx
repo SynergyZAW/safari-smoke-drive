@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { CHAPTERS } from '../data/chapters'
 import { sceneAt } from '../lib/scene'
 import { Scene } from './Scene'
+import { loadManifest, posterUrl, type Manifest } from '../lib/film'
 
 function Still({ p, uid }: { p: number; uid: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -26,7 +27,17 @@ function Still({ p, uid }: { p: number; uid: string }) {
  * Reduced motion / low bandwidth: one static key frame per chapter, all copy and the CTA kept.
  * Nothing moves. Nothing is lost.
  */
+const BEAT_FOR: Record<string, string> = { cough: 'ch1', 'bad-start': 'ch2', 'first-hit': 'ch3', passengers: 'ch4a', airborne: 'ch5', reveal: 'ch6' }
+
 export function StaticStory() {
+  const [film, setFilm] = useState<Manifest | null>(null)
+  useEffect(() => {
+    let alive = true
+    loadManifest().then((m) => alive && setFilm(m))
+    return () => {
+      alive = false
+    }
+  }, [])
   return (
     <section aria-label="The drive, as stills" className="bg-ink px-4 py-10 sm:px-8">
       <div className="mx-auto max-w-3xl space-y-14">
@@ -37,7 +48,18 @@ export function StaticStory() {
               {c.title}
             </h2>
             <div className="mt-3">
-              <Still p={c.still} uid={`still-${c.id}`} />
+              {film && film.beats.find((b) => b.beat === BEAT_FOR[c.id]) ? (
+                <img
+                  src={posterUrl(film.beats.find((b) => b.beat === BEAT_FOR[c.id])!)}
+                  alt={c.intent}
+                  width={film.width}
+                  height={film.height}
+                  loading="lazy"
+                  className="h-auto w-full rounded-2xl border-2 border-ink"
+                />
+              ) : (
+                <Still p={c.still} uid={`still-${c.id}`} />
+              )}
             </div>
             <div className="mt-4 space-y-2">
               {c.copy.map((l) => (
