@@ -17,6 +17,10 @@
 - [ ] iOS Safari real device: sticky pinning, rubber-band at the ends, address-bar collapse
 - [ ] Android Chrome real device
 
+## Film continuity
+- [x] All chapter key frames tiled in one row before any clip is shot: rhino front-left at one scale, ape driver front-right in the orange fedora, monkey where the beat puts him, in every frame (caught late on 13 Sep: three frames disagreed and the video model morphed a bump into a character swap; re-edited and reshot)
+- [ ] Every final clip stripped at one frame per second and checked for a seat change, a scale change or a missing character before it goes to the extractor
+
 ## Motion
 - [x] Only the stage transforms; the page never moves
 - [x] Caps enforced in code (±14px, ±18px, ±2.5°, scaleY ≥0.95); rumble scales with velocity and stops with the thumb
@@ -26,7 +30,7 @@
 
 ## Performance
 - [x] JS 373KB / 126KB gzip (React + GSAP); CSS 25KB; fonts 33KB total; hero preloads only the display font
-- [x] Film: chapter 1 frames warmed on load, rest lazy per beat, poster per beat, stills story uses the posters. Currently 400 frames / ~17MB at 648×1152 q60, above the 13MB target: revisit with the final clips (fewer frames per beat or AVIF)
+- [x] Film: chapter 1 frames warmed on load, rest lazy per beat, poster per beat, stills story uses the posters. Final clips: 480 frames / ~23MB at 648×1152 q58, 8fps, ~3MB per beat lazy; landscape set 1152×648 ~24MB served only to wide viewports. Above the 13MB target; per-beat lazy loading keeps the first paint to chapter 1 (~2MB). Revisit with AVIF if the real-device numbers ask for it
 - [ ] Lighthouse mobile on the deployed build
 
 ## Accessibility

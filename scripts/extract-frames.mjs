@@ -7,7 +7,7 @@ import { mkdirSync, readFileSync, writeFileSync, readdirSync, rmSync } from 'nod
 import { join } from 'node:path'
 
 const FFMPEG = process.env.FFMPEG ?? 'ffmpeg'
-const FPS = Number(process.env.FPS ?? 12)
+const FPS = Number(process.env.FPS ?? 12) // per-clip override: clip.fps
 const W = Number(process.env.FRAME_W ?? 720)
 const H = Number(process.env.FRAME_H ?? 1280)
 const clips = JSON.parse(readFileSync(process.argv[2], 'utf8'))
@@ -18,11 +18,12 @@ for (const c of clips) {
   const dir = join(outRoot, c.beat)
   rmSync(dir, { recursive: true, force: true })
   mkdirSync(dir, { recursive: true })
+  const fps = c.fps ?? FPS
   // scale+crop to the portrait master, then webp
-  execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', c.src, '-vf', `fps=${FPS},scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, '-c:v', 'libwebp', '-quality', String(process.env.WEBP_Q ?? 68), '-compression_level', '6', join(dir, 'f_%04d.webp')])
+  execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', c.src, '-vf', `fps=${fps},scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, '-c:v', 'libwebp', '-quality', String(process.env.WEBP_Q ?? 68), '-compression_level', '6', join(dir, 'f_%04d.webp')])
   execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', c.src, '-vf', `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H}`, '-frames:v', '1', '-q:v', '4', join(dir, 'poster.jpg')])
   const n = readdirSync(dir).filter((f) => f.startsWith('f_')).length
-  manifest.beats.push({ beat: c.beat, from: c.from, to: c.to, frames: n, dir: `${outRoot.replace(/^public\//, '')}/${c.beat}` })
+  manifest.beats.push({ beat: c.beat, from: c.from, to: c.to, frames: n, fps, dir: `${outRoot.replace(/^public\//, '')}/${c.beat}` })
   console.log(c.beat, n, 'frames')
 }
 writeFileSync(join(outRoot, 'manifest.json'), JSON.stringify(manifest, null, 2))

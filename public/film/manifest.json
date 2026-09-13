@@ -7,7 +7,8 @@
       "beat": "ch1",
       "from": 0,
       "to": 0.12,
-      "frames": 48,
+      "frames": 45,
+      "fps": 16,
       "dir": "film/ch1"
     },
     {
@@ -15,6 +16,7 @@
       "from": 0.12,
       "to": 0.27,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch2"
     },
     {
@@ -22,6 +24,7 @@
       "from": 0.27,
       "to": 0.42,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch3"
     },
     {
@@ -29,6 +32,7 @@
       "from": 0.42,
       "to": 0.5,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch4a"
     },
     {
@@ -36,6 +40,7 @@
       "from": 0.5,
       "to": 0.58,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch4b"
     },
     {
@@ -43,6 +48,7 @@
       "from": 0.58,
       "to": 0.68,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch4c"
     },
     {
@@ -50,6 +56,7 @@
       "from": 0.68,
       "to": 0.82,
       "frames": 64,
+      "fps": 8,
       "dir": "film/ch5"
     },
     {
@@ -57,6 +64,7 @@
       "from": 0.82,
       "to": 1.001,
       "frames": 48,
+      "fps": 8,
       "dir": "film/ch6"
     }
   ]
