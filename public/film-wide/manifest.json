@@ -1,5 +1,5 @@
 {
-  "fps": 8,
+  "fps": 12,
   "width": 1152,
   "height": 648,
   "beats": [
@@ -7,64 +7,64 @@
       "beat": "ch1",
       "from": 0,
       "to": 0.12,
-      "frames": 45,
-      "fps": 16,
+      "frames": 68,
+      "fps": 24,
       "dir": "film-wide/ch1"
     },
     {
       "beat": "ch2",
       "from": 0.12,
       "to": 0.27,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch2"
     },
     {
       "beat": "ch3",
       "from": 0.27,
       "to": 0.42,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch3"
     },
     {
       "beat": "ch4a",
       "from": 0.42,
       "to": 0.5,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch4a"
     },
     {
       "beat": "ch4b",
       "from": 0.5,
       "to": 0.58,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch4b"
     },
     {
       "beat": "ch4c",
       "from": 0.58,
       "to": 0.68,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch4c"
     },
     {
       "beat": "ch5",
       "from": 0.68,
       "to": 0.82,
-      "frames": 64,
-      "fps": 8,
+      "frames": 97,
+      "fps": 12,
       "dir": "film-wide/ch5"
     },
     {
       "beat": "ch6",
       "from": 0.82,
       "to": 1.001,
-      "frames": 48,
-      "fps": 8,
+      "frames": 73,
+      "fps": 12,
       "dir": "film-wide/ch6"
     }
   ]
