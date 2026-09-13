@@ -7,6 +7,8 @@ import { sceneAt, type SceneState } from '../lib/scene'
 import { trackOnce } from '../lib/analytics'
 import { Scene } from './Scene'
 import { CopyLayer } from './CopyLayer'
+import { FilmStage } from './FilmStage'
+import { loadManifest, type Manifest } from '../lib/film'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -20,6 +22,15 @@ export function Drive() {
   const stageRef = useRef<HTMLDivElement>(null)
   const [size, setSize] = useState({ w: 390, h: 844 })
   const [s, setS] = useState<SceneState>(() => sceneAt(0))
+  const [film, setFilm] = useState<Manifest | null>(null)
+
+  useEffect(() => {
+    let alive = true
+    loadManifest().then((m) => alive && setFilm(m))
+    return () => {
+      alive = false
+    }
+  }, [])
   const target = useRef(0)
   const shown = useRef(0)
 
@@ -108,7 +119,7 @@ export function Drive() {
             willChange: 'transform',
           }}
         >
-          <Scene s={s} w={size.w} h={size.h} uid="film" />
+          {film ? <FilmStage m={film} p={s.p} w={size.w} h={size.h} /> : <Scene s={s} w={size.w} h={size.h} uid="film" />}
         </div>
         <CopyLayer p={s.p} portrait={size.h > size.w * 1.1} />
         {/* trail progress: a thin gold line, the only chrome on the film */}
