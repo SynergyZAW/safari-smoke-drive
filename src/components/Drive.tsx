@@ -26,7 +26,7 @@ export function Drive() {
 
   useEffect(() => {
     let alive = true
-    loadManifest().then((m) => alive && setFilm(m))
+    loadManifest(window.innerWidth > window.innerHeight * 1.1).then((m) => alive && setFilm(m))
     return () => {
       alive = false
     }

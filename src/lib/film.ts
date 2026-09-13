@@ -16,9 +16,18 @@ export interface Manifest {
   beats: Beat[]
 }
 
-export async function loadManifest(): Promise<Manifest | null> {
+export async function loadManifest(wide = false): Promise<Manifest | null> {
+  // Landscape viewports get the reframed 16:9 set when it exists, otherwise the portrait master (cover-fit).
+  if (wide) {
+    const m = await fetchManifest('film-wide')
+    if (m) return m
+  }
+  return fetchManifest('film')
+}
+
+async function fetchManifest(dir: string): Promise<Manifest | null> {
   try {
-    const r = await fetch(`${import.meta.env.BASE_URL}film/manifest.json`, { cache: 'force-cache' })
+    const r = await fetch(`${import.meta.env.BASE_URL}${dir}/manifest.json`, { cache: 'force-cache' })
     if (!r.ok) return null
     const m = (await r.json()) as Manifest
     return m.beats?.length ? m : null
