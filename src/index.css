@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* Badaboom Pro BB — licensed, supplied by Jon. Subset to Latin, display only, all caps. */
+@font-face {
+  font-family: "Badaboom";
+  src: url("/fonts/badaboom-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Atkinson Hyperlegible (OFL) — the one quiet sans for body and UI. Self-hosted. */
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/atkinson-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("/fonts/atkinson-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122;
+}
+
+@theme {
+  /* The whole palette. Sampled from the SOIL2OIL pack. Nothing else. */
+  --color-gold: #c99a2e;
+  --color-crimson: #d8253f;
+  --color-cobalt: #3a96e5;
+  --color-flag: #007a4d;
+  --color-ink: #0b0b0b;
+  --color-paper: #fffdf7;
+  /* Product materials (not palette, product truth) */
+  --color-bone: #ede4d0;
+  --color-bone-base: #8d8378;
+  --color-rosin: #f6c945;
+  --color-rosin-hot: #fff2a8;
+
+  --font-display: "Badaboom", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --ease-hit: cubic-bezier(0.2, 0.9, 0.1, 1);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Display type: Badaboom is comic lettering. Never below 18px, never for paragraphs. */
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+/* Comic lettering treatment: fat ink outline + hard drop, like the pack balloons. */
+.lettering {
+  color: var(--color-paper);
+  -webkit-text-stroke: 0.06em var(--color-ink);
+  paint-order: stroke fill;
+  text-shadow: 0.08em 0.08em 0 var(--color-ink);
+}
+.lettering-gold {
+  color: var(--color-gold);
+}
+.lettering-crimson {
+  color: var(--color-crimson);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.stage-copy {
+  transition: opacity 180ms linear, transform 180ms var(--ease-hit);
+  will-change: opacity, transform;
+}
