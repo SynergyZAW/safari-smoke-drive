@@ -9,8 +9,9 @@
 > | Sour Diesel turnaround v1 | **Approved candidate** | Costume verbatim to the badge and socks, heavy and low, horn, pale-point stare. First pass. |
 > | Eco-Star prop v4 | **Approved candidate, geometry lock** | v1 came out as a squat pod. A scale-accurate outline template fixed the 4:1 body (v2), and a fresh pass on the reference-editing model fixed the side-view width, the single window and the rectangular aperture (v4). The v2 sheet is kept as the reference for how the oil glows. |
 > | Viewer hand v2 | **Approved candidate** | Draw grip, whole device visible, ambiguous and revealed states, gold rim on the fur, LED lit. |
+> | Expression sheets ×3, v1 | **Approved candidates** | Identity holds against each turnaround. Ape: deadpan through everything, brows up once. Monkey: whoop, cling, pull, turn, asleep. Rhino: six identical stares through dust, mud, golden hour and firelight, LED under the horn. |
 >
-> Still to generate in this step: expression sheets (six per hero), hands sheets (cling, pocket, wheel), the seated-in-truck pose, and the six wild plates. Then the vehicle.
+> Still to generate in this step: hands sheets (cling, pocket, wheel), the seated-in-truck pose, and the six wild plates. Then the vehicle. **Jon: sign off the cast here before the vehicle is generated.**
 
 This is the gate before any cinematic asset. Nothing in chapters 1–8 is generated until the three sheets below are approved and locked.
 
