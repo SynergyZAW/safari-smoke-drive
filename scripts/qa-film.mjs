@@ -2,7 +2,7 @@ import { chromium } from '@playwright/test'
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM })
 const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true })
 const page = await ctx.newPage()
-await page.goto('http://localhost:4173/', { waitUntil: 'networkidle' })
+await page.goto(process.argv[2] ?? 'http://localhost:4173/', { waitUntil: 'networkidle' })
 await page.getByRole('button', { name: /yes/i }).click()
 await page.waitForTimeout(1500)
 const trackH = await page.evaluate(() => document.getElementById('drive').getBoundingClientRect().height - window.innerHeight)
