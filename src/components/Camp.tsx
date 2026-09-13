@@ -1,4 +1,5 @@
-import { CAST, DEVICE_FACTS } from '../data/chapters'
+import { CAST, DEVICE_FACTS, WILD } from '../data/chapters'
+import { useSeen } from '../lib/sightings'
 import { track } from '../lib/analytics'
 import { STOCKIST_ROUTE } from './StickyCta'
 
@@ -81,7 +82,9 @@ const KIND: Record<string, 'ape' | 'monkey' | 'rhino'> = { 'banana-shack': 'ape'
  * Chapter 7. Camp. The only calm frame, so the CTA lands here.
  * The cast is named for the first and only time. Proof pins up here. Real photos only.
  */
-export function Camp() {
+export function Camp({ allSeen = false }: { allSeen?: boolean }) {
+  const seenList = useSeen()
+  const seen = (id: string) => allSeen || seenList.includes(id)
   return (
     <section id="camp" aria-labelledby="camp-title" className="relative bg-[linear-gradient(180deg,#3a2038_0%,#150c1c_45%,#0b0b0b_100%)] px-4 pb-24 pt-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
@@ -111,6 +114,30 @@ export function Camp() {
             <p className="mt-2 text-sm text-paper/80">The empty one. Natural, 0.5ml, still warm.</p>
           </li>
         </ul>
+
+
+        {/* SPOTTED TODAY. The lodge sightings board. The whole range, named once, calmly. */}
+        <div className="mt-14 rounded-2xl border-2 border-ink bg-[#f2e6c8] p-5 text-ink shadow-[6px_6px_0_#0b0b0b] sm:p-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 className="display text-[clamp(30px,8vw,52px)] leading-[0.95]">Spotted today</h3>
+            <p className="text-sm uppercase tracking-[0.18em] text-ink/60">Ranger&rsquo;s board · tick what you passed</p>
+          </div>
+          <ul className="mt-5 grid gap-x-8 gap-y-2 sm:grid-cols-2" aria-label="Sightings board">
+            {[...CAST.map((c) => ({ id: c.strain, name: c.name, species: c.species, formats: c.format.replace(' Eco-Star', ''), where: 'In the truck.' })), ...WILD].map((r) => (
+              <li key={r.id} className="flex items-start gap-3 border-b border-ink/15 py-2">
+                <span className={`mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded border-2 border-ink ${seen(r.id) ? 'bg-crimson text-paper' : 'bg-transparent'}`} aria-hidden="true">
+                  {seen(r.id) ? '✓' : ''}
+                </span>
+                <span className="flex-1">
+                  <span className="display text-[clamp(20px,5vw,26px)] leading-none">{r.name}</span>
+                  <span className="ml-2 text-sm text-ink/70">{r.species} · {r.formats}</span>
+                  <span className="block text-sm text-ink/60">{r.where}</span>
+                </span>
+                <span className="visually-hidden">{seen(r.id) ? 'spotted' : 'not spotted'}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* THE CTA. The conversion goal is visit_store: a stockist finder. Route is a placeholder. */}
         <div className="mt-12 rounded-3xl border-2 border-ink bg-gold p-6 text-ink shadow-[6px_6px_0_#0b0b0b] sm:p-10">

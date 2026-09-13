@@ -43,6 +43,14 @@ Each sheet: **turnaround** (front, 3/4, profile, back), **expression sheet** (si
 - **Device.** Black 1ml (Sour Diesel ships on the 1ml Eco-Star). The LED on the draw lights the underside of the horn at dusk.
 - **Why the rhino, in one line.** A rhino ranger is the game-drive joke, it is South African, the horn is a silhouette no other seat has, and it is on a SOIL2OIL pack. Alternate if Jon prefers: the GMO panda in the orange monk's robe (five-fingered, so it would keep the reveal ambiguous three ways).
 
+## The wild — six secondary characters, lighter sheets
+
+The Church (sheep, monk's robe) · GMO (panda, orange robe) · Monkey Business (baboon, grey suit) · Sapphire OG (leopard, blue bucket hat and chain) · Grape Garcia (warthog, tie-dye shirt) · Nerdz (lemur, rainbow tracksuit and glasses). Costumes verbatim from the SOIL2OIL packs. Same five-head rule so they share the world, but each needs only **one locked pose in one plate**: they are seen for a second and a half, mid-distance, half-hidden. One 3/4 pose, one expression (deadpan, all of them), generated once against the lighting key of the chapter they appear in. No turnaround, no expression sheet. If a sheet of theirs is ever needed for a second film, it is made then.
+
+Note on palette: Nerdz's tracksuit and Grape Garcia's tie-dye are the two costumes that carry colours outside the six. They are locked costume, so they stay, but they appear small and far, at dusk and in mud respectively, so they never dominate a frame.
+
+**The tourists** are the one human element: four to six stylised adults in khaki in a rival game viewer, long lenses, hats. Same five-head rule, adult, deadpan, never photoreal, never smoking, never holding product. One plate.
+
 ## The viewer's hand — a fourth character, deliberately underspecified
 
 A dark-furred, five-fingered hand. It must be drawable as the ape's hand or the monkey's hand: dark fur, dark palm, five fingers, no distinguishing marks (no ape knuckle calluses, no monkey finger length). Two states: **ambiguous** (chapters 1–5: shadow, blur, backlight, glow-lit from below) and **revealed** (chapter 6: raking gold rim, visible fur on the top edge). One sheet, hands only, both states, holding the natural 0.5ml in the draw grip.

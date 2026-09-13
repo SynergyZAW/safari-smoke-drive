@@ -11,6 +11,7 @@ Higgsfield, in this order. Do not skip ahead. Each step is checked against the o
 3. **Lighting and palette keys** — five stills, one per time of day, from the back-row POV with the locked truck: pre-dawn, morning, noon, golden hour, dusk/night. These are the grade reference for every subsequent generation.
 4. **Impact library** — the twelve plates in 04, generated against the keys in 3.
 5. **Set dressing** — the ranger signboards (gate, riverbed, camp), the acacia (the logo tree), and the **frosty plant** as one locked asset: a mature flowering plant, dense frosted colas, generated once and reused in three places (the gate exit in chapter 2, the grow beside camp in chapter 7, one silhouette on the trail at golden hour). It is the same trick as the device: model once, reuse, never regenerate per scene. Kept out of the cast's hands and out of every character frame so it cannot fight consistency.
+5b. **Wild sighting plates** — six mascot plates and one tourist plate (see 03), each generated once against its chapter's lighting key, composited mid-distance into the frame sequence. Blink-and-miss on purpose.
 6. **Cinematic sequences** — chapter by chapter, portrait master first, checked against 1–5. Image-to-video from an approved key frame per beat, extracted to frames at 12fps.
 
 ## Models
@@ -44,7 +45,7 @@ Two tensions to manage deliberately: the leaf in the fedora band and the leaf em
 | 4c Driver | Has not looked at the road | Locked | Mud over lens, wipes clear; driver one-handed pull under fedora; viewer's second pull in awning shade | Mud crossing | Afternoon | Top 30% | Mud |
 | 5 Airborne | Biggest hit, best light | Locked | Corrugations, the rise, the hang, landing | Open plain, sun behind truck | Golden hour, brand palette | Top 30%, empty in the hang | Rise, hang, landing |
 | 6 Reveal | It is a paw | Locked, then still | Rim light on the hand, fur, five fingers; rhino unchanged; monkey turns; mirror tilts, sunglasses full of sun | Same plain, dust settling | Golden hour into dusk | Top 30% for the question | None. Hold. |
-| 7 Camp | Name everything, calmly | Static wide | Four chairs, three seated, one empty with the device; packs on the table; the grow behind, backlit by fire | Camp beside the facility | Dusk, firelight | Full page, HTML | Static |
+| 7 Camp | Name everything, calmly | Static wide | Four chairs, three seated, one empty with the device; the ranger's sightings board (HTML); packs on the table; the grow behind, backlit by fire | Camp beside the facility | Dusk, firelight | Full page, HTML | Static |
 | 8 Afterglow | One will not get out | Static | Parked truck, monkey in the back, LED on | Night, stars | One LED | Top band | Static |
 
 ## Asset ledger

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CHAPTERS, FILM_SCROLL_VH } from '../data/chapters'
+import { CHAPTERS, FILM_SCROLL_VH, SIGHTINGS, WILD } from '../data/chapters'
+import { markSeen } from '../lib/sightings'
 import { sceneAt, type SceneState } from '../lib/scene'
 import { trackOnce } from '../lib/analytics'
 import { Scene } from './Scene'
@@ -71,7 +72,17 @@ export function Drive() {
 
   useEffect(() => {
     if (s.p >= 0.5) trackOnce('story_50_percent')
-    if (s.sighting) trackOnce('sighting_viewed', s.sighting, { strain: s.sighting })
+    if (s.sighting) {
+      trackOnce('sighting_viewed', s.sighting, { strain: s.sighting })
+      markSeen(s.sighting)
+    }
+    for (const g of WILD) {
+      if (s.p >= g.at) {
+        trackOnce('sighting_viewed', g.id, { strain: g.id, wild: true })
+        markSeen(g.id)
+      }
+    }
+    void SIGHTINGS
   }, [s.p, s.sighting])
 
   const { x, y, rot, scaleY } = s.shake

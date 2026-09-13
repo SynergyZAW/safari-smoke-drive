@@ -1,4 +1,5 @@
-import type { SceneState } from '../lib/scene'
+import { glimpseAt, type SceneState } from '../lib/scene'
+import { TOURISTS, WILD, type WildKind } from '../data/chapters'
 
 /**
  * PRE-VIZ RENDERER.
@@ -67,6 +68,93 @@ function Device({
       {/* LED */}
       <ellipse cx={0} cy={-size / 2 + size * 0.47} rx={w * 0.09} ry={w * 0.13} fill={led ? '#ffffff' : colour === 'black' ? '#333' : '#c9bfa8'} />
       {led && <ellipse cx={0} cy={-size / 2 + size * 0.47} rx={w * 0.3} ry={w * 0.36} fill="#ffffff" opacity={0.35} filter={`url(#${uid}-glow)`} />}
+    </g>
+  )
+}
+
+
+/** A wild sighting, drawn as a palette silhouette with its one costume cue. Placeholder for a locked plate. */
+function Glimpse({ kind, t, side, w, h, hy }: { kind: WildKind; t: number; side: -1 | 1; w: number; h: number; hy: number }) {
+  // Approach curve shared with the acacias: far and small, then near and large and off the edge.
+  const near = Math.min(1, t / 0.75)
+  const x = w * 0.5 + side * (0.06 + near * near * 0.5) * w
+  const y = hy + Math.pow(near, 1.7) * 0.28 * h
+  const sc = (0.08 + near * near * 0.9) * (h > w ? 0.22 : 0.28) * Math.min(w, h)
+  const op = t < 0.1 ? t / 0.1 : t > 0.85 ? (1 - t) / 0.15 : 1
+  const FUR = '#1a1410'
+  return (
+    <g transform={`translate(${x} ${y}) scale(${sc / 100})`} opacity={op}>
+      {kind === 'sheep' && (
+        <>
+          <rect x={-40} y={-30} width={80} height={24} rx={8} fill="#5b4a3a" />
+          <ellipse cx={0} cy={-50} rx={34} ry={40} fill="#8a6b3c" />
+          <circle cx={0} cy={-95} r={22} fill="#eee6d6" />
+          <circle cx={0} cy={-92} r={12} fill="#2a2320" />
+        </>
+      )}
+      {kind === 'panda' && (
+        <>
+          <ellipse cx={0} cy={-45} rx={36} ry={42} fill="#e0842a" />
+          <circle cx={0} cy={-98} r={26} fill="#f2ede4" />
+          <circle cx={-18} cy={-116} r={9} fill={FUR} />
+          <circle cx={18} cy={-116} r={9} fill={FUR} />
+          <ellipse cx={-10} cy={-98} rx={7} ry={9} fill={FUR} />
+          <ellipse cx={10} cy={-98} rx={7} ry={9} fill={FUR} />
+        </>
+      )}
+      {kind === 'baboon' && (
+        <>
+          <path d="M -60 0 q 60 -60 120 0 z" fill="#8b6a3d" />
+          <rect x={-22} y={-90} width={44} height={60} rx={10} fill="#5a5754" />
+          <rect x={-5} y={-86} width={10} height={40} fill="#d8253f" />
+          <circle cx={0} cy={-108} r={20} fill={FUR} />
+          <path d="M 22 -70 q 30 -10 34 -30" stroke={FUR} strokeWidth={8} fill="none" strokeLinecap="round" />
+        </>
+      )}
+      {kind === 'leopard' && (
+        <>
+          <path d="M -70 -10 q 20 -20 60 -14 q 30 4 50 -6 l 10 10 q -30 14 -60 12 q -40 -2 -60 -2 z" fill="#c99a2e" />
+          <circle cx={45} cy={-30} r={18} fill="#c99a2e" />
+          <path d="M 25 -44 q 20 -18 40 0 z" fill="#3a96e5" stroke="#0b0b0b" strokeWidth={3} />
+          {[-40, -20, 0, 20].map((dx) => (
+            <circle key={dx} cx={dx} cy={-12} r={4} fill={FUR} />
+          ))}
+        </>
+      )}
+      {kind === 'warthog' && (
+        <>
+          <ellipse cx={0} cy={-30} rx={44} ry={26} fill="#6b5a4a" />
+          <ellipse cx={0} cy={-38} rx={30} ry={14} fill="#3a96e5" />
+          <circle cx={40} cy={-40} r={16} fill="#6b5a4a" />
+          <path d="M 52 -36 l 14 6" stroke="#eee6d6" strokeWidth={5} strokeLinecap="round" />
+          <path d="M -44 -36 l -14 -34" stroke="#6b5a4a" strokeWidth={6} strokeLinecap="round" />
+        </>
+      )}
+      {kind === 'lemur' && (
+        <>
+          <rect x={-16} y={-80} width={32} height={60} rx={12} fill="#d8253f" />
+          <rect x={-16} y={-60} width={32} height={12} fill="#3a96e5" />
+          <rect x={-16} y={-44} width={32} height={12} fill="#c99a2e" />
+          <circle cx={0} cy={-96} r={16} fill="#8f8a84" />
+          <rect x={-16} y={-100} width={32} height={8} rx={3} fill={FUR} />
+          <path d="M 14 -30 q 40 -10 30 -70" stroke={FUR} strokeWidth={7} fill="none" strokeLinecap="round" strokeDasharray="8 6" />
+        </>
+      )}
+      {kind === 'tourists' && (
+        <>
+          <rect x={-120} y={-70} width={240} height={60} rx={14} fill={FUR} />
+          <rect x={-100} y={-110} width={200} height={44} rx={10} fill="#8a6b3c" />
+          {[-70, -25, 20, 65].map((dx) => (
+            <g key={dx}>
+              <circle cx={dx} cy={-120} r={14} fill="#c9a88a" />
+              <rect x={dx - 18} y={-136} width={36} height={8} rx={4} fill="#8a6b3c" />
+              <rect x={dx - 8} y={-118} width={60} height={12} rx={4} fill={FUR} transform={`rotate(${side * -12} ${dx} -112)`} />
+            </g>
+          ))}
+          <circle cx={-80} cy={-8} r={16} fill={FUR} stroke="#8f8a84" strokeWidth={4} />
+          <circle cx={80} cy={-8} r={16} fill={FUR} stroke="#8f8a84" strokeWidth={4} />
+        </>
+      )}
     </g>
   )
 }
@@ -146,6 +234,13 @@ export function Scene({ s, w, h, uid }: Props) {
           </g>
         )
       })}
+
+      {/* THE WILD — the rest of the range, glimpsed, never captioned */}
+      {WILD.map((g) => {
+        const t = glimpseAt(s.p, g.at)
+        return t > 0 ? <Glimpse key={g.id} kind={g.kind} t={t} side={g.side} w={w} h={h} hy={hy} /> : null
+      })}
+      {glimpseAt(s.p, TOURISTS.at) > 0 && <Glimpse kind="tourists" t={glimpseAt(s.p, TOURISTS.at)} side={TOURISTS.side} w={w} h={h} hy={hy} />}
 
       {/* DUST */}
       <ellipse cx={w * 0.1} cy={h * 0.95} rx={w * 0.7} ry={h * 0.35} fill={s.skyHorizon} opacity={s.dust * 0.75} filter={`url(#${uid}-soft)`} />

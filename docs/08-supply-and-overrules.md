@@ -39,3 +39,5 @@
 14. **Copy compliance line in the footer.** Added "Not for medical use", echoing the pack. Not in the brief; consistent with it.
 15. **Right-hand drive.** Not in the brief, corrected by Jon: the driver sits on the right in South Africa. The animatic, the scene list and the generation specs now put the driver in the right front seat with his arm out of the right-hand window, and the ranger on the left.
 16. **The third chair is not the raccoon.** Apples & Bananas is distillate only, so the character has no product at camp. Replaced by a SOIL2OIL mascot; the rhino ranger is my pick, pending Jon.
+17. **The wild.** Jon's idea, 13 Sep: the rest of the range as wildlife, glimpsed. Adopted in full, six sightings placed against the hits that already exist so they cost no new beats, and paid off at camp with a sightings board that names the whole range calmly.
+18. **Humans, once.** Jon floated humans in the wild looking for the animals. Adopted as a single inversion gag rather than the mechanic: one truck of tourists with every lens on you, at the mud. The brand world stays animal; the humans are the wildlife for one beat.

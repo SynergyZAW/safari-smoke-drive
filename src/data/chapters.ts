@@ -4,6 +4,7 @@
  * Every number here is a creative decision, not plumbing — change with intent.
  */
 export type Strain = 'banana-shack' | 'permanent-marker' | 'sour-diesel'
+export type WildKind = 'sheep' | 'panda' | 'baboon' | 'leopard' | 'warthog' | 'lemur' | 'tourists'
 
 export interface CopyLine {
   id: string
@@ -77,7 +78,8 @@ export const CHAPTERS: Chapter[] = [
     copy: [
       { id: 'c4a', text: "Hasn't blinked since the gate.", from: 0.43, to: 0.5, size: 'beat', strain: 'sour-diesel' },
       { id: 'c4b', text: "Feet haven't touched the floor.", from: 0.51, to: 0.58, size: 'beat', strain: 'permanent-marker' },
-      { id: 'c4c', text: "Hasn't looked at the road once.", from: 0.59, to: 0.67, size: 'beat', strain: 'banana-shack' },
+      { id: 'c4c', text: "Hasn't looked at the road once.", from: 0.59, to: 0.645, size: 'beat', strain: 'banana-shack' },
+      { id: 'c4d', text: "Tourists. Don't feed them.", from: 0.655, to: 0.685, size: 'beat' },
     ],
   },
   {
@@ -107,6 +109,34 @@ export const SIGHTINGS: { strain: Strain; from: number; to: number }[] = [
   { strain: 'permanent-marker', from: 0.5, to: 0.58 },
   { strain: 'banana-shack', from: 0.58, to: 0.68 },
 ]
+
+/**
+ * THE WILD. The rest of the range lives out there. Glimpses only, half-hidden, blink-and-miss,
+ * never captioned. Each is a locked plate generated once. At camp they are ticked on the board.
+ * `at` is the progress the glimpse lands; it approaches from the horizon over the previous 0.03.
+ */
+export interface WildSighting {
+  id: string
+  name: string
+  species: string
+  kind: WildKind
+  formats: string
+  at: number
+  side: -1 | 1
+  where: string
+}
+
+export const WILD: WildSighting[] = [
+  { id: 'the-church', name: 'The Church', species: 'Sheep', kind: 'sheep', formats: '1ml', at: 0.175, side: -1, where: 'On a rock at the gate, robed, serene, dawn behind it.' },
+  { id: 'gmo', name: 'GMO', species: 'Panda', kind: 'panda', formats: '0.5ml · 1ml', at: 0.315, side: 1, where: 'Standing in the riverbed as you cross it at speed. Does not move.' },
+  { id: 'monkey-business', name: 'Monkey Business', species: 'Baboon', kind: 'baboon', formats: '0.5ml', at: 0.455, side: 1, where: 'On the termite mound the truck clips. In a suit. Checking a watch.' },
+  { id: 'sapphire-og', name: 'Sapphire OG', species: 'Leopard', kind: 'leopard', formats: '0.5ml', at: 0.525, side: -1, where: 'In the acacia the truck goes around. Bucket hat. Unbothered.' },
+  { id: 'grape-garcia', name: 'Grape Garcia', species: 'Warthog', kind: 'warthog', formats: '0.5ml', at: 0.6, side: -1, where: 'Crossing at the mud, tail up, tie-dye. The reason for the mud.' },
+  { id: 'nerdz', name: 'Nerdz', species: 'Lemur', kind: 'lemur', formats: '0.5ml · 1ml', at: 0.72, side: 1, where: 'On the crest of the rise, tracksuit, watching the truck leave the ground.' },
+]
+
+/** The one human beat. A rival game viewer of khaki tourists, every long lens on the back row. On you. */
+export const TOURISTS = { at: 0.665, side: -1 as const }
 
 /** Camp: the only place anything is named. */
 export const CAST = [

@@ -34,7 +34,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 - **Objective.** Establish that the driver should not be driving, and that nobody minds.
 - **Camera.** Locked to the truck. The truck lurches out through the gate.
 - **Subject and action.** Gate post clipped at p 0.155 (lateral jolt, the ranger signboard spins past). Jerry can starts rattling on the bonnet. Switchback left at 0.20, right at 0.245, both taken too fast: the horizon leans 2.5° and the cast slides. Driver: one arm out of the right-hand window, hands in pockets, knee on the wheel. The ranger: unmoved.
-- **Environment.** Dawn. A hand-painted ranger board at the gate (shapes, a sun disc, no legible words). Acacias approaching. First frosty plant gag: the truck exits past the edge of a grow row and takes a leaf or two on the mirror (optional, see 05).
+- **Environment.** Dawn. A hand-painted ranger board at the gate (shapes, a sun disc, no legible words). Acacias approaching. **Wild sighting at 0.175:** the sheep in the monk's robe (The Church) on a rock by the gate, serene, dawn behind it. First frosty plant gag: the truck exits past the edge of a grow row and takes a leaf or two on the mirror (optional, see 05).
 - **Light.** Gold horizon, long shadows, black rim.
 - **Copy.** `He said he's driven before.` (0.15–0.26)
 - **Motion.** Rumble on. Jolt, lean, lean.
@@ -44,7 +44,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 
 - **Objective.** The first real physics. Dust swallows the frame. The cast grows by one.
 - **Subject and action.** Dry riverbed at speed. Washboard corrugations p 0.29–0.35 (high-frequency buzz, the jerry can bounces out at 0.30–0.33 and is gone). Dust burst p 0.34–0.40 swallows the frame. Through the dust, from the right, a monkey vaults from an acacia into the back row and lands at p 0.395 (landing compression). It grips the roll bar with both feet off the floor and does not touch the floor again.
-- **Environment.** Riverbed sand, bleached banks, acacias close on both sides.
+- **Environment.** Riverbed sand, bleached banks, acacias close on both sides. **Wild sighting at 0.315:** the panda in the orange robe (GMO) standing in the riverbed as the truck crosses at speed. Does not move.
 - **Light.** Hard morning sun, cobalt sky, ochre dust.
 - **Copy.** `Riverbed. He didn't slow down.` (0.28–0.37). No line for the monkey. Visual carries it.
 - **Hits.** Washboard, dust, landing.
@@ -54,25 +54,25 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 Three sightings. Each is a passenger handling the chaos their own way, device in hand, mid-hit. No names. The strain is known to the code for analytics only.
 
 ### 4a — The ranger (p 0.42–0.50) · rhino · black 1ml
-- **Action.** Termite mound clipped at 0.46. The rhino, dressed for the job he is not doing, has not blinked since the gate. At 0.445–0.485 he raises the black Eco-Star and takes a pull without breaking eye contact with you. LED lights on the draw and lands on the horn.
+- **Action.** Termite mound clipped at 0.46. **Wild sighting at 0.455:** the baboon in the grey suit (Monkey Business) is standing on that mound, checking a watch, as it gets clipped. The rhino, dressed for the job he is not doing, has not blinked since the gate. At 0.445–0.485 he raises the black Eco-Star and takes a pull without breaking eye contact with you. LED lights on the draw and lands on the horn.
 - **Copy.** `Hasn't blinked since the gate.`
 - **Analytics.** `sighting_viewed {strain: sour-diesel}`
 
 ### 4b — The clinger (p 0.50–0.58) · monkey · natural 0.5ml
-- **Action.** Acacia gone around rather than avoided at 0.53: branches whip across the lens, dapple strobes across the seats. The monkey hangs off the roll bar, feet off the floor, natural device in the free hand, window glowing, mildly interested.
+- **Action.** Acacia gone around rather than avoided at 0.53: branches whip across the lens, dapple strobes across the seats. **Wild sighting at 0.525:** the leopard in the blue bucket hat (Sapphire OG) is lying along the branch, unbothered. The monkey hangs off the roll bar, feet off the floor, natural device in the free hand, window glowing, mildly interested.
 - **Copy.** `Feet haven't touched the floor.`
 - **Analytics.** `sighting_viewed {strain: permanent-marker}`
 
 ### 4c — The driver (p 0.58–0.68) · ape · black 1ml
-- **Action.** Mud crossing at 0.62: brown water over the lens, wipes clear by 0.67. The driver takes a one-handed pull through it at 0.61–0.65, LED lit under the fedora, sunglasses on, has not looked at the road once. Your own second pull at 0.64–0.685, in the awning's shade, glow only.
-- **Copy.** `Hasn't looked at the road once.`
+- **Action.** **Wild sighting at 0.60:** the warthog in tie-dye (Grape Garcia) trots across the trail, tail up, which is why the driver swerves into the mud. Mud crossing at 0.62: brown water over the lens, wipes clear by 0.67. The driver takes a one-handed pull through it at 0.61–0.65, LED lit under the fedora, sunglasses on, has not looked at the road once. Your own second pull at 0.64–0.685, in the awning's shade, glow only. **The tourists at 0.665:** a rival game viewer of khaki humans at the trailside, every long lens on the back row, on you, as you pull.
+- **Copy.** `Hasn't looked at the road once.` (0.59–0.645) · `Tourists. Don't feed them.` (0.655–0.685)
 - **Analytics.** `sighting_viewed {strain: banana-shack}`, `story_50_percent` fired at 0.5.
 
 ## 5 — Airborne (p 0.68–0.82)
 
 - **Objective.** The biggest hit and the best light in the film, back to back.
 - **Subject and action.** Corrugations at 0.70. He sees the rise. He speeds up. Compression at 0.735, then the truck leaves the ground at 0.75 and hangs for five percent of the track: the horizon drops, the awning lifts, the monkey floats, your hand floats, the rumble stops. Landing compression at 0.80 with a dust burst.
-- **Environment.** Open plain, the rise, the low sun directly behind the truck.
+- **Environment.** Open plain, the rise, the low sun directly behind the truck. **Wild sighting at 0.72:** the lemur in the rainbow tracksuit (Nerdz) on the crest, watching the truck leave the ground.
 - **Light.** Golden hour. The brand palette exactly: gold sky, crimson sun, black rim on every silhouette. Dust motes as halftone in the backlight.
 - **Copy.** `He saw the rise.` (0.69–0.74). Then nothing. Silence in the hang.
 - **Hits.** Washboard, rise, hang, landing.
@@ -86,7 +86,7 @@ Three sightings. Each is a passenger handling the chaos their own way, device in
 ## 7 — Camp (normal flow)
 
 - **Objective.** The only calm frame, therefore the store.
-- **Content, in order.** `Camp.` · `Everyone off. Pick a seat.` · The range: three camp chairs with the cast seated, device in hand, window glowing, strain name in Badaboom, format and colourway in plain type. A fourth chair, empty, natural 0.5ml on the arm. · The CTA block: `Same time tomorrow?` · `Find the shop near you that has the range in the fridge. Both formats, every strain.` · **Find a stockist**. · The device: the engineering facts in plain type. · Where it comes from: four pinned slots for real photographs (facility, growers, press, flag seal). Nothing invented.
+- **Content, in order.** `Camp.` · `Everyone off. Pick a seat.` · The range: three camp chairs with the cast seated, device in hand, window glowing, strain name in Badaboom, format and colourway in plain type. A fourth chair, empty, natural 0.5ml on the arm. · **Spotted today:** the ranger's sightings board, every strain in the range named once with its species and formats, ticked if you passed it. · The CTA block: `Same time tomorrow?` · `Find the shop near you that has the range in the fridge. Both formats, every strain.` · **Find a stockist**. · The device: the engineering facts in plain type. · Where it comes from: four pinned slots for real photographs (facility, growers, press, flag seal). Nothing invented.
 - **Set dressing.** The camp sits beside the grow. Frosty plants behind the chairs, backlit by the fire: the "soil" of SOIL2OIL, and the second place the plants appear.
 - **Analytics.** `cta_click {location: camp}`.
 
@@ -106,10 +106,10 @@ Three sightings. Each is a passenger handling the chaos their own way, device in
 | 3 | Riverbed. He didn't slow down. |
 | 4a | Hasn't blinked since the gate. |
 | 4b | Feet haven't touched the floor. |
-| 4c | Hasn't looked at the road once. |
+| 4c | Hasn't looked at the road once. · Tourists. Don't feed them. |
 | 5 | He saw the rise. |
 | 6 | Ja. Which one are you? |
-| 7 | Camp. · Everyone off. Pick a seat. · Same time tomorrow? · Find a stockist |
+| 7 | Camp. · Everyone off. Pick a seat. · Spotted today · Same time tomorrow? · Find a stockist |
 | 8 | He's not getting out. · Made by South Africans for South Africans. |
 
 Longest line is eight words. Nothing names an animal before camp.

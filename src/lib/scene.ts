@@ -86,6 +86,12 @@ export interface SceneState {
   sighting: 'sour-diesel' | 'permanent-marker' | 'banana-shack' | null
 }
 
+/** 0 = not yet, 0..1 = approaching from the horizon, 1 = passing, then gone. */
+export function glimpseAt(p: number, at: number): number {
+  const t = (p - (at - 0.03)) / 0.045
+  return t <= 0 || t >= 1 ? 0 : t
+}
+
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 const smooth = (t: number) => t * t * (3 - 2 * t)

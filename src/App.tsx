@@ -63,7 +63,7 @@ export default function App() {
       </a>
       <main>
         {staticMode ? <StaticStory /> : <Drive />}
-        <Camp />
+        <Camp allSeen={staticMode} />
         <Afterglow />
       </main>
       <StickyCta visible={ctaVisible} />

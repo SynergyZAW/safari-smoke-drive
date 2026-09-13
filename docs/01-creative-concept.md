@@ -37,6 +37,14 @@ Manic, not serene. The road fights back, the kit comes loose, the dust swallows 
 
 **The line.** *Ja. Which one are you?* The "Ja" is the brand's accent doing the work. It is shorter than the placeholder and it lands harder because it sounds like someone in the truck said it. Alternates in 02 if you want them.
 
+## The wild (Jon's addition, 13 Sep)
+
+It is a game drive, so the rest of the range is the wildlife. Six more SOIL2OIL mascots live out there and you get glimpses of them: a sheep in a monk's robe on a rock at the gate; a panda standing in the riverbed as you cross it; a baboon in a suit on the termite mound the truck clips; a leopard in a bucket hat in the acacia the truck goes around; a warthog in tie-dye crossing at the mud, which is why there is mud; a lemur in a tracksuit on the crest of the rise. Half-hidden, blink-and-miss, never captioned, each one a locked plate generated once. The film rewards a second scroll.
+
+They pay off at camp on the **ranger's sightings board**, "Spotted today": the whole range named in one calm frame, with a tick against everything you passed. That is how a lodge does it, it names every strain without a caption in the drive, and it sits directly above "Find a stockist".
+
+**One human beat, and only one.** Jon asked for a twist with humans in the wild. The answer is inversion, used once: at the mud crossing a rival game viewer full of khaki tourists is parked at the trailside and every long lens is pointed at the back row. At you. They are the ones on safari for Safari Smoke, and they have found it. The cast does not react. Copy: `Tourists. Don't feed them.` It is funny, it makes the point that in this world the humans are the wildlife, and it plants the reveal one more time without a caption: they are photographing the thing you have not looked at yet. The humans are stylised, never photoreal, never smoking, never holding product.
+
 ## Which device is in your hand
 
 **Natural, 0.5ml.** Cream on dark fur in raking light is the most legible reveal, the bio-composite carries the eco story without a word, and it means the viewer's format is the one the driver is not using. Black 1ml goes to the driver and the rhino (Banana Shack and Sour Diesel both ship on the 1ml, and a dusk LED on a rhino's muzzle is a shot). Natural to the monkey and you. Both formats in hands from chapter 1 to camp. That is the product demo.
