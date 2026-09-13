@@ -37,10 +37,18 @@ async function fetchManifest(dir: string): Promise<Manifest | null> {
 }
 
 export function frameFor(m: Manifest, p: number): { beat: Beat; index: number } | null {
+  const f = framePos(m, p)
+  return f && { beat: f.beat, index: f.index }
+}
+
+/** Frame position with the fraction toward the next frame, so the stage can cross-fade between the two. */
+export function framePos(m: Manifest, p: number): { beat: Beat; index: number; frac: number } | null {
   const beat = m.beats.find((b) => p >= b.from && p < b.to) ?? (p >= 1 ? m.beats[m.beats.length - 1] : null)
   if (!beat) return null
   const t = Math.min(1, Math.max(0, (p - beat.from) / (beat.to - beat.from)))
-  return { beat, index: Math.min(beat.frames - 1, Math.floor(t * (beat.frames - 1))) }
+  const pos = t * (beat.frames - 1)
+  const index = Math.min(beat.frames - 1, Math.floor(pos))
+  return { beat, index, frac: index >= beat.frames - 1 ? 0 : pos - index }
 }
 
 export function frameUrl(beat: Beat, index: number) {

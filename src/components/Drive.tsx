@@ -62,8 +62,8 @@ export function Drive() {
       last = now
       const prev = shown.current
       const diff = target.current - shown.current
-      // Inertia: the frame settles 90ms behind the finger, so a hit lands rather than snaps.
-      shown.current += diff * Math.min(1, dt / 90)
+      // Inertia: the frame settles ~150ms behind the finger, so a hit lands rather than snaps and a flick glides.
+      shown.current += diff * Math.min(1, dt / 150)
       const vel = Math.min(1, (Math.abs(shown.current - prev) / (dt / 1000)) * 3)
       if (Math.abs(diff) > 0.00005 || vel > 0.01) {
         idle = 0
@@ -96,7 +96,12 @@ export function Drive() {
     void SIGHTINGS
   }, [s.p, s.sighting])
 
-  const { x, y, rot, scaleY } = s.shake
+  // Over the real film the clips carry their own physical shake, so the code layer runs at 45% and only adds the hits.
+  const damp = film ? 0.45 : 1
+  const x = s.shake.x * damp
+  const y = s.shake.y * damp
+  const rot = s.shake.rot * damp
+  const scaleY = 1 - (1 - s.shake.scaleY) * damp
   const chapter = CHAPTERS.find((c) => s.p >= c.from && s.p < c.to) ?? CHAPTERS[CHAPTERS.length - 1]
 
   return (
