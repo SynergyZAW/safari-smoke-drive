@@ -1,5 +1,7 @@
 # 05 — Generation plan
 
+> **Status 13 Sep.** Step 1 (sheets) done and approved by Jon. Step 2 (vehicle, four angles) generated: crimson body, gold-and-wood stripe, torn awning, right-hand drive, emblem on the doors; the back-row POV plate is the composition master. Step 5b (wild plates) generated, five of six approved, the panda re-running. Step 3 (lighting keys) in progress. Everything in `docs/sheets/` and `docs/asset-ledger.csv`.
+
 Higgsfield, in this order. Do not skip ahead. Each step is checked against the ones before it.
 
 **Balance at time of writing:** ~1,036 credits on an Ultra plan. Enough for steps 1–4 and a first pass at 5. Cinematic sequences are the expensive part; approve the sheets first.
