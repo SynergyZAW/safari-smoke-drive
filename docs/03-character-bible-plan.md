@@ -1,5 +1,17 @@
 # 03 — Character bible plan
 
+> **Status 13 Sep, after Jon's "go".** First-pass sheets generated and reviewed against the checklist below. Images in `docs/sheets/`, every prompt and job in `docs/asset-ledger.csv`.
+>
+> | Sheet | Verdict | Note |
+> |---|---|---|
+> | Banana Shack turnaround v1 | **Approved candidate** | Five heads, costume verbatim, sunglasses, deadpan, five-fingered hands, bold linework. First pass. |
+> | Permanent Marker turnaround v2 | **Approved candidate** | v1 drifted to a smooth render with clip-art leaves and was rejected. v2 used the ape sheet as a style anchor: same line weight, heavy-lidded deadpan, tiny abstract sprig emblems. |
+> | Sour Diesel turnaround v1 | **Approved candidate** | Costume verbatim to the badge and socks, heavy and low, horn, pale-point stare. First pass. |
+> | Eco-Star prop v4 | **Approved candidate, geometry lock** | v1 came out as a squat pod. A scale-accurate outline template fixed the 4:1 body (v2), and a fresh pass on the reference-editing model fixed the side-view width, the single window and the rectangular aperture (v4). The v2 sheet is kept as the reference for how the oil glows. |
+> | Viewer hand v2 | **Approved candidate** | Draw grip, whole device visible, ambiguous and revealed states, gold rim on the fur, LED lit. |
+>
+> Still to generate in this step: expression sheets (six per hero), hands sheets (cling, pocket, wheel), the seated-in-truck pose, and the six wild plates. Then the vehicle.
+
 This is the gate before any cinematic asset. Nothing in chapters 1–8 is generated until the three sheets below are approved and locked.
 
 ## Why rebuild
