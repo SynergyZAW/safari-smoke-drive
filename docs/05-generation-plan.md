@@ -1,6 +1,6 @@
 # 05 — Generation plan
 
-> **Status 13 Sep.** Step 1 (sheets) done and approved by Jon. Step 2 (vehicle, four angles) generated: crimson body, gold-and-wood stripe, torn awning, right-hand drive, emblem on the doors; the back-row POV plate is the composition master. Step 5b (wild plates) generated, five of six approved, the panda re-running. Step 3 (lighting keys) in progress. Everything in `docs/sheets/` and `docs/asset-ledger.csv`.
+> **Status 13 Sep.** Step 1 (sheets) done and approved by Jon. Step 2 (vehicle, four angles) generated: crimson body, gold-and-wood stripe, torn awning, right-hand drive, emblem on the doors; the back-row POV plate is the composition master. Step 5b (wild plates) generated, five of six approved, the panda re-running. Step 3 (lighting keys) done: five keys on the POV master, all approved as candidates. Next: the chapter key frames, which carry the impact library (dust, mud, brush, hang, landing) as real frames rather than separate alpha plates, then image-to-video per beat. Everything in `docs/sheets/` and `docs/asset-ledger.csv`.
 
 Higgsfield, in this order. Do not skip ahead. Each step is checked against the ones before it.
 
