@@ -14,7 +14,15 @@ The phase-2 film was eight generations between hand-made stills. Every start fra
 4. **One timeline, markers not clips.** The whole drive renders as a single frame sequence. Chapters, copy and sightings are marker positions on it. The site scrubs time, not beats.
 5. **Restyle pass.** The clean render goes through a video-to-video restyle for the soft feature-animation finish (skin, fur, cloth, light). Identity and position are fixed by the render, so the restyle only changes surface.
 
-## Status 15 Sep
+## Status 15 Sep, afternoon
+
+- Cast approved by Jon as meshes (Tripo). Rigging those meshes failed on the only rigger available, so Meshy rebuilt rigged copies from the same views; they carry a seated idle. Used for animation.
+- Generated truck rejected (two-ended). The film truck is procedural, real scale, right-hand drive, in `scripts/3d/drive.html`: chassis, bonnet with spare and jerry can, roll cage, torn awning, three rows of seats, dashboard, mirror, wheels. The Eco-Star is modelled to 89 × 22.1 × 16.6 mm and sits in a draw-grip hand parented to the camera.
+- Road: 6 km of track with scripted bumps (base rumble, riverbed washboard 3 to 6 s, launch and landing at 7 s, mound clip at 9.8 s). Camera in the back-right seat, 84° vertical, portrait.
+- Ten-second clean render done and restyled with FLUX 3 Video Edit: camera, cast and positions held frame for frame; light, canvas, skin and cloth upgraded. This is the proof the pipeline works. Seedance video-edit run for comparison.
+- Wording rule from Jon: no product category is ever named in a prompt. The device is a mesh; the restyle prompt describes the look only.
+
+## Status 15 Sep, morning
 
 - Step 1 done for the three leads, awaiting Jon's approval. Rhino also run on Meshy for comparison; Tripo kept.
 - Steps 2 to 5: next, starting with a ten-second back-seat test render with the rhino in a placeholder truck, then the restyle on that.

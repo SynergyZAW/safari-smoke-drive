@@ -18,8 +18,10 @@ const cam = new THREE.PerspectiveCamera(32, W / H, 0.01, 100)
 const root = new THREE.Group(); scene.add(root)
 const ground = new THREE.Mesh(new THREE.CircleGeometry(3, 64), new THREE.MeshStandardMaterial({ color: '#d9d2c2', roughness: 1 })); ground.rotation.x = -Math.PI / 2; scene.add(ground)
 window.ready = false; window.info = {}
+let mixer = null
 new GLTFLoader().load(q.get('glb'), (g) => {
   const m = g.scene; root.add(m)
+  if (q.get('anim') && g.animations.length) { mixer = new THREE.AnimationMixer(m); mixer.clipAction(g.animations[0]).play(); mixer.setTime(+q.get('anim')) }
   const box = new THREE.Box3().setFromObject(m); const size = box.getSize(new THREE.Vector3()); const c = box.getCenter(new THREE.Vector3())
   m.position.sub(c); m.position.y += size.y / 2 // feet on the ground
   ground.position.y = 0

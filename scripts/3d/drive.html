@@ -1,0 +1,167 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script></head>
+<body><script type="module">
+import * as THREE from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+const q = new URLSearchParams(location.search)
+const W = +q.get('w') || 720, H = +q.get('h') || 1280
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true })
+renderer.setSize(W, H); renderer.setPixelRatio(1)
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace
+document.body.appendChild(renderer.domElement)
+const scene = new THREE.Scene()
+scene.background = new THREE.Color('#bcd9f2'); scene.fog = new THREE.Fog('#e8dcc0', 60, 260)
+// ---------- light ----------
+const hemi = new THREE.HemisphereLight('#dceeff', '#b89a68', 1.6); scene.add(hemi); scene.add(new THREE.AmbientLight('#ffe9c8', 0.55))
+const sun = new THREE.DirectionalLight('#fff1d6', 2.6); sun.castShadow = true
+sun.shadow.mapSize.set(2048, 2048); sun.shadow.camera.near = 1; sun.shadow.camera.far = 60
+sun.shadow.camera.left = -14; sun.shadow.camera.right = 14; sun.shadow.camera.top = 14; sun.shadow.camera.bottom = -14; sun.shadow.bias = -0.0008
+scene.add(sun); scene.add(sun.target)
+// ---------- materials ----------
+const M = {
+  crimson: new THREE.MeshStandardMaterial({ color: '#b31e34', roughness: 0.55, metalness: 0.15 }),
+  gold: new THREE.MeshStandardMaterial({ color: '#c99a2e', roughness: 0.6 }),
+  wood: new THREE.MeshStandardMaterial({ color: '#8a5a2b', roughness: 0.8 }),
+  black: new THREE.MeshStandardMaterial({ color: '#141414', roughness: 0.5, metalness: 0.4 }),
+  seat: new THREE.MeshStandardMaterial({ color: '#6e5a45', roughness: 0.95 }),
+  seatDark: new THREE.MeshStandardMaterial({ color: '#4a3b2e', roughness: 0.95 }),
+  awning: new THREE.MeshStandardMaterial({ color: '#efe4c8', roughness: 0.9, side: THREE.DoubleSide, emissive: '#7a6a4c', emissiveIntensity: 0.25 }),
+  rubber: new THREE.MeshStandardMaterial({ color: '#1a1a1a', roughness: 0.95 }),
+  rim: new THREE.MeshStandardMaterial({ color: '#8f7a3a', roughness: 0.6, metalness: 0.5 }),
+  glass: new THREE.MeshPhysicalMaterial({ color: '#cfe6f0', transmission: 0.85, roughness: 0.05, thickness: 0.01, transparent: true, opacity: 0.35 }),
+  dash: new THREE.MeshStandardMaterial({ color: '#2b2622', roughness: 0.8 }),
+  olive: new THREE.MeshStandardMaterial({ color: '#5a6b3a', roughness: 0.8 }),
+  sand: new THREE.MeshStandardMaterial({ color: '#d9c397', roughness: 1 }),
+  track: new THREE.MeshStandardMaterial({ color: '#c8ad7c', roughness: 1 }),
+  bark: new THREE.MeshStandardMaterial({ color: '#5b4632', roughness: 1 }),
+  leaf: new THREE.MeshStandardMaterial({ color: '#6f8c3d', roughness: 1 }),
+  rock: new THREE.MeshStandardMaterial({ color: '#9d8f7a', roughness: 1 }),
+  mound: new THREE.MeshStandardMaterial({ color: '#b5875a', roughness: 1 }),
+  fur: new THREE.MeshStandardMaterial({ color: '#2a1e16', roughness: 1 }),
+  device: new THREE.MeshStandardMaterial({ color: '#e9e0cb', roughness: 0.5 }),
+  oil: new THREE.MeshStandardMaterial({ color: '#f2b52a', emissive: '#f0a010', emissiveIntensity: 1.6, roughness: 0.3 }),
+}
+const box = (w, h, d, m, x, y, z, parent) => { const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); b.position.set(x, y, z); b.castShadow = b.receiveShadow = true; parent.add(b); return b }
+const cyl = (r1, r2, h, m, x, y, z, parent, rx = 0, rz = 0) => { const c = new THREE.Mesh(new THREE.CylinderGeometry(r1, r2, h, 24), m); c.position.set(x, y, z); c.rotation.x = rx; c.rotation.z = rz; c.castShadow = c.receiveShadow = true; parent.add(c); return c }
+// ---------- truck (metres; forward is -Z; right-hand drive so driver at +X) ----------
+const truck = new THREE.Group(); scene.add(truck)
+const body = new THREE.Group(); truck.add(body)
+const FL = 5.4, FW = 1.95
+// chassis and tub
+box(FW, 0.55, 3.6, M.crimson, 0, 0.78, 0.5, body) // rear tub sides/floor block
+box(FW + 0.02, 0.10, 3.6, M.gold, 0, 0.98, 0.5, body) // gold stripe
+box(FW + 0.03, 0.04, 3.6, M.wood, 0, 0.93, 0.5, body) // wood line under stripe
+box(FW, 0.06, 3.6, M.seatDark, 0, 1.06, 0.5, body) // floor
+box(FW, 0.62, 2.0, M.crimson, 0, 0.82, -2.3, body) // bonnet block
+box(FW + 0.02, 0.10, 2.0, M.gold, 0, 1.02, -2.3, body)
+box(FW, 0.05, 2.0, M.crimson, 0, 1.14, -2.3, body) // bonnet top
+box(FW + 0.1, 0.18, 0.12, M.black, 0, 0.6, -3.36, body) // bumper
+// wheel arches / wheels
+for (const [x, z] of [[-1.0, -2.0], [1.0, -2.0], [-1.0, 1.6], [1.0, 1.6]]) { cyl(0.42, 0.42, 0.28, M.rubber, x, 0.42, z, body, 0, Math.PI / 2); cyl(0.24, 0.24, 0.3, M.rim, x, 0.42, z, body, 0, Math.PI / 2) }
+// dashboard + windscreen frame
+box(FW - 0.1, 0.35, 0.35, M.dash, 0, 1.25, -1.35, body)
+box(0.05, 0.9, 0.05, M.black, -FW / 2 + 0.05, 1.85, -1.5, body); box(0.05, 0.9, 0.05, M.black, FW / 2 - 0.05, 1.85, -1.5, body)
+box(FW, 0.05, 0.05, M.black, 0, 2.28, -1.5, body); box(FW - 0.1, 0.8, 0.01, M.glass, 0, 1.85, -1.5, body); box(0.05, 0.05, 0.05, M.black, 0, 2.28, -1.5, body)
+// mirror
+box(0.28, 0.09, 0.03, M.black, 0.1, 2.12, -1.42, body)
+// steering wheel (right)
+const wheel = cyl(0.19, 0.19, 0.03, M.black, 0.55, 1.45, -1.05, body, Math.PI / 2.6); wheel.name = 'wheel'
+// spare + jerry can on bonnet
+cyl(0.36, 0.36, 0.22, M.rubber, -0.3, 1.3, -2.4, body, Math.PI / 2); cyl(0.2, 0.2, 0.24, M.rim, -0.3, 1.3, -2.4, body, Math.PI / 2)
+const jerry = box(0.34, 0.46, 0.18, M.olive, 0.55, 1.4, -2.55, body); jerry.name = 'jerry'
+// roll cage: uprights + roof rails + awning
+const rails = [[-FW / 2 + 0.07, -1.5], [FW / 2 - 0.07, -1.5], [-FW / 2 + 0.07, 0.2], [FW / 2 - 0.07, 0.2], [-FW / 2 + 0.07, 2.2], [FW / 2 - 0.07, 2.2]]
+for (const [x, z] of rails) cyl(0.03, 0.03, 2.0, M.black, x, 2.1, z, body)
+for (const x of [-FW / 2 + 0.07, FW / 2 - 0.07]) cyl(0.03, 0.03, 4.0, M.black, x, 3.08, 0.35, body, Math.PI / 2)
+for (const z of [-1.5, 0.2, 2.2]) cyl(0.03, 0.03, FW - 0.1, M.black, 0, 3.08, z, body, 0, Math.PI / 2)
+const awning = new THREE.Mesh(new THREE.PlaneGeometry(FW + 0.2, 4.1, 12, 24), M.awning); awning.rotation.x = -Math.PI / 2; awning.position.set(0, 3.12, 0.35); awning.receiveShadow = true; awning.castShadow = true; body.add(awning); awning.name = 'awning'
+// seats: three rows, two per row (front row: driver right, passenger left)
+function seat(x, z, parent) { const g = new THREE.Group(); g.position.set(x, 0, z); box(0.62, 0.16, 0.55, M.seat, 0, 1.17, 0, g); box(0.62, 0.42, 0.14, M.seat, 0, 1.44, 0.24, g); box(0.5, 0.14, 0.1, M.seatDark, 0, 1.7, 0.24, g); parent.add(g); return g }
+const seats = { driver: seat(0.55, -0.55, body), pass: seat(-0.55, -0.55, body), m1: seat(0.55, 0.55, body), m2: seat(-0.55, 0.55, body), b1: seat(0.55, 1.65, body), b2: seat(-0.55, 1.65, body) }
+// door panels with emblem disc
+for (const x of [-FW / 2 - 0.01, FW / 2 + 0.01]) { const d = new THREE.Mesh(new THREE.CircleGeometry(0.28, 32), M.gold); d.position.set(x, 0.75, -0.6); d.rotation.y = x > 0 ? Math.PI / 2 : -Math.PI / 2; body.add(d) }
+// ---------- viewer hand + device (bottom right of frame, child of camera) ----------
+const cam = new THREE.PerspectiveCamera(84, W / H, 0.05, 400)
+truck.add(cam)
+const hand = new THREE.Group(); cam.add(hand)
+hand.position.set(0.19, -0.33, -0.46); hand.rotation.set(0.55, -0.55, 0.35)
+// palm: a soft rounded slab; fingers: capsules wrapped round the device in the draw grip; thumb opposite
+const palm = new THREE.Mesh(new THREE.CapsuleGeometry(0.038, 0.06, 6, 12), M.fur); palm.scale.set(1, 1, 0.55); palm.rotation.z = 0.15; hand.add(palm)
+const fingerGeo = new THREE.CapsuleGeometry(0.012, 0.05, 6, 10)
+for (let i = 0; i < 4; i++) { const f = new THREE.Mesh(fingerGeo, M.fur); f.position.set(-0.03 + i * 0.02, 0.055, -0.005); f.rotation.set(1.1, 0, -0.1 + i * 0.05); hand.add(f) }
+const thumb = new THREE.Mesh(fingerGeo, M.fur); thumb.position.set(0.045, 0.02, 0.01); thumb.rotation.set(0.9, 0.3, -1.1); hand.add(thumb)
+// Eco-Star: 89 x 22.1 x 16.6 mm, softly flattened rounded rectangle, cream natural finish, single round window, LED at the foot
+const dev = new THREE.Group(); hand.add(dev); dev.position.set(0.0, 0.075, 0.012); dev.rotation.set(0.15, 0.1, 0.12)
+const devShape = new THREE.Shape(); const rw = 0.0221 / 2, rh = 0.0166 / 2, rr = 0.006
+devShape.moveTo(-rw + rr, -rh); devShape.lineTo(rw - rr, -rh); devShape.quadraticCurveTo(rw, -rh, rw, -rh + rr); devShape.lineTo(rw, rh - rr); devShape.quadraticCurveTo(rw, rh, rw - rr, rh); devShape.lineTo(-rw + rr, rh); devShape.quadraticCurveTo(-rw, rh, -rw, rh - rr); devShape.lineTo(-rw, -rh + rr); devShape.quadraticCurveTo(-rw, -rh, -rw + rr, -rh)
+const devGeo = new THREE.ExtrudeGeometry(devShape, { depth: 0.089, bevelEnabled: true, bevelThickness: 0.004, bevelSize: 0.003, bevelSegments: 4, curveSegments: 12 })
+devGeo.rotateX(-Math.PI / 2); devGeo.translate(0, -0.0445, 0)
+const devBody = new THREE.Mesh(devGeo, M.device); devBody.castShadow = true; dev.add(devBody)
+const mouth = new THREE.Mesh(new THREE.BoxGeometry(0.016, 0.006, 0.008), M.black); mouth.position.set(0, 0.047, 0); dev.add(mouth)
+const win = new THREE.Mesh(new THREE.CylinderGeometry(0.0045, 0.0045, 0.003, 20), M.oil); win.rotation.x = Math.PI / 2; win.position.set(0, 0.012, 0.0095); dev.add(win)
+const led = new THREE.Mesh(new THREE.SphereGeometry(0.0012, 8, 8), new THREE.MeshStandardMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 2 })); led.position.set(0, -0.03, 0.0095); dev.add(led)
+const oilLight = new THREE.PointLight('#f0a010', 0.5, 0.45); oilLight.position.set(0, 0.012, 0.03); dev.add(oilLight)
+// ---------- world ----------
+const N = 6000
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, N, 80, 400), M.sand); ground.rotation.x = -Math.PI / 2; ground.position.z = -N / 2 + 100; ground.receiveShadow = true; scene.add(ground)
+{ const p = ground.geometry.attributes.position; for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i); const off = Math.abs(x) < 6 ? 0 : Math.min(1, (Math.abs(x) - 6) / 10); p.setZ(i, off * (0.6 * Math.sin(x * 0.13) * Math.cos(y * 0.07) + 0.3 * Math.sin(x * 0.41 + y * 0.23))) } ground.geometry.computeVertexNormals() }
+const track = new THREE.Mesh(new THREE.PlaneGeometry(3.2, N), M.track); track.rotation.x = -Math.PI / 2; track.position.set(0, 0.01, -N / 2 + 100); track.receiveShadow = true; scene.add(track)
+let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647 }
+function acacia(x, z, s = 1) { const g = new THREE.Group(); g.position.set(x, 0, z); cyl(0.18 * s, 0.28 * s, 3.2 * s, M.bark, 0, 1.6 * s, 0, g); const c = new THREE.Mesh(new THREE.SphereGeometry(3.4 * s, 12, 8), M.leaf); c.scale.set(1, 0.32, 1); c.position.y = 3.6 * s; c.castShadow = true; g.add(c); scene.add(g) }
+for (let i = 0; i < 90; i++) { const side = rnd() < 0.5 ? -1 : 1; acacia(side * (7 + rnd() * 40), -rnd() * 700, 0.7 + rnd() * 0.9) }
+for (let i = 0; i < 60; i++) { const r = new THREE.Mesh(new THREE.DodecahedronGeometry(0.3 + rnd() * 0.9), M.rock); const side = rnd() < 0.5 ? -1 : 1; r.position.set(side * (3 + rnd() * 30), 0.2, -rnd() * 700); r.castShadow = true; scene.add(r) }
+// termite mound on the right at the hit point, gate posts at the start
+const mound = cyl(0.2, 1.3, 2.4, M.mound, 3.6, 1.2, -128, scene)
+for (const x of [-2.4, 2.4]) cyl(0.12, 0.14, 2.2, M.bark, x, 1.1, -20, scene)
+// ---------- motion ----------
+const SPEED = 13 // m/s
+function smooth(a, b, t) { t = Math.min(1, Math.max(0, (t - a) / (b - a))); return t * t * (3 - 2 * t) }
+function n1(t) { return Math.sin(t * 7.1) * 0.5 + Math.sin(t * 11.7 + 1.3) * 0.3 + Math.sin(t * 19.3 + 0.4) * 0.2 }
+export function state(t) {
+  const z = -SPEED * t
+  // base rumble
+  let y = 0.035 * n1(t), pitch = 0.012 * n1(t + 3), roll = 0.02 * Math.sin(t * 5.3) + 0.01 * n1(t * 1.7)
+  // washboard riverbed 3.0-6.2s
+  const wb = smooth(2.8, 3.4, t) * (1 - smooth(6.0, 6.6, t))
+  y += wb * 0.06 * Math.sin(t * 46); pitch += wb * 0.02 * Math.sin(t * 46 + 1); roll += wb * 0.04 * Math.sin(t * 31)
+  // the rise: launch at 7.0s, airborne to 7.7, hard landing
+  const l = t - 7.0
+  if (l > 0 && l < 0.75) { y += 0.55 * Math.sin(Math.PI * l / 0.75); pitch -= 0.14 * Math.sin(Math.PI * l / 0.75) }
+  if (l >= 0.75 && l < 1.3) { const k = (l - 0.75) / 0.55; y -= 0.16 * Math.sin(Math.PI * k) * (1 - k); pitch += 0.06 * Math.sin(Math.PI * k) }
+  // the mound clip at ~9.8s: hard sideways jolt
+  const j = t - 9.8; if (j > 0 && j < 0.5) { roll += 0.09 * Math.sin(Math.PI * j / 0.5); y += 0.05 * Math.sin(Math.PI * j / 0.5) }
+  return { z, y, pitch, roll, air: l > 0 && l < 0.75 ? Math.sin(Math.PI * l / 0.75) : 0 }
+}
+// ---------- characters ----------
+const loader = new GLTFLoader(); const cast = {}; const mixers = []
+async function place(name, url, height, x, z, yaw, sink, anim) {
+  const gltf = await loader.loadAsync(url); const g = gltf.scene
+  const b = new THREE.Box3().setFromObject(g); const sz = b.getSize(new THREE.Vector3()); const c = b.getCenter(new THREE.Vector3())
+  const s = height / sz.y; g.scale.setScalar(s); g.position.set(-c.x * s, -b.min.y * s, -c.z * s)
+  const holder = new THREE.Group(); holder.add(g); holder.position.set(x, 1.17 - sink, z); holder.rotation.y = yaw
+  g.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false } })
+  if (anim && gltf.animations.length) { const mx = new THREE.AnimationMixer(g); const a = mx.clipAction(gltf.animations[0]); a.play(); mixers.push({ mx, offset: anim.offset || 0, speed: anim.speed || 1 }) }
+  body.add(holder); cast[name] = holder
+  return holder
+}
+window.ready = false
+const castSpec = JSON.parse(q.get('cast') || '[]')
+for (const c of castSpec) await place(c.name, c.url, c.height, c.x, c.z, c.yaw, c.sink, c.anim)
+window.ready = true
+// ---------- render ----------
+window.renderFrame = (t) => {
+  const s = state(t)
+  for (const m of mixers) m.mx.setTime((t * m.speed + m.offset) % 10.5)
+  truck.position.set(0, s.y, s.z); truck.rotation.set(s.pitch, 0, s.roll)
+  cam.position.set(0.12, 2.1 + 0.02 * n1(t * 1.3), 1.55); cam.rotation.set(-0.1 + 0.01 * n1(t + 9), 0.02 * n1(t + 5), 0)
+  // loose things float on the launch
+  jerry.position.y = 1.4 + s.air * 0.35; jerry.rotation.z = s.air * 0.4
+  awning.position.y = 3.12 + s.air * 0.12
+  for (const [k, h] of Object.entries(cast)) { h.position.y = (h.userData.baseY ??= h.position.y) + s.air * 0.12 }
+  // sun follows: noon-ish, slightly ahead-left
+  sun.position.set(s.z * 0 + 8, 30, s.z - 10); sun.target.position.set(0, 0, s.z - 8); sun.target.updateMatrixWorld()
+  renderer.render(scene, cam)
+  return renderer.domElement.toDataURL('image/png')
+}
+</script></body></html>
