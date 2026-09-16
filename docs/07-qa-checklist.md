@@ -58,3 +58,8 @@
 
 ## Analytics events wired (stubs)
 `page_view` · `age_gate_passed` · `age_gate_failed` · `hero_viewed` · `story_50_percent` · `sighting_viewed {strain}` ×3 · `cta_click {location}` · `form_start` · `form_submit` · `video_fallback_activated` · `reduced_motion_used`. Inspect at runtime via `window.__ss_events`.
+
+
+## Previs camera rule (16 Sep)
+
+Check the seat map only from cameras behind the truck or from the bonnet looking back. Side and front three-quarter views mirror the truck's left and right and the generator flips the cast in them; three rounds went wrong that way. Seat map: ape front right at the wheel, rhino front left beside him, monkey middle left behind the rhino, viewer back right.
