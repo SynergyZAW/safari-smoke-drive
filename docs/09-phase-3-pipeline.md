@@ -59,3 +59,10 @@ Start frame v5b (feature-animation re-render of the approved v4 layout, no linew
 ## 16 Sep, night: direct ByteDance route
 
 Higgsfield credits ran low. Jon opened a BytePlus ModelArk account; Seedance 2.5 is called directly (`scripts/ark-video.py`, key in `ARK_API_KEY`, never in the repo). Endpoint `ark.ap-southeast.bytepluses.com/api/v3/contents/generations/tasks`, model `dreamina-seedance-2-5-260628`. References are passed as public URLs; the Higgsfield result files on cloudfront serve for the approved sheets, the opening still and take 1. `return_last_frame` gives the next take's start frame without ffmpeg. Take 2 v3 is the first task on this route.
+
+
+### Budget reality (16 Sep, night)
+
+Take 2 v3 cost 2,430,000 ModelArk tokens for 25 s at 1080p, roughly 97k tokens per second. Jon's allowance is 5M. Remaining about 2.57M: roughly 26 s more at 1080p, or roughly 60 s at 720p (tokens scale with pixel count; 720p is about 0.44x of 1080p). The site scrubs frames at 648x1152, so 720p source is sufficient. Plan: takes 3 and 4 at 720p, no retakes.
+
+The white flare on the device at the top of each raise has now appeared in three shoots with three different wordings (pull, no pull, gesture only). It is how the model animates a vape being lifted. The brief allows an LED that lights on the draw. Proposal: adopt it as canon for the gag (the light comes on, then the hit) rather than spend tokens fighting it.
