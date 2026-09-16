@@ -7,6 +7,8 @@ Every number below is a creative decision and is live in `src/data/chapters.ts` 
 
 **Seat map (locked 16 Sep).** Right-hand drive. Front right: ape, driving. Front left: rhino. Middle row left, directly behind the rhino: monkey. Back row right: the viewer. From a camera on the truck's right side (bonnet pointing right of frame) the ape is the nearest front seat; from the left side the rhino is nearest.
 
+**The pull gag (confirmed by Jon, 16 Sep).** The viewer never gets a clean pull during the drive. Every time the hand raises the device toward the lens, the driver hits something: the engine catching (ch1), the gate post (ch2), the washboard and the riverbed drop (ch3), the mud wall (ch4), the launch (ch5). The hand is thrown back down each time and the LED goes out. Each raise is slower and warier than the last. The one clean pull is at camp (ch7), and the payoff at ch8 is the monkey finishing his in the back row. Every chapter's biggest hit lands on a raised hand, so the hit timings in the chapters below are anchored to the raise.
+
 **Time of day.** One drive, one day. Morning, sun up (0) → hard morning (0.12–0.42) → noon (0.5) → golden hour (0.68–0.82) → dusk (0.88) → night (1.0, camp, afterglow). Corrected 16 Sep: the drive starts in daylight. The pre-dawn open was never in the brief; the "night" in the copy is the viewer's night in at home. Every start frame must be lit for the time of day the take actually starts.
 
 ---
@@ -28,7 +30,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 - **Light and colour.** Crisp morning sun from the left, cobalt sky, hard black shadows, interior in awning shade. The oil window glows gold in the shade; the LED lights on the pull.
 - **Copy.** `Same couch. Same night. Same nothing.` (0.00–0.07) then, as the engine catches, `Hold on.` (0.085–0.125). "Hold on" is what a driver says, it is a joke because he will not drive well, and it is a scroll instruction.
 - **Motion.** Cough envelope ×3. No rumble. Base still.
-- **Hits.** Cough, cough, cough, lurch.
+- **Hits.** Cough, cough, cough, then the first raise of the hand (p 0.075–0.10) and the lurch as the engine catches at 0.10 knocks it down. Pull lost.
 - **Analytics.** `hero_viewed`.
 
 ## 2 — Bad start (p 0.12–0.27)
@@ -40,6 +42,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 - **Light.** Gold horizon, long shadows, black rim.
 - **Copy.** `He said he's driven before.` (0.15–0.26)
 - **Motion.** Rumble on. Jolt, lean, lean.
+- **Gag.** Second raise at 0.14, the gate post clips at 0.155 and the hand drops. Pull lost.
 - **Analytics.** Sticky CTA becomes visible from here on.
 
 ## 3 — First real hit (p 0.27–0.42)
@@ -50,6 +53,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 - **Light.** Hard morning sun, cobalt sky, ochre dust.
 - **Copy.** `Riverbed. He didn't slow down.` (0.28–0.37). No line for the monkey. Visual carries it.
 - **Hits.** Washboard, dust, landing.
+- **Gag.** Third raise at 0.33, just before the dust burst; the drop into the riverbed at 0.395 throws the hand down. Pull lost.
 
 ## 4 — The passengers (p 0.42–0.68)
 
@@ -66,7 +70,7 @@ Three sightings. Each is a passenger handling the chaos their own way, device in
 - **Analytics.** `sighting_viewed {strain: permanent-marker}`
 
 ### 4c — The driver (p 0.58–0.68) · ape · black 1ml
-- **Action.** **Wild sighting at 0.60:** the warthog in tie-dye (Grape Garcia) trots across the trail, tail up, which is why the driver swerves into the mud. Mud crossing at 0.62: brown water over the lens, wipes clear by 0.67. The driver takes a one-handed pull through it at 0.61–0.65, LED lit under the fedora, sunglasses on, has not looked at the road once. Your own second pull at 0.64–0.685, in the awning's shade, glow only. **The tourists at 0.665:** a rival game viewer of khaki humans at the trailside, every long lens on the back row, on you, as you pull.
+- **Action.** **Wild sighting at 0.60:** the warthog in tie-dye (Grape Garcia) trots across the trail, tail up, which is why the driver swerves into the mud. Fourth raise of the hand at 0.59, and the swerve for the warthog knocks it down. Pull lost. Mud crossing at 0.62: brown water over the lens, wipes clear by 0.67. The driver takes a one-handed pull through it at 0.61–0.65, LED lit under the fedora, sunglasses on, has not looked at the road once. Your own second pull at 0.64–0.685, in the awning's shade, glow only. **The tourists at 0.665:** a rival game viewer of khaki humans at the trailside, every long lens on the back row, on you, as you pull.
 - **Copy.** `Hasn't looked at the road once.` (0.59–0.645) · `Tourists. Don't feed them.` (0.655–0.685)
 - **Analytics.** `sighting_viewed {strain: banana-shack}`, `story_50_percent` fired at 0.5.
 
@@ -78,16 +82,18 @@ Three sightings. Each is a passenger handling the chaos their own way, device in
 - **Light.** Golden hour. The brand palette exactly: gold sky, crimson sun, black rim on every silhouette. Dust motes as halftone in the backlight.
 - **Copy.** `He saw the rise.` (0.69–0.74). Then nothing. Silence in the hang.
 - **Hits.** Washboard, rise, hang, landing.
+- **Gag.** Fifth raise at 0.74 on the rise; the hand floats up with the device during the hang, and the landing slams it down. Pull lost.
 
 ## 6 — The reveal (p 0.82–1.00)
 
 - **Subject and action.** The dust settles. The low sun rakes across your hand (0.84–0.90) and it is a paw: fur on the top edge, gold rim, five dark fingers around a cream device. Confirmation in order (0.87–0.91): the rhino does not react, which is now funny in a new way; the monkey turns; the mirror tilts and the driver's sunglasses find you, full of sun. Hold from 0.90 to 1.00. Shake is zero. Nothing moves except the dust settling.
 - **Copy.** `Ja. Which one are you?` (0.90 to the end). Alternates if wanted: `Right. Which one are you?` · `Been you the whole time. Which one?` · `Same truck. Which one are you?` The requirement is the question; the recommendation is the shortest.
 - **Motion.** None. This is the one still.
+- **Gag.** The hand does not try. It rests on the seat back with the device, and the low sun does the reveal. Still no pull.
 
 ## 7 — Camp (normal flow)
 
-- **Objective.** The only calm frame, therefore the store.
+- **Objective.** The only calm frame, therefore the store. It is also the one clean pull: the viewer's hand finally brings the device up and draws, LED on, vapour into the firelight, nothing hits anything.
 - **Content, in order.** `Camp.` · `Everyone off. Pick a seat.` · The range: three camp chairs with the cast seated, device in hand, window glowing, strain name in Badaboom, format and colourway in plain type. A fourth chair, empty, natural 0.5ml on the arm. · **Spotted today:** the ranger's sightings board, every strain in the range named once with its species and formats, ticked if you passed it. · The CTA block: `Same time tomorrow?` · `Find the shop near you that has the range in the fridge. Both formats, every strain.` · **Find a stockist**. · The device: the engineering facts in plain type. · Where it comes from: four pinned slots for real photographs (facility, growers, press, flag seal). Nothing invented.
 - **Set dressing.** The camp sits beside the grow. Frosty plants behind the chairs, backlit by the fire: the "soil" of SOIL2OIL, and the second place the plants appear.
 - **Analytics.** `cta_click {location: camp}`.
