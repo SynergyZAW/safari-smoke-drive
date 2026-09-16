@@ -21,7 +21,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 
 - **Objective.** Put the viewer in the back row before anything happens and plant the hand.
 - **Camera.** Back row, wide, eye line at the roll bar. Static: the truck is not running.
-- **Subject and action.** Early morning, sun up. The driver's fedora and sunglasses in the mirror, sunglasses on from the first frame, right-hand seat. The rhino in the ranger's kit in the front-left seat, turned round, already staring at you. Three engine coughs at p 0.02, 0.05, 0.085: a frame shudder and a dashboard flicker each. The oil window in your hand glows gold, the only warm light in the frame. At p 0.075–0.115 you raise the device and take a pull; the LED lights. That white LED and the gold window are the first two lights in the film.
+- **Subject and action.** Early morning, sun up. All three of the cast are in the truck from the first frame (corrected 16 Sep: the monkey no longer vaults in at chapter 3). The driver's fedora and sunglasses in the mirror, sunglasses on from the first frame, right-hand seat. The monkey in the middle row, left, arm over the seat back, tail over the roll bar, looking back at you. The rhino in the ranger's kit in the front-left seat, turned round, already staring at you. Three engine coughs at p 0.02, 0.05, 0.085: a frame shudder and a dashboard flicker each. The oil window in your hand glows gold, the only warm light in the frame. At p 0.075–0.115 you raise the device and take a pull; the LED lights. That white LED and the gold window are the first two lights in the film.
 - **Environment.** Camp gate behind, dark bush, steel-blue sky going gold at the horizon.
 - **Light and colour.** Crisp morning sun from the left, cobalt sky, hard black shadows, interior in awning shade. The oil window glows gold in the shade; the LED lights on the pull.
 - **Copy.** `Same couch. Same night. Same nothing.` (0.00–0.07) then, as the engine catches, `Hold on.` (0.085–0.125). "Hold on" is what a driver says, it is a joke because he will not drive well, and it is a scroll instruction.
@@ -43,7 +43,7 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 ## 3 — First real hit (p 0.27–0.42)
 
 - **Objective.** The first real physics. Dust swallows the frame. The cast grows by one.
-- **Subject and action.** Dry riverbed at speed. Washboard corrugations p 0.29–0.35 (high-frequency buzz, the jerry can bounces out at 0.30–0.33 and is gone). Dust burst p 0.34–0.40 swallows the frame. Through the dust, from the right, a monkey vaults from an acacia into the back row and lands at p 0.395 (landing compression). It grips the roll bar with both feet off the floor and does not touch the floor again.
+- **Subject and action.** Dry riverbed at speed. Washboard corrugations p 0.29–0.35 (high-frequency buzz, the jerry can bounces out at 0.30–0.33 and is gone). Dust burst p 0.34–0.40 swallows the frame. Through the dust the monkey, already aboard since frame one, is thrown up off the middle row and catches the roll bar at p 0.395 (landing compression). He hangs there with both feet off the floor and does not touch the floor again.
 - **Environment.** Riverbed sand, bleached banks, acacias close on both sides. **Wild sighting at 0.315:** the panda in the orange robe (GMO) standing in the riverbed as the truck crosses at speed. Does not move.
 - **Light.** Hard morning sun, cobalt sky, ochre dust.
 - **Copy.** `Riverbed. He didn't slow down.` (0.28–0.37). No line for the monkey. Visual carries it.
