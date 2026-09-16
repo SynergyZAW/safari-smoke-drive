@@ -37,3 +37,8 @@ What this changes: the 3D scene is no longer the film. It is the reference facto
 
 - Rigging: auto-rig (humanoid) for the ape and monkey; the rhino may need a manual seated pose.
 - Restyle model and strength: test on the ten-second clip before committing the full drive.
+
+
+## 16 Sep, afternoon: take 1 shot
+
+Approval chain complete before the first frame of video: ape v2, monkey v2b, rhino v2b and Eco-Star v2 sheets approved; opening still v3 (morning, all three aboard) approved; previs from behind the truck and the bonnet approved. Take 1 (job 14fab369) on Seedance 2.5 omni reference, 25 s, 9:16, start frame = opening still v3, references = the four sheets. Continuity holds across the whole take at 1 fps; the seat map never moves. Awaiting Jon.
