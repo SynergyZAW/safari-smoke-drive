@@ -68,3 +68,12 @@ Check the seat map only from cameras behind the truck or from the bonnet looking
 ## Depth order from the back row (16 Sep)
 
 Every back-row frame must layer, nearest to farthest: middle bench top, monkey, front headrests, ape and rhino rising above them, THEN the dashboard mostly hidden behind them, THEN windscreen, bonnet, track. If any dashboard or steering wheel is visible in front of or beside a front-row character, the frame is wrong. The flat POV plate vehicle-04 had this error and is no longer a layout reference.
+
+
+## Device glow (locked 16 Sep)
+
+The only light on the device is the oil window, warm golden yellow, the same in every frame of every take. Never prompt a white LED, a white flare or any colour change on the device. Take 2 v1 was rejected for exactly this. The LED in the brief is a tiny indicator dot, not a light source in the film.
+
+## Take chaining (16 Sep)
+
+The platform caps a single generation at 30 s (Seedance 2.5, Wan 3.0). The film is chained. Prefer Seedance 2.5 video_extension forward from the approved take, which continues the actual footage, over starting a new take from a still frame.
