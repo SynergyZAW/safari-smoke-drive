@@ -5,6 +5,8 @@ Every number below is a creative decision and is live in `src/data/chapters.ts` 
 
 **Composition rule, all chapters.** Portrait is the master. Copy lives in the top band (14–30% of height). The CTA pill lives at the bottom safe area. The viewer's hand owns the bottom-right. The trail vanishes at 46% height in portrait, 52% in landscape. For 16:9, the copy moves to the left third and the hand shrinks; nothing is centre-cropped and no sighting is ever framed where a crop would lose the animal.
 
+**Seat map (locked 16 Sep).** Right-hand drive. Front right: ape, driving. Front left: rhino. Middle row left, directly behind the rhino: monkey. Back row right: the viewer. From a camera on the truck's right side (bonnet pointing right of frame) the ape is the nearest front seat; from the left side the rhino is nearest.
+
 **Time of day.** One drive, one day. Morning, sun up (0) → hard morning (0.12–0.42) → noon (0.5) → golden hour (0.68–0.82) → dusk (0.88) → night (1.0, camp, afterglow). Corrected 16 Sep: the drive starts in daylight. The pre-dawn open was never in the brief; the "night" in the copy is the viewer's night in at home. Every start frame must be lit for the time of day the take actually starts.
 
 ---
