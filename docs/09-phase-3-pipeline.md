@@ -54,3 +54,8 @@ Start frame v5b (feature-animation re-render of the approved v4 layout, no linew
 - Seedance is ByteDance's model; Higgsfield resells it (provider field: Bytedance). Direct API: BytePlus ModelArk, Seedance 2.5 available since 7 Aug 2026, paid balance required, 30 s native single shot, up to 50 reference files.
 - Single-generation cap everywhere on Higgsfield is 30 s. Seedance 2.5 video_extension (forward) continues the actual footage and returns only the new segment.
 - The white flash on the device at each raise comes back even when the prompt forbids it; the trigger is describing the raise as a pull. Next shoot describes the gesture only.
+
+
+## 16 Sep, night: direct ByteDance route
+
+Higgsfield credits ran low. Jon opened a BytePlus ModelArk account; Seedance 2.5 is called directly (`scripts/ark-video.py`, key in `ARK_API_KEY`, never in the repo). Endpoint `ark.ap-southeast.bytepluses.com/api/v3/contents/generations/tasks`, model `dreamina-seedance-2-5-260628`. References are passed as public URLs; the Higgsfield result files on cloudfront serve for the approved sheets, the opening still and take 1. `return_last_frame` gives the next take's start frame without ffmpeg. Take 2 v3 is the first task on this route.
