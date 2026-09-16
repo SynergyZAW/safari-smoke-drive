@@ -4,10 +4,13 @@
 >
 > | Sheet | Verdict | Note |
 > |---|---|---|
-> | Banana Shack turnaround v1 | **Approved candidate** | Five heads, costume verbatim, sunglasses, deadpan, five-fingered hands, bold linework. First pass. |
-> | Permanent Marker turnaround v2 | **Approved candidate** | v1 drifted to a smooth render with clip-art leaves and was rejected. v2 used the ape sheet as a style anchor: same line weight, heavy-lidded deadpan, tiny abstract sprig emblems. |
+> | Banana Shack turnaround v1 | Superseded | Five heads, costume verbatim, sunglasses, deadpan, five-fingered hands, bold linework. First pass. |
+> | Permanent Marker turnaround v2 | Superseded | v1 drifted to a smooth render with clip-art leaves and was rejected. v2 used the ape sheet as a style anchor: same line weight, heavy-lidded deadpan, tiny abstract sprig emblems. |
 > | Sour Diesel turnaround v1 | Superseded | Flat comic pass. Its 3D lifts grew a second face on the back of the head and were rejected on 16 Sep. |
 > | Sour Diesel turnaround v2b (3D look) | **Approved by Jon, 16 Sep** | Redrawn from the pack mascot only, feature-animation render, heavy and low, clean back view (hat, ears, shirt). `docs/sheets/sheet-03-sour-diesel-turnaround-v2b-3d.jpg`. This is the rhino's identity reference for every generation from here. |
+> | Banana Shack turnaround v2 (3D look) | Candidate, awaiting Jon (16 Sep) | Redrawn in the rhino v2b render: heavy low-shouldered ape, fedora with leaf, round sunglasses, pineapple shirt, denim shorts, belt, sandals; clean back view. `docs/sheets/sheet-01-banana-shack-turnaround-v2-3d.jpg` |
+> | Permanent Marker turnaround v2 (3D look) | Candidate, awaiting Jon (16 Sep) | Same render: lanky monkey, red quarter-zip with small leaf, red shorts, black cap with leaf, tail, bare feet; clean back view. `docs/sheets/sheet-02-permanent-marker-turnaround-v2-3d.jpg` |
+> | Eco-Star prop v1 (3D look) | Candidate, awaiting Jon (16 Sep) | Cream and black units, front/3-4/side/back plus a draw-grip hand hero, drawn from the v4 geometry sheet in the rhino v2b render; window glows gold, vents, LED, USB-C, base cap. Described to the generator as a herbal nicotine vape. `docs/sheets/sheet-04-ecostar-prop-v1-3d.jpg` |
 > | Eco-Star prop v4 | **Approved candidate, geometry lock** | v1 came out as a squat pod. A scale-accurate outline template fixed the 4:1 body (v2), and a fresh pass on the reference-editing model fixed the side-view width, the single window and the rectangular aperture (v4). The v2 sheet is kept as the reference for how the oil glows. |
 > | Viewer hand v2 | **Approved candidate** | Draw grip, whole device visible, ambiguous and revealed states, gold rim on the fur, LED lit. |
 > | Expression sheets ×3, v1 | **Approved candidates** | Identity holds against each turnaround. Ape: deadpan through everything, brows up once. Monkey: whoop, cling, pull, turn, asleep. Rhino: six identical stares through dust, mud, golden hour and firelight, LED under the horn. |
