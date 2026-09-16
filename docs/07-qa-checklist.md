@@ -63,3 +63,8 @@
 ## Previs camera rule (16 Sep)
 
 Check the seat map only from cameras behind the truck or from the bonnet looking back. Side and front three-quarter views mirror the truck's left and right and the generator flips the cast in them; three rounds went wrong that way. Seat map: ape front right at the wheel, rhino front left beside him, monkey middle left behind the rhino, viewer back right.
+
+
+## Depth order from the back row (16 Sep)
+
+Every back-row frame must layer, nearest to farthest: middle bench top, monkey, front headrests, ape and rhino rising above them, THEN the dashboard mostly hidden behind them, THEN windscreen, bonnet, track. If any dashboard or steering wheel is visible in front of or beside a front-row character, the frame is wrong. The flat POV plate vehicle-04 had this error and is no longer a layout reference.
