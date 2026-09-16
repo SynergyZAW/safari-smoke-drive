@@ -14,7 +14,7 @@ Manic, not serene. The road fights back, the kit comes loose, the dust swallows 
 
 ## The arc, one line per chapter
 
-1. **Cough.** Pre-dawn. The engine will not catch. The oil window in your hand is the only warm light in the world.
+1. **Cough.** Morning, sun up. The engine will not catch. The oil window in your hand glows gold in the awning shade.
 2. **Bad start.** It catches. The gate post gets clipped. The first switchback is taken like a dare.
 3. **First real hit.** Dry riverbed at speed. Washboard, then dust. Something lands in the back row. It is a monkey.
 4. **The passengers.** Three sightings. The ranger, the clinger, the driver. Product in every hand, no names.
@@ -27,7 +27,7 @@ Manic, not serene. The road fights back, the kit comes loose, the dust swallows 
 
 **The camera is a passenger.** First person, whole film, back row, eye line roughly at the roll bar. The camera never leaves the vehicle. It looks forward over the front seats, which puts the driver's hat, one arm out of the window, and the mirror in every frame, and puts the trail ahead where the sightings arrive from. **Right-hand drive.** South Africa drives on the left, so the driver is in the right front seat and his arm hangs out of the right-hand window. The passenger seat is on the left.
 
-**The plant.** Your hand is in the bottom-right of frame from the first shot, holding a natural 0.5ml Eco-Star. It is never hidden. It is always working against a clean read: pre-dawn blue with only the oil window lighting it from below; motion blur on the riverbed; the awning's shade at noon; the mud crossing; backlight at the rise. You bring it up and take a pull twice: once in chapter 1 (the LED and the glowing window are the first light in the film) and once just before the rise. Both pulls are shot so the glow is what you look at, not the fingers.
+**The plant.** Your hand is in the bottom-right of frame from the first shot, holding a natural 0.5ml Eco-Star. It is never hidden. It is always working against a clean read: morning awning shade with only the oil window lighting it from below; motion blur on the riverbed; the awning's shade at noon; the mud crossing; backlight at the rise. You bring it up and take a pull twice: once in chapter 1 (the LED and the glowing window are the first light in the film) and once just before the rise. Both pulls are shot so the glow is what you look at, not the fingers.
 
 **The payoff.** Landing compression, dust settles, and the sun is now low and dead ahead on the trail, coming straight through the windscreen. It backlights the oil window into a lamp and rims the hand in gold, and the hand is fur. (Changed 13 Sep from "behind the truck" after the golden-hour lighting key: the sun ahead gives the product its hero backlight and the paw its rim in the same frame.) Five fingers, dark, a paw around the cream device. Then the confirmation, in this order over about two scroll-seconds: the rhino (who has been staring at you the entire film) does not change expression, which is now funny for a different reason; the monkey turns; the driver tilts the mirror and his sunglasses find you. **We never resolve which animal you are.** The mirror is full of sun.
 
@@ -65,7 +65,7 @@ What this rejects: halftone overlays on the UI, speech-balloon UI, comic panel b
 
 - **Lens.** Wide, 18–24mm equivalent, low in the back row. Wide is what makes the hand feel like your hand and makes every bump throw the world around. No long lenses in the film; long lenses are for wildlife documentaries and this is not one.
 - **Camera language.** Locked to the truck. The camera has the truck's motion and nothing else: no pans, no drifts, no smooth moves. Every move on screen is a hit. Roll is capped at 2.5° and never continuous.
-- **Grade by chapter.** Pre-dawn steel blue with one gold source (the oil). Dawn gold on the horizon. Morning hard cobalt sky, ochre ground, black shadows. Noon bleached, contrast at maximum, dapple. Golden hour is the brand palette exactly: gold sky, crimson sun, black rim light. Dusk crimson to cobalt. Night: black, stars, one LED.
+- **Grade by chapter.** Morning hard cobalt sky, ochre ground, black shadows. Noon bleached, contrast at maximum, dapple. Golden hour is the brand palette exactly: gold sky, crimson sun, black rim light. Dusk crimson to cobalt. Night: black, stars, one LED.
 - **The oil is the only luminous thing.** Dust, fur, canvas, painted metal and dry grass are all matte. The window glows, the LED lights on the draw, and nothing else in the world emits. Every generation is checked against this before it is accepted.
 
 ## Copy voice

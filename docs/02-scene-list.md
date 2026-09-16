@@ -5,7 +5,7 @@ Every number below is a creative decision and is live in `src/data/chapters.ts` 
 
 **Composition rule, all chapters.** Portrait is the master. Copy lives in the top band (14–30% of height). The CTA pill lives at the bottom safe area. The viewer's hand owns the bottom-right. The trail vanishes at 46% height in portrait, 52% in landscape. For 16:9, the copy moves to the left third and the hand shrinks; nothing is centre-cropped and no sighting is ever framed where a crop would lose the animal.
 
-**Time of day.** One drive, one day. Pre-dawn (0) → dawn (0.12) → morning (0.3) → noon (0.5) → golden hour (0.68–0.82) → dusk (0.88) → night (1.0, camp, afterglow).
+**Time of day.** One drive, one day. Morning, sun up (0) → hard morning (0.12–0.42) → noon (0.5) → golden hour (0.68–0.82) → dusk (0.88) → night (1.0, camp, afterglow). Corrected 16 Sep: the drive starts in daylight. The pre-dawn open was never in the brief; the "night" in the copy is the viewer's night in at home. Every start frame must be lit for the time of day the take actually starts.
 
 ---
 
@@ -21,9 +21,9 @@ Full-screen, ink black, logo, the question. This is the "night in". It is boring
 
 - **Objective.** Put the viewer in the back row before anything happens and plant the hand.
 - **Camera.** Back row, wide, eye line at the roll bar. Static: the truck is not running.
-- **Subject and action.** Pre-dawn. The driver's fedora and sunglasses in the mirror, on at 4am, right-hand seat. The rhino in the ranger's kit in the front-left seat, turned round, already staring at you. Three engine coughs at p 0.02, 0.05, 0.085: a frame shudder and a dashboard flicker each. The oil window in your hand glows gold, the only warm light in the frame. At p 0.075–0.115 you raise the device and take a pull; the LED lights. That white LED and the gold window are the first two lights in the film.
+- **Subject and action.** Early morning, sun up. The driver's fedora and sunglasses in the mirror, sunglasses on from the first frame, right-hand seat. The rhino in the ranger's kit in the front-left seat, turned round, already staring at you. Three engine coughs at p 0.02, 0.05, 0.085: a frame shudder and a dashboard flicker each. The oil window in your hand glows gold, the only warm light in the frame. At p 0.075–0.115 you raise the device and take a pull; the LED lights. That white LED and the gold window are the first two lights in the film.
 - **Environment.** Camp gate behind, dark bush, steel-blue sky going gold at the horizon.
-- **Light and colour.** Steel blue, one gold source in your hand, the LED. Silhouettes.
+- **Light and colour.** Crisp morning sun from the left, cobalt sky, hard black shadows, interior in awning shade. The oil window glows gold in the shade; the LED lights on the pull.
 - **Copy.** `Same couch. Same night. Same nothing.` (0.00–0.07) then, as the engine catches, `Hold on.` (0.085–0.125). "Hold on" is what a driver says, it is a joke because he will not drive well, and it is a scroll instruction.
 - **Motion.** Cough envelope ×3. No rumble. Base still.
 - **Hits.** Cough, cough, cough, lurch.
