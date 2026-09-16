@@ -14,6 +14,12 @@ The phase-2 film was eight generations between hand-made stills. Every start fra
 4. **One timeline, markers not clips.** The whole drive renders as a single frame sequence. Chapters, copy and sightings are marker positions on it. The site scrubs time, not beats.
 5. **Restyle pass.** The clean render goes through a video-to-video restyle for the soft feature-animation finish (skin, fur, cloth, light). Identity and position are fixed by the render, so the restyle only changes surface.
 
+## Status 16 Sep: Jon's route, and it works
+
+Jon's call after seeing the 3D tests: skip the seat physics, hand the model the three approved characters and ask for one long continuous drive. Done on Seedance 2.5 (omni reference, 25 s, 1080p, 9:16): opening frame = the FLUX-restyled first frame of the 3D test (so the look and the first-person framing are fixed), identity references = one sheet per approved character rendered from the approved meshes at three angles. Take A holds the cast for the full 25 seconds and hits every beat asked for on cue. Ledger rows `gen-longtake-*`. A 15 s Seedance 2.0 take from the same inputs is steadier but the driver turns to face the camera.
+
+What this changes: the 3D scene is no longer the film. It is the reference factory: it renders the approved meshes into consistent sheets and clean opening frames, and it can still produce exact key frames when a beat needs precise blocking. The film is generated as long continuous takes from those references, split by markers on the site.
+
 ## Status 15 Sep, afternoon
 
 - Cast approved by Jon as meshes (Tripo). Rigging those meshes failed on the only rigger available, so Meshy rebuilt rigged copies from the same views; they carry a seated idle. Used for animation.
