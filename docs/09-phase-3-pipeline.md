@@ -47,3 +47,10 @@ Approval chain complete before the first frame of video: ape v2, monkey v2b, rhi
 ## 16 Sep, later: take 1 v2 with the pull gag
 
 Start frame v5b (feature-animation re-render of the approved v4 layout, no linework). 10 s style test passed. Jon's gag confirmed and written into the scene list: every raise of the hand is knocked down by the next hit; the one clean pull is at camp. Take 1 v2 (job bddb1319) carries two raises and two hits. Awaiting Jon.
+
+
+## 16 Sep, evening: platform facts
+
+- Seedance is ByteDance's model; Higgsfield resells it (provider field: Bytedance). Direct API: BytePlus ModelArk, Seedance 2.5 available since 7 Aug 2026, paid balance required, 30 s native single shot, up to 50 reference files.
+- Single-generation cap everywhere on Higgsfield is 30 s. Seedance 2.5 video_extension (forward) continues the actual footage and returns only the new segment.
+- The white flash on the device at each raise comes back even when the prompt forbids it; the trigger is describing the raise as a pull. Next shoot describes the gesture only.
