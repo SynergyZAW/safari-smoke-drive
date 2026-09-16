@@ -33,11 +33,11 @@ The pack mascots are painted 2D cut-outs. Across the three packs the head-to-bod
 - Brows are built as fur ridges so they can move. Mouth corners are drawn, not implied.
 - Hands are one head-length long, five-fingered with an opposable thumb, drawn explicitly. They must be able to hold the Eco-Star in the **draw grip**: two fingers and thumb around the body, mouthpiece to the lips, **no thumb press ever**. Inhale activated. There is no button.
 - Species is carried by silhouette, not by head ratio: the ape is wide and low-shouldered, the monkey is long-limbed with a tail, the raccoon is compact and round. Same head unit across all three so they read as one cast in one truck.
-- Heavy black linework as rim and contact shadow. Matte fur. Costume colours are flat brand primaries.
+- No linework (struck 16 Sep). Rim light and contact shadow come from the lighting, not ink. Groomed fur. Costume colours are brand primaries under physically based shading.
 
 ## Style preset
 
-Higgsfield `character-sheet` workflow, **3d-stylized** preset as the base, with a custom render module: *stylized 3D character render, matte fur with visible groom, flat hard-primary costume colours, black rim light as linework, no subsurface glow, no plush-toy softness, adult proportions, five heads tall.* The default preset's "soft rounded features" line is struck; these are adults with attitude, not toys.
+Higgsfield `character-sheet` workflow, **3d-stylized** preset as the base, with a custom render module (rewritten 16 Sep after Jon flagged the frames drifting back to comic): *final-quality feature-animation 3D render, physically based materials, soft global illumination, groomed fur, subsurface on skin, NO black outlines, NO cel shading, NO ink linework anywhere, adult proportions, five heads tall.* The earlier line "black rim light as linework" is struck: it pulled the truck, awning and scenery into a cel look. The default preset's "soft rounded features" line is struck; these are adults with attitude, not toys.
 
 ## The three sheets
 

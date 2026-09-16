@@ -57,7 +57,7 @@ They pay off at camp on the **ranger's sightings board**, "Spotted today": the w
 - **Signboards.** A hand-painted ranger board at the gate (chapter 2), a faded one at the riverbed, a tin sign at camp. This is where the comic panel exists as a thing in the world. They carry no legible copy: shapes, arrows, a sun disc. Every real word is HTML.
 - **The packs.** In hands and on the camp table, the real SOIL2OIL artwork. The only place the halftone and the die-cut keyline appear, because that is where they actually live.
 - **Halftone as physical texture, never as overlay.** Acacia dapple on the seats at noon. Dust motes in backlight at golden hour. Ben-Day is light through leaves, not a filter.
-- **Colour and light do the rest.** Hard primary blocking, black rim and contact shadow as linework, a crimson-and-gold grade from chapter 5 onward. The 3D world reads as pop-art by palette, not by costume.
+- **Colour and light do the rest.** Hard primary blocking, real rim light and contact shadow from the lighting (no ink linework, struck 16 Sep), a crimson-and-gold grade from chapter 5 onward. The 3D world reads as pop-art by palette, not by costume.
 
 What this rejects: halftone overlays on the UI, speech-balloon UI, comic panel borders, kinetic type, any 2D furniture pasted over the film. The site's interface is a gold progress line, the copy, and one CTA pill. That is all.
 
