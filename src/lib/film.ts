@@ -26,6 +26,9 @@ function cutSuffix(): string {
   }
 }
 
+/** Bump when the frame set changes so every client refetches the manifest. */
+export const FILM_VERSION = '3'
+
 export async function loadManifest(wide = false): Promise<Manifest | null> {
   // Landscape viewports get the reframed 16:9 set when it exists, otherwise the portrait master (cover-fit).
   const cut = cutSuffix()
@@ -38,7 +41,8 @@ export async function loadManifest(wide = false): Promise<Manifest | null> {
 
 async function fetchManifest(dir: string): Promise<Manifest | null> {
   try {
-    const r = await fetch(`${import.meta.env.BASE_URL}${dir}/manifest.json`, { cache: 'force-cache' })
+    // Always revalidate: a cached manifest from an older deploy points at frame folders that no longer exist.
+    const r = await fetch(`${import.meta.env.BASE_URL}${dir}/manifest.json?v=${FILM_VERSION}`, { cache: 'no-cache' })
     if (!r.ok) return null
     const m = (await r.json()) as Manifest
     return m.beats?.length ? m : null
