@@ -34,80 +34,84 @@ export interface Chapter {
 export const FILM_SCROLL_VH = 1000 // how tall the pinned film's scroll track is
 
 export const CHAPTERS: Chapter[] = [
+  // Progress is four 25 s takes over equal quarters: t1 0-0.25, t2 0.25-0.5, t3 0.5-0.75, t4 0.75-1.
+  // A second of footage is 0.01 of progress. Timings below are read off the rendered takes, not the script.
   {
     n: 1,
     id: 'cough',
     title: 'Cough',
     from: 0,
-    to: 0.12,
-    intent: 'Pre-dawn. Back row, right-hand drive. The engine will not catch. The oil window in your hand is the only warm light.',
-    still: 0.09,
+    to: 0.1,
+    intent: 'Morning, sun up. Back row, right-hand drive. The engine will not catch. First raise of the hand, the LED comes on, the engine catches and knocks it down.',
+    still: 0.02,
     copy: [
-      { id: 'c1a', text: 'Same couch. Same night. Same nothing.', from: 0.0, to: 0.07, size: 'lead' },
-      { id: 'c1b', text: 'Hold on.', from: 0.085, to: 0.125, size: 'lead' },
+      { id: 'c1a', text: 'Same couch. Same night. Same nothing.', from: 0.0, to: 0.055, size: 'lead' },
+      { id: 'c1b', text: 'Hold on.', from: 0.075, to: 0.11, size: 'lead' },
     ],
   },
   {
     n: 2,
     id: 'bad-start',
     title: 'Bad start',
-    from: 0.12,
-    to: 0.27,
-    intent: 'Engine catches. Gate post clipped. First switchback taken like a dare. Nobody reacts.',
-    still: 0.21,
-    copy: [{ id: 'c2a', text: "He said he's driven before.", from: 0.15, to: 0.26, size: 'lead' }],
+    from: 0.1,
+    to: 0.25,
+    intent: 'Lunge, stall, lunge. Second raise, then the swerve off the track into scrub. Nobody reacts.',
+    still: 0.16,
+    copy: [{ id: 'c2a', text: "He said he's driven before.", from: 0.12, to: 0.195, size: 'lead' }],
   },
   {
     n: 3,
     id: 'first-hit',
     title: 'First real hit',
-    from: 0.27,
-    to: 0.42,
-    intent: 'Dry riverbed at speed. Washboard, then dust swallows the frame. Something lands in the back row. It is a monkey.',
-    still: 0.36,
-    copy: [{ id: 'c3a', text: "Riverbed. He didn't slow down.", from: 0.28, to: 0.37, size: 'lead' }],
+    from: 0.25,
+    to: 0.5,
+    intent: 'The gate post, two switchbacks, washboard into the riverbed, the drop. The jerry can is gone. Two more raises, two more hits.',
+    still: 0.42,
+    copy: [
+      { id: 'c3a', text: 'Gate. He found it.', from: 0.335, to: 0.385, size: 'beat' },
+      { id: 'c3b', text: "Riverbed. He didn't slow down.", from: 0.4, to: 0.47, size: 'lead' },
+    ],
   },
   {
     n: 4,
     id: 'passengers',
     title: 'The passengers',
-    from: 0.42,
-    to: 0.68,
-    intent: 'Three sightings. Each passenger handles the chaos their own way. Product in every hand. No names.',
-    still: 0.55,
+    from: 0.5,
+    to: 0.75,
+    intent: 'The ranger stares. The clinger hangs upside down off the roll bar. The driver swerves for a warthog into the mud. Product in every hand. No names.',
+    still: 0.56,
     copy: [
-      { id: 'c4a', text: "Hasn't blinked since the gate.", from: 0.43, to: 0.5, size: 'beat', strain: 'sour-diesel' },
-      { id: 'c4b', text: "Feet haven't touched the floor.", from: 0.51, to: 0.58, size: 'beat', strain: 'permanent-marker' },
-      { id: 'c4c', text: "Hasn't looked at the road once.", from: 0.59, to: 0.645, size: 'beat', strain: 'banana-shack' },
-      { id: 'c4d', text: "Tourists. Don't feed them.", from: 0.655, to: 0.685, size: 'beat' },
+      { id: 'c4a', text: "Hasn't blinked since the gate.", from: 0.5, to: 0.545, size: 'beat', strain: 'sour-diesel' },
+      { id: 'c4b', text: "Feet haven't touched the floor.", from: 0.55, to: 0.6, size: 'beat', strain: 'permanent-marker' },
+      { id: 'c4c', text: "Hasn't looked at the road once.", from: 0.605, to: 0.645, size: 'beat', strain: 'banana-shack' },
     ],
   },
   {
     n: 5,
     id: 'airborne',
     title: 'Airborne',
-    from: 0.68,
-    to: 0.82,
-    intent: 'Golden hour. He sees the rise. He speeds up. The truck leaves the ground and hangs. Silence.',
-    still: 0.77,
-    copy: [{ id: 'c5a', text: 'He saw the rise.', from: 0.69, to: 0.74, size: 'lead' }],
+    from: 0.75,
+    to: 0.86,
+    intent: 'Golden hour, sun dead ahead. He sees the rise. The truck leaves the ground and hangs. The hat comes off.',
+    still: 0.84,
+    copy: [{ id: 'c5a', text: 'He saw the rise.', from: 0.77, to: 0.82, size: 'lead' }],
   },
   {
     n: 6,
     id: 'reveal',
     title: 'The reveal',
-    from: 0.82,
+    from: 0.86,
     to: 1.0,
-    intent: 'Landing. The low sun rakes across your hand. It is a paw. The others turn and look at you. Hold. Then the question.',
-    still: 0.95,
-    copy: [{ id: 'c6a', text: 'Ja. Which one are you?', from: 0.9, to: 1.01, size: 'lead' }],
+    intent: 'Landing. The dust settles in the low sun. The truck stops. The monkey turns. The mirror finds you. Hold. Then the question.',
+    still: 0.99,
+    copy: [{ id: 'c6a', text: 'Ja. Which one are you?', from: 0.95, to: 1.01, size: 'lead' }],
   },
 ]
 
 export const SIGHTINGS: { strain: Strain; from: number; to: number }[] = [
-  { strain: 'sour-diesel', from: 0.42, to: 0.5 },
-  { strain: 'permanent-marker', from: 0.5, to: 0.58 },
-  { strain: 'banana-shack', from: 0.58, to: 0.68 },
+  { strain: 'sour-diesel', from: 0.5, to: 0.55 },
+  { strain: 'permanent-marker', from: 0.55, to: 0.6 },
+  { strain: 'banana-shack', from: 0.6, to: 0.65 },
 ]
 
 /**
@@ -127,12 +131,12 @@ export interface WildSighting {
 }
 
 export const WILD: WildSighting[] = [
-  { id: 'the-church', name: 'The Church', species: 'Sheep', kind: 'sheep', formats: '1ml', at: 0.175, side: -1, where: 'On a rock at the gate, robed, serene, dawn behind it.' },
-  { id: 'gmo', name: 'GMO', species: 'Panda', kind: 'panda', formats: '0.5ml · 1ml', at: 0.315, side: 1, where: 'Standing in the riverbed as you cross it at speed. Does not move.' },
-  { id: 'monkey-business', name: 'Monkey Business', species: 'Baboon', kind: 'baboon', formats: '0.5ml', at: 0.455, side: 1, where: 'On the termite mound the truck clips. In a suit. Checking a watch.' },
-  { id: 'sapphire-og', name: 'Sapphire OG', species: 'Leopard', kind: 'leopard', formats: '0.5ml', at: 0.525, side: -1, where: 'In the acacia the truck goes around. Bucket hat. Unbothered.' },
-  { id: 'grape-garcia', name: 'Grape Garcia', species: 'Warthog', kind: 'warthog', formats: '0.5ml', at: 0.6, side: -1, where: 'Crossing at the mud, tail up, tie-dye. The reason for the mud.' },
-  { id: 'nerdz', name: 'Nerdz', species: 'Lemur', kind: 'lemur', formats: '0.5ml · 1ml', at: 0.72, side: 1, where: 'On the crest of the rise, tracksuit, watching the truck leave the ground.' },
+  { id: 'the-church', name: 'The Church', species: 'Sheep', kind: 'sheep', formats: '1ml', at: 0.31, side: -1, where: 'On a rock at the gate, robed, serene, dawn behind it.' },
+  { id: 'gmo', name: 'GMO', species: 'Panda', kind: 'panda', formats: '0.5ml · 1ml', at: 0.46, side: 1, where: 'Standing in the riverbed as you cross it at speed. Does not move.' },
+  { id: 'monkey-business', name: 'Monkey Business', species: 'Baboon', kind: 'baboon', formats: '0.5ml', at: 0.365, side: 1, where: 'On the termite mound the truck clips. In a suit. Checking a watch.' },
+  { id: 'sapphire-og', name: 'Sapphire OG', species: 'Leopard', kind: 'leopard', formats: '0.5ml', at: 0.53, side: -1, where: 'In the acacia the truck goes around. Bucket hat. Unbothered.' },
+  { id: 'grape-garcia', name: 'Grape Garcia', species: 'Warthog', kind: 'warthog', formats: '0.5ml', at: 0.615, side: -1, where: 'Crossing at the mud, tail up, tie-dye. The reason for the mud.' },
+  { id: 'nerdz', name: 'Nerdz', species: 'Lemur', kind: 'lemur', formats: '0.5ml · 1ml', at: 0.82, side: 1, where: 'On the crest of the rise, tracksuit, watching the truck leave the ground.' },
 ]
 
 /** The one human beat. A rival game viewer of khaki tourists, every long lens on the back row. On you. */
@@ -156,7 +160,7 @@ export const CAST = [
     species: 'Monkey',
     device: 'natural' as const,
     format: '0.5ml Eco-Star',
-    note: 'Vaulted in at the riverbed. Feet have not touched the floor since.',
+    note: 'Aboard since the gate. Feet have not touched the floor since the riverbed.',
   },
   {
     strain: 'sour-diesel' as Strain,

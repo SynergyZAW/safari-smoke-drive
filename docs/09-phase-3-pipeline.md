@@ -76,3 +76,8 @@ The white flare on the device at the top of each raise has now appeared in three
 ### 17 Sep: all four takes in
 
 Take 4 (1.08M tokens) closes the drive: golden hour, the hang, the landing, the hold on the mirror. Total spend 4.59M of 5M; 0.41M left, about 9 s at 720p, kept in reserve. Staged cut: `public/film3` holds all four takes at 12 fps as beats t1-t4 over equal quarters of the scroll; preview on the live site with `?cut=3`. Copy timings in `src/data/chapters.ts` still follow the placeholder film and need retiming to the rendered beats.
+
+
+## 17 Sep: the four-take film is the default
+
+Jon approved all four takes. `public/film` now holds t1-t4 (12 fps, 720x1280 WebP) over equal quarters of the scroll; the phase-2 placeholder and its 16:9 reframe are removed (wide viewports cover-fit the portrait master until a reframe is made). Copy, chapter bounds, sighting windows, wild-glimpse points and the code hit schedule are retimed to the rendered beats (1 s of footage = 0.01 progress). The `?cut=` switch stays for future staged cuts.

@@ -25,23 +25,28 @@ export interface Impact {
 }
 
 export const IMPACTS: Impact[] = [
-  { at: 0.02, dur: 0.02, type: 'cough', label: 'Engine cough 1' },
-  { at: 0.05, dur: 0.02, type: 'cough', label: 'Engine cough 2' },
-  { at: 0.085, dur: 0.02, type: 'cough', label: 'Engine cough 3' },
-  { at: 0.12, dur: 0.03, type: 'lurch', label: 'Engine catches, truck lurches' },
-  { at: 0.155, dur: 0.025, type: 'jolt', dir: -1, label: 'Gate post clipped' },
-  { at: 0.2, dur: 0.05, type: 'lean', dir: -1, label: 'Switchback left' },
-  { at: 0.245, dur: 0.04, type: 'lean', dir: 1, label: 'Switchback right' },
-  { at: 0.29, dur: 0.06, type: 'washboard', label: 'Riverbed corrugations' },
-  { at: 0.34, dur: 0.06, type: 'dust', label: 'Dust swallows the frame' },
-  { at: 0.395, dur: 0.03, type: 'landing', label: 'Monkey lands in the back row' },
-  { at: 0.46, dur: 0.02, type: 'jolt', dir: 1, label: 'Termite mound clipped' },
-  { at: 0.53, dur: 0.04, type: 'brush', label: 'Acacia gone around, not avoided' },
-  { at: 0.62, dur: 0.05, type: 'mud', label: 'Mud crossing, brown water over lens' },
-  { at: 0.7, dur: 0.04, type: 'washboard', label: 'Corrugations before the rise' },
-  { at: 0.735, dur: 0.015, type: 'rise', label: 'The rise, hit hard' },
-  { at: 0.75, dur: 0.05, type: 'hang', label: 'Airborne hang' },
-  { at: 0.8, dur: 0.03, type: 'landing', label: 'Landing compression' },
+  // Read off the rendered takes (four 25 s takes over equal quarters; 1 s = 0.01).
+  { at: 0.015, dur: 0.015, type: 'cough', label: 'Engine cough 1' },
+  { at: 0.03, dur: 0.015, type: 'cough', label: 'Engine cough 2' },
+  { at: 0.045, dur: 0.015, type: 'cough', label: 'Engine cough 3' },
+  { at: 0.085, dur: 0.025, type: 'lurch', label: 'Engine catches, first raise knocked down' },
+  { at: 0.12, dur: 0.02, type: 'jolt', dir: 1, label: 'Stall' },
+  { at: 0.14, dur: 0.02, type: 'jolt', dir: -1, label: 'Lunge' },
+  { at: 0.2, dur: 0.03, type: 'lean', dir: -1, label: 'Swerve off the track, second raise knocked down' },
+  { at: 0.225, dur: 0.02, type: 'landing', label: 'Bounce back onto the track' },
+  { at: 0.33, dur: 0.02, type: 'jolt', dir: -1, label: 'Gate post clipped, third raise knocked down' },
+  { at: 0.355, dur: 0.025, type: 'lean', dir: -1, label: 'Switchback left' },
+  { at: 0.38, dur: 0.025, type: 'lean', dir: 1, label: 'Switchback right' },
+  { at: 0.4, dur: 0.04, type: 'washboard', label: 'Riverbed corrugations' },
+  { at: 0.45, dur: 0.03, type: 'landing', label: 'Drop into the riverbed, fourth raise knocked down' },
+  { at: 0.46, dur: 0.03, type: 'dust', label: 'Sand dust through the sides' },
+  { at: 0.62, dur: 0.02, type: 'jolt', dir: 1, label: 'Swerve for the warthog, fifth raise knocked down' },
+  { at: 0.63, dur: 0.05, type: 'mud', label: 'Mud crossing, brown wall over the lens' },
+  { at: 0.72, dur: 0.02, type: 'jolt', dir: -1, label: 'Pothole, sixth raise knocked down' },
+  { at: 0.78, dur: 0.03, type: 'washboard', label: 'Corrugations before the rise' },
+  { at: 0.825, dur: 0.01, type: 'rise', label: 'The rise, hit hard' },
+  { at: 0.835, dur: 0.02, type: 'hang', label: 'Airborne hang, hat off' },
+  { at: 0.86, dur: 0.03, type: 'landing', label: 'Landing compression' },
 ]
 
 /** Caps. The ride is violent, the page is not. */
@@ -166,7 +171,7 @@ function envelope(type: ImpactType, t: number, dir: 1 | -1): Partial<Shake> & { 
 export function sceneAt(p: number, velocity = 0): SceneState {
   p = clamp(p)
   const sky = skyAt(p)
-  const moving = p < 0.12 ? 0 : p > 0.83 ? clamp(1 - (p - 0.83) / 0.05) : 1
+  const moving = p < 0.085 ? 0 : p > 0.9 ? clamp(1 - (p - 0.9) / 0.04) : 1
 
   // Sum the impact envelopes that are live at p.
   let x = 0
@@ -207,36 +212,36 @@ export function sceneAt(p: number, velocity = 0): SceneState {
     rot: clamp(rot, -CAPS.rot, CAPS.rot),
     scaleY: Math.max(CAPS.scaleYMin, scaleY),
   }
-  dust = clamp(dust + moving * 0.18 + (p > 0.27 && p < 0.42 ? 0.2 : 0))
+  dust = clamp(dust + moving * 0.18 + (p > 0.45 && p < 0.49 ? 0.2 : 0))
 
   // Sun path: below horizon at dawn, high at noon, low and gold at 0.72–0.82, gone by 0.92.
-  const sunArc = p < 0.12 ? -0.02 + p * 0.3 : Math.sin(Math.PI * clamp((p - 0.1) / 0.8))
+  const sunArc = Math.sin(Math.PI * clamp(0.15 + (p / 1.15) * 0.85))
   const sunY = -(0.02 + sunArc * 0.55)
   const sunX = lerp(0.82, 0.18, clamp((p - 0.1) / 0.8))
-  const goldenHour = p > 0.66 && p < 0.9 ? Math.sin(Math.PI * clamp((p - 0.66) / 0.24)) : 0
+  const goldenHour = p > 0.5 ? clamp((p - 0.5) / 0.3) : 0
 
   // Viewer's hand: pulls at ch1 and just before the rise. Raised = to the mouth = bottom centre, larger.
   const pull = (a: number, b: number) => (p > a && p < b ? Math.sin(Math.PI * ((p - a) / (b - a))) : 0)
-  const handPull = Math.max(pull(0.075, 0.115), pull(0.64, 0.685))
+  const handPull = Math.max(pull(0.06, 0.09), pull(0.17, 0.2), pull(0.3, 0.335), pull(0.42, 0.45), pull(0.59, 0.62), pull(0.7, 0.72), pull(0.81, 0.83))
   const ledViewer = handPull > 0.35
   const ledRanger = p > 0.445 && p < 0.485
   const ledDriver = p > 0.61 && p < 0.65
 
-  const monkeyIn = p < 0.385 ? 0 : p < 0.41 ? smooth((p - 0.385) / 0.025) : 1
-  const jerryCan = p < 0.3 ? 0 : p < 0.33 ? smooth((p - 0.3) / 0.03) : 1
+  const monkeyIn = 1
+  const jerryCan = p < 0.4 ? 0 : p < 0.44 ? smooth((p - 0.4) / 0.04) : 1
   const awningTear = p < 0.24 ? 0 : clamp((p - 0.24) / 0.3)
 
-  const handReveal = p < 0.84 ? 0 : smooth(clamp((p - 0.84) / 0.06))
-  const eyesOnYou = p < 0.87 ? 0 : smooth(clamp((p - 0.87) / 0.04))
-  const hold = p >= 0.9
-  const night = p < 0.88 ? 0 : clamp((p - 0.88) / 0.12) * 0.55
+  const handReveal = p < 0.9 ? 0 : smooth(clamp((p - 0.9) / 0.05))
+  const eyesOnYou = p < 0.93 ? 0 : smooth(clamp((p - 0.93) / 0.03))
+  const hold = p >= 0.95
+  const night = 0
 
   const sighting =
-    p >= 0.42 && p < 0.5
+    p >= 0.5 && p < 0.55
       ? 'sour-diesel'
-      : p >= 0.5 && p < 0.58
+      : p >= 0.55 && p < 0.6
         ? 'permanent-marker'
-        : p >= 0.58 && p < 0.68
+        : p >= 0.6 && p < 0.65
           ? 'banana-shack'
           : null
 

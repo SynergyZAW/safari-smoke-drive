@@ -9,6 +9,8 @@ Every number below is a creative decision and is live in `src/data/chapters.ts` 
 
 **The pull gag (confirmed by Jon, 16 Sep).** The viewer never gets a clean pull during the drive. Every time the hand raises the device toward the lens, the driver hits something: the engine catching (ch1), the gate post (ch2), the washboard and the riverbed drop (ch3), the mud wall (ch4), the launch (ch5). At the top of each raise the window flares white (the LED on the draw), then the hit lands and the hand is thrown back down and the flare dies. Canon from 17 Sep. Each raise is slower and warier than the last. The one clean pull is at camp (ch7), and the payoff at ch8 is the monkey finishing his in the back row. Every chapter's biggest hit lands on a raised hand, so the hit timings in the chapters below are anchored to the raise.
 
+**Rendered cut (17 Sep).** Four 25 s takes over equal quarters of the scroll: t1 0-0.25 (ch1-2), t2 0.25-0.50 (ch3), t3 0.50-0.75 (ch4), t4 0.75-1.0 (ch5-6). The chapter progress ranges below are the original plan; the shipped timings live in `src/data/chapters.ts` and `src/lib/scene.ts`, read off the takes.
+
 **Time of day.** One drive, one day. Morning, sun up (0) → hard morning (0.12–0.42) → noon (0.5) → golden hour (0.68–0.82) → dusk (0.88) → night (1.0, camp, afterglow). Corrected 16 Sep: the drive starts in daylight. The pre-dawn open was never in the brief; the "night" in the copy is the viewer's night in at home. Every start frame must be lit for the time of day the take actually starts.
 
 ---
