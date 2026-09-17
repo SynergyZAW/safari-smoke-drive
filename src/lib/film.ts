@@ -45,7 +45,10 @@ async function fetchManifest(dir: string): Promise<Manifest | null> {
     const r = await fetch(`${import.meta.env.BASE_URL}${dir}/manifest.json?v=${FILM_VERSION}`, { cache: 'no-cache' })
     if (!r.ok) return null
     const m = (await r.json()) as Manifest
-    return m.beats?.length ? m : null
+    if (!m.beats?.length) return null
+    // Guard against a manifest whose frames are missing (a deploy mismatch): fall back to the animatic, never to black.
+    const probe = await fetch(frameUrl(m.beats[0], 0), { cache: 'no-cache' })
+    return probe.ok ? m : null
   } catch {
     return null
   }
