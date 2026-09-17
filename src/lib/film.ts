@@ -16,13 +16,24 @@ export interface Manifest {
   beats: Beat[]
 }
 
+/** `?cut=3` previews a staged frame set (public/film3) without replacing the live one. */
+function cutSuffix(): string {
+  try {
+    const c = new URLSearchParams(window.location.search).get('cut')
+    return c && /^[a-z0-9]{1,8}$/i.test(c) ? c : ''
+  } catch {
+    return ''
+  }
+}
+
 export async function loadManifest(wide = false): Promise<Manifest | null> {
   // Landscape viewports get the reframed 16:9 set when it exists, otherwise the portrait master (cover-fit).
+  const cut = cutSuffix()
   if (wide) {
-    const m = await fetchManifest('film-wide')
+    const m = await fetchManifest(`film${cut}-wide`)
     if (m) return m
   }
-  return fetchManifest('film')
+  return (await fetchManifest(`film${cut}`)) ?? (cut ? fetchManifest('film') : null)
 }
 
 async function fetchManifest(dir: string): Promise<Manifest | null> {
