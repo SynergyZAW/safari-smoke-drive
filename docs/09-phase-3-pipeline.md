@@ -66,3 +66,8 @@ Higgsfield credits ran low. Jon opened a BytePlus ModelArk account; Seedance 2.5
 Take 2 v3 cost 2,430,000 ModelArk tokens for 25 s at 1080p, roughly 97k tokens per second. Jon's allowance is 5M. Remaining about 2.57M: roughly 26 s more at 1080p, or roughly 60 s at 720p (tokens scale with pixel count; 720p is about 0.44x of 1080p). The site scrubs frames at 648x1152, so 720p source is sufficient. Plan: takes 3 and 4 at 720p, no retakes.
 
 The white flare on the device at the top of each raise has now appeared in three shoots with three different wordings (pull, no pull, gesture only). It is how the model animates a vape being lifted. The brief allows an LED that lights on the draw. Proposal: adopt it as canon for the gag (the light comes on, then the hit) rather than spend tokens fighting it.
+
+
+### 17 Sep: take 3 in
+
+720p costs 43,200 tokens per second (1.08M for 25 s), exactly the 0.44x of 1080p predicted. Used 3.51M of 5M; 1.49M left buys take 4 at 720p (1.08M) with about 9 s spare. The model would not go to harsh midday from a warm start; the light stays low and gold, so take 4 opens already at golden hour and carries the airborne beat and the reveal.
