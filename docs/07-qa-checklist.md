@@ -70,9 +70,9 @@ Check the seat map only from cameras behind the truck or from the bonnet looking
 Every back-row frame must layer, nearest to farthest: middle bench top, monkey, front headrests, ape and rhino rising above them, THEN the dashboard mostly hidden behind them, THEN windscreen, bonnet, track. If any dashboard or steering wheel is visible in front of or beside a front-row character, the frame is wrong. The flat POV plate vehicle-04 had this error and is no longer a layout reference.
 
 
-## Device glow (locked 16 Sep)
+## Device glow (revised 17 Sep, Jon approved)
 
-The only light on the device is the oil window, warm golden yellow, the same in every frame of every take. Never prompt a white LED, a white flare or any colour change on the device. Take 2 v1 was rejected for exactly this. The LED in the brief is a tiny indicator dot, not a light source in the film.
+The oil window glows warm gold at rest. At the top of every raise the window flares bright white for about a second: that is the LED coming on for the draw, and it is canon for the gag (the light comes on, then the hit). It happens in every take from take 2 on. Take 1's single raise has no flare and reads as a raise that never got far enough. Do not spend generations trying to suppress it; three shoots with three wordings all produced it.
 
 ## Take chaining (16 Sep)
 
