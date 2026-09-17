@@ -26,6 +26,14 @@
       "frames": 300,
       "fps": 12,
       "dir": "film3/t3"
+    },
+    {
+      "beat": "t4",
+      "from": 0.75,
+      "to": 1,
+      "frames": 300,
+      "fps": 12,
+      "dir": "film3/t4"
     }
   ]
 }

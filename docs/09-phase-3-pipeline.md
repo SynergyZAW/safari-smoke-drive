@@ -71,3 +71,8 @@ The white flare on the device at the top of each raise has now appeared in three
 ### 17 Sep: take 3 in
 
 720p costs 43,200 tokens per second (1.08M for 25 s), exactly the 0.44x of 1080p predicted. Used 3.51M of 5M; 1.49M left buys take 4 at 720p (1.08M) with about 9 s spare. The model would not go to harsh midday from a warm start; the light stays low and gold, so take 4 opens already at golden hour and carries the airborne beat and the reveal.
+
+
+### 17 Sep: all four takes in
+
+Take 4 (1.08M tokens) closes the drive: golden hour, the hang, the landing, the hold on the mirror. Total spend 4.59M of 5M; 0.41M left, about 9 s at 720p, kept in reserve. Staged cut: `public/film3` holds all four takes at 12 fps as beats t1-t4 over equal quarters of the scroll; preview on the live site with `?cut=3`. Copy timings in `src/data/chapters.ts` still follow the placeholder film and need retiming to the rendered beats.
