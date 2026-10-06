@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
-"""Minimal Higgsfield API client. Credentials from HF_KEY ("KEY_ID:KEY_SECRET"), never in the repo.
+"""Minimal Higgsfield API client. Credentials from the environment, never in the repo:
+  HF_KEY or HIGGSFIELD_API_KEY = "KEY_ID:KEY_SECRET", or HIGGSFIELD_API_KEY_ID + HIGGSFIELD_API_KEY_SECRET.
 usage: hf.py submit <model-id> <input.json>      -> prints the queue response (request_id, status_url)
        hf.py wait <status_url> [secs]            -> polls until terminal, prints the result json
        hf.py run <model-id> <input.json> [secs]  -> submit + wait
        hf.py upload <file> [content-type]       -> presigned upload, prints public_url
 """
 import json, os, sys, time, urllib.request
-KEY = os.environ["HF_KEY"]
+def _key():
+    for name in ("HF_KEY", "HIGGSFIELD_API_KEY", "HF_CREDENTIALS"):
+        v = os.environ.get(name)
+        if v and ":" in v: return v
+    kid, sec = os.environ.get("HIGGSFIELD_API_KEY_ID"), os.environ.get("HIGGSFIELD_API_KEY_SECRET")
+    if kid and sec: return f"{kid}:{sec}"
+    if os.environ.get("HIGGSFIELD_API_KEY") and sec: return f"{os.environ['HIGGSFIELD_API_KEY']}:{sec}"
+    sys.exit("No Higgsfield credentials: set HF_KEY=KEY_ID:KEY_SECRET, or HIGGSFIELD_API_KEY_ID and HIGGSFIELD_API_KEY_SECRET")
+KEY = _key()
 H = {"Authorization": f"Key {KEY}", "Content-Type": "application/json"}
 def call(method, url, body=None):
     req = urllib.request.Request(url, method=method, data=json.dumps(body).encode() if body is not None else None, headers=H)
