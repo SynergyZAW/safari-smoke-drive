@@ -99,7 +99,8 @@ export default function Stage() {
         if (p > 0.95) {
           // fall through the mouth and settle at the bottom of the jar, seen through the glass
           const f = clamp01((p - 0.95) / 0.04)
-          const restY = jarY + jarW * 1.15
+          const restY = jarY + jarW * (layout === 'portrait' ? 1.15 : 0.95)
+          x = jarX + jarW * 0.12 * f
           y = hoverY + (restY - hoverY) * f * f
           s = endScale * (1 - 0.15 * f)
           o = 1 - 0.3 * clamp01((y - jarY) / (restY - jarY))
