@@ -19,9 +19,11 @@ export type Station = {
   swatch?: string
 }
 
-export const MASTER: Record<Layout, { src: string; w: number; h: number; pool: { x: number; y: number } }> = {
-  portrait: { src: '/img/river-portrait.webp', w: 1152, h: 2048, pool: { x: 0.55, y: 0.9 } },
-  landscape: { src: '/img/river-landscape.webp', w: 2048, h: 1152, pool: { x: 0.47, y: 0.82 } },
+// The world is the pool version of each master: the river from the top down to the kiosk and the jar.
+// `jar` is the mouth of the jar on the kiosk counter, where The Drop lands.
+export const MASTER: Record<Layout, { src: string; w: number; h: number; jar: { x: number; y: number }; endZoom: number }> = {
+  portrait: { src: '/img/world-portrait.webp', w: 1152, h: 2048, jar: { x: 0.515, y: 0.957 }, endZoom: 2.2 },
+  landscape: { src: '/img/world-landscape.webp', w: 2048, h: 1152, jar: { x: 0.463, y: 0.789 }, endZoom: 2.6 },
 }
 
 // Camera path is derived from the stations: the camera dwells on each one at the centre of its note window.
@@ -57,16 +59,16 @@ const copy = {
 
 export const STATIONS: Record<Layout, Station[]> = {
   portrait: [
-    { id: 'hare', src: '/img/station-hare.webp', x: 0.64, y: 0.285, w: 0.2, note: [0.1, 0.26], ...copy.hare },
-    { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.22, y: 0.46, w: 0.2, note: [0.3, 0.46], ...copy.gorilla },
-    { id: 'tiger', src: '/img/station-tiger.webp', x: 0.74, y: 0.62, w: 0.19, note: [0.5, 0.66], ...copy.tiger },
-    { id: 'vape', x: 0.22, y: 0.76, w: 0.18, note: [0.7, 0.85], ...copy.vape },
+    { id: 'hare', src: '/img/station-hare.webp', x: 0.66, y: 0.3, w: 0.2, note: [0.1, 0.25], ...copy.hare },
+    { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.22, y: 0.47, w: 0.2, note: [0.29, 0.44], ...copy.gorilla },
+    { id: 'tiger', src: '/img/station-tiger.webp', x: 0.76, y: 0.63, w: 0.19, note: [0.48, 0.63], ...copy.tiger },
+    { id: 'vape', x: 0.22, y: 0.78, w: 0.18, note: [0.67, 0.8], ...copy.vape },
   ],
   landscape: [
-    { id: 'hare', src: '/img/station-hare.webp', x: 0.455, y: 0.4, w: 0.085, note: [0.1, 0.26], ...copy.hare },
-    { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.73, y: 0.56, w: 0.09, note: [0.3, 0.46], ...copy.gorilla },
-    { id: 'tiger', src: '/img/station-tiger.webp', x: 0.25, y: 0.68, w: 0.085, note: [0.5, 0.66], ...copy.tiger },
-    { id: 'vape', x: 0.8, y: 0.75, w: 0.07, note: [0.7, 0.85], ...copy.vape },
+    { id: 'hare', src: '/img/station-hare.webp', x: 0.46, y: 0.41, w: 0.085, note: [0.1, 0.25], ...copy.hare },
+    { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.73, y: 0.52, w: 0.09, note: [0.29, 0.44], ...copy.gorilla },
+    { id: 'tiger', src: '/img/station-tiger.webp', x: 0.24, y: 0.64, w: 0.085, note: [0.48, 0.63], ...copy.tiger },
+    { id: 'vape', x: 0.83, y: 0.77, w: 0.07, note: [0.67, 0.8], ...copy.vape },
   ],
 }
 
@@ -88,8 +90,10 @@ for (const layout of ['portrait', 'landscape'] as Layout[]) {
     path.push({ p: mid, x: look.x, y: look.y, z })
     path.push({ p: s.note[1] - 0.02, x: look.x, y: look.y, z })
   }
-  const pool = MASTER[layout].pool
-  path.push({ p: 1, x: pool.x, y: pool.y - 0.06, z: z * 0.8 })
+  const { jar, endZoom } = MASTER[layout]
+  // arrive at the kiosk and hold while the gummy drops into the jar
+  path.push({ p: 0.9, x: jar.x, y: jar.y - (layout === 'portrait' ? 0.04 : 0.03), z: endZoom })
+  path.push({ p: 1, x: jar.x, y: jar.y - (layout === 'portrait' ? 0.04 : 0.03), z: endZoom })
   CAMERA[layout] = path
 }
 

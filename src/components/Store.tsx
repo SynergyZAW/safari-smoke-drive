@@ -1,12 +1,9 @@
 import { PRODUCTS, STORE_URL, VAPES } from '../data/scene'
 
-export default function Store({ landscape }: { landscape: boolean }) {
+export default function Store() {
   return (
     <section className="store" id="store">
-      <div className="cover">
-        <img src={landscape ? '/img/pool-landscape.webp' : '/img/pool-portrait.webp'} alt="The watering hole, with the ranger's kiosk at the water's edge" />
-      </div>
-      <div className="mx-auto max-w-6xl px-4 pb-16 -mt-10 relative">
+      <div className="mx-auto max-w-6xl px-4 pt-14 pb-16 relative">
         <p className="display text-sm tracking-[0.2em] uppercase" style={{ color: 'var(--lime)' }}>The watering hole</p>
         <h2 className="display text-5xl md:text-7xl leading-none mt-2">Drink up.</h2>
         <p className="mt-4 max-w-xl font-bold opacity-90">

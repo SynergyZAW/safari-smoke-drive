@@ -76,23 +76,34 @@ export default function Stage() {
       const ty = vh / 2 - cy * H * c.z
       el.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${c.z})`
 
-      // The Drop: tumbles down the screen, then lands in the pool.
+      // The Drop: tumbles down the screen for most of the journey, then drops into the jar on the kiosk.
       const d = drop.current!
-      const land = master.pool
-      const landX = tx + land.x * W * c.z, landY = ty + land.y * H * c.z
-      const fall = clamp01((p - 0.04) / 0.86)
-      const sway = Math.sin(p * Math.PI * 5) * vw * 0.16 * (1 - clamp01((p - 0.8) / 0.15))
+      const jar = master.jar
+      const jarX = tx + jar.x * W * c.z, jarY = ty + jar.y * H * c.z
+      const jarW = (layout === 'portrait' ? 0.085 : 0.045) * W * c.z // jar mouth width on screen
+      const fall = clamp01((p - 0.04) / 0.8)
+      const sway = Math.sin(p * Math.PI * 5) * vw * 0.16 * (1 - clamp01((p - 0.78) / 0.1))
       const sizePx = Math.min(vw, vh) * (layout === 'portrait' ? 0.24 : 0.14)
       const scale = sizePx / 120
-      let x = vw * 0.5 + sway, y = vh * (0.2 + 0.5 * fall)
+      let x = vw * 0.5 + sway, y = vh * (0.2 + 0.45 * fall)
       let s = scale, o = 1
-      if (p > 0.9) {
-        const t = clamp01((p - 0.9) / 0.08)
-        const e = t * t
-        x = x + (landX - x) * e
-        y = y + (landY - y) * e
-        s = scale * (1 - 0.55 * e)
-        o = 1 - clamp01((p - 0.975) / 0.025)
+      if (p > 0.86) {
+        // glide to a point above the jar, then fall straight in
+        const t = clamp01((p - 0.86) / 0.07)
+        const e = t * t * (3 - 2 * t)
+        const hoverY = jarY - vh * (layout === 'portrait' ? 0.3 : 0.36)
+        x = x + (jarX - x) * e
+        y = y + (hoverY - y) * e
+        const endScale = (jarW * 0.9) / 120
+        s = scale + (endScale - scale) * e
+        if (p > 0.95) {
+          // fall through the mouth and settle at the bottom of the jar, seen through the glass
+          const f = clamp01((p - 0.95) / 0.04)
+          const restY = jarY + jarW * 1.15
+          y = hoverY + (restY - hoverY) * f * f
+          s = endScale * (1 - 0.15 * f)
+          o = 1 - 0.3 * clamp01((y - jarY) / (restY - jarY))
+        }
       }
       d.style.opacity = String(p < 0.03 ? p / 0.03 : o)
       d.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${s})`
@@ -107,10 +118,11 @@ export default function Stage() {
           lastFrame.current = fi
         }
       }
+      // plink: a ring at the jar mouth as it lands
       const sp = splash.current!
-      const st = clamp01((p - 0.975) / 0.025)
+      const st = clamp01((p - 0.972) / 0.02)
       sp.style.opacity = String(st > 0 ? (1 - st) * 0.9 : 0)
-      sp.style.transform = `translate3d(${landX}px, ${landY}px, 0) scale(${(0.5 + 2.2 * st) * c.z * (layout === 'portrait' ? 0.9 : 0.6)})`
+      sp.style.transform = `translate3d(${jarX}px, ${jarY}px, 0) scale(${(0.3 + 0.9 * st) * (jarW / 160)})`
 
       // HUD
       const tf = 1 - clamp01(p / 0.09)
@@ -159,7 +171,7 @@ export default function Stage() {
             ) : null,
           )}
           {debug && stations.map((s) => <div key={`d-${s.id}`} className="debug-dot" style={{ left: `${s.x * 100}%`, top: `${s.y * 100}%` }} />)}
-          {debug && <div className="debug-dot" style={{ left: `${master.pool.x * 100}%`, top: `${master.pool.y * 100}%`, background: '#1be0ff' }} />}
+          {debug && <div className="debug-dot" style={{ left: `${master.jar.x * 100}%`, top: `${master.jar.y * 100}%`, background: '#1be0ff' }} />}
         </div>
 
         <div className="splash" ref={splash} />

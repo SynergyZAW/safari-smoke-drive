@@ -21,7 +21,7 @@ One scroll-driven page that headlines the Safari Snaxx gummies and the live-rosi
 7. The current gummies packaging is a trial run and stays off the site. Show the gummies themselves, the mascots and the flavours, not the bags.
 8. The gummy shape is locked to Jon's photos in `refs/gummies/`: a truncated square pyramid (flat square top, wider square base, rounded edges) crusted in coarse sugar crystals. Never a cube, never a bear.
 9. The Eco-Star device has no "dimples" (the two curved marks near the top on the 3D sheet). The official product photo is the reference: plain speckled cream (or matte black) body, mouthpiece cap, round oil window with the gold oil, one small LED dot, USB-C on the back. Nothing else on the body. No lettering, no sticker.
-10. Vape crew (from Jon's 3D mockups, 6 Oct): rhino ranger (khaki shirt, shorts, boots, ranger hat), red tracksuit monkey (black cap), Hawaiian-shirt ape (orange hat, sunglasses, denim shorts, sandals). Strain names and which device each carries: TBC from Jon.
+10. Vape crew (from Jon's 3D mockups, 6 Oct): rhino ranger (khaki shirt, shorts, boots, ranger hat), red tracksuit monkey (black cap), Hawaiian-shirt ape (orange hat, sunglasses, denim shorts, sandals). Strains (Jon, 6 Oct): rhino = Sour Diesel, monkey = Permanent Marker, ape = Banana Shack. All three come in 0.5 ml and 1 ml.
 
 ## Supply (from Jon)
 - Gummies: Safari Snaxx Premium Gummies, fast-acting rosin, full spectrum, 50 g bags of 10 x 20 mg. Flavours: Cherry, Pink Lemonade, Watermelon, Variety Pack, Tangerine, Blueberry. Pack: green-to-purple halftone, comic burst flavour badge, three mascots on the face (hare in orange cap, tiger in blue bucket hat, gorilla in yellow hat).
