@@ -1,115 +1,47 @@
-/**
- * The film manifest: per-beat frame sequences scrubbed by scroll progress.
- * public/film/manifest.json is written by scripts/extract-frames.mjs. Absent = pre-viz animatic.
- */
-export interface Beat {
-  beat: string
-  from: number
-  to: number
-  frames: number
+export type Manifest = { fps: number; count: number; w: number; h: number; segments: { clip: string; start: number; end: number }[] }
+
+const pad = (i: number) => String(i).padStart(5, '0')
+
+/** Loads a frame sequence progressively: a coarse pass first so scrubbing works early, then the rest. */
+export class FrameSet {
+  frames: (HTMLImageElement | null)[] = []
+  loaded = new Set<number>()
   dir: string
-}
-export interface Manifest {
-  fps: number
-  width: number
-  height: number
-  beats: Beat[]
-}
-
-/** `?cut=3` previews a staged frame set (public/film3) without replacing the live one. */
-function cutSuffix(): string {
-  try {
-    const c = new URLSearchParams(window.location.search).get('cut')
-    return c && /^[a-z0-9]{1,8}$/i.test(c) ? c : ''
-  } catch {
-    return ''
+  m: Manifest
+  private onFrame?: (i: number) => void
+  constructor(dir: string, m: Manifest, onFrame?: (i: number) => void) {
+    this.dir = dir; this.m = m; this.onFrame = onFrame
+    this.frames = new Array(m.count).fill(null)
   }
-}
-
-/** Bump when the frame set changes so every client refetches the manifest. */
-export const FILM_VERSION = '3'
-
-export async function loadManifest(wide = false): Promise<Manifest | null> {
-  // Landscape viewports get the reframed 16:9 set when it exists, otherwise the portrait master (cover-fit).
-  const cut = cutSuffix()
-  if (wide) {
-    const m = await fetchManifest(`film${cut}-wide`)
-    if (m) return m
+  src(i: number) { return `${this.dir}/f${pad(i)}.webp` }
+  load(i: number): Promise<void> {
+    if (this.frames[i]) return Promise.resolve()
+    return new Promise((res) => {
+      const im = new Image()
+      im.decoding = 'async'
+      im.onload = () => { this.frames[i] = im; this.loaded.add(i); this.onFrame?.(i); res() }
+      im.onerror = () => res()
+      im.src = this.src(i)
+    })
   }
-  return (await fetchManifest(`film${cut}`)) ?? (cut ? fetchManifest('film') : null)
-}
-
-async function fetchManifest(dir: string): Promise<Manifest | null> {
-  try {
-    // Always revalidate: a cached manifest from an older deploy points at frame folders that no longer exist.
-    const r = await fetch(`${import.meta.env.BASE_URL}${dir}/manifest.json?v=${FILM_VERSION}`, { cache: 'no-cache' })
-    if (!r.ok) return null
-    const m = (await r.json()) as Manifest
-    if (!m.beats?.length) return null
-    // Guard against a manifest whose frames are missing (a deploy mismatch): fall back to the animatic, never to black.
-    const probe = await fetch(frameUrl(m.beats[0], 0), { cache: 'no-cache' })
-    return probe.ok ? m : null
-  } catch {
+  async loadAll(concurrency = 6) {
+    const order: number[] = []
+    for (const step of [16, 4, 1]) for (let i = 0; i < this.m.count; i += step) if (!order.includes(i)) order.push(i)
+    let next = 0
+    const worker = async () => { while (next < order.length) { const i = order[next++]; await this.load(i) } }
+    await Promise.all(Array.from({ length: concurrency }, worker))
+  }
+  /** nearest loaded frame at or before i, else the nearest after */
+  nearest(i: number): HTMLImageElement | null {
+    for (let k = i; k >= 0; k--) if (this.frames[k]) return this.frames[k]
+    for (let k = i + 1; k < this.m.count; k++) if (this.frames[k]) return this.frames[k]
     return null
   }
 }
 
-export function frameFor(m: Manifest, p: number): { beat: Beat; index: number } | null {
-  const f = framePos(m, p)
-  return f && { beat: f.beat, index: f.index }
-}
-
-/** Frame position with the fraction toward the next frame, so the stage can cross-fade between the two. */
-export function framePos(m: Manifest, p: number): { beat: Beat; index: number; frac: number } | null {
-  const beat = m.beats.find((b) => p >= b.from && p < b.to) ?? (p >= 1 ? m.beats[m.beats.length - 1] : null)
-  if (!beat) return null
-  const t = Math.min(1, Math.max(0, (p - beat.from) / (beat.to - beat.from)))
-  const pos = t * (beat.frames - 1)
-  const index = Math.min(beat.frames - 1, Math.floor(pos))
-  return { beat, index, frac: index >= beat.frames - 1 ? 0 : pos - index }
-}
-
-export function frameUrl(beat: Beat, index: number) {
-  return `${import.meta.env.BASE_URL}${beat.dir}/f_${String(index + 1).padStart(4, '0')}.webp`
-}
-export function posterUrl(beat: Beat) {
-  return `${import.meta.env.BASE_URL}${beat.dir}/poster.jpg`
-}
-
-/** Lazy per-beat frame cache. The first beat preloads; the rest load when their beat is within reach. */
-export class FrameCache {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  constructor(_m: Manifest) {}
-  private imgs = new Map<string, HTMLImageElement>()
-  private loading = new Set<string>()
-  get(beat: Beat, index: number): HTMLImageElement | null {
-    const url = frameUrl(beat, index)
-    const im = this.imgs.get(url)
-    if (im && im.complete && im.naturalWidth) return im
-    if (!im) this.load(url)
-    return null
-  }
-  private load(url: string) {
-    if (this.loading.has(url)) return
-    this.loading.add(url)
-    const im = new Image()
-    im.decoding = 'async'
-    im.src = url
-    this.imgs.set(url, im)
-  }
-  /** Preload every frame of a beat (called for the current beat and the next). */
-  warm(beat: Beat) {
-    for (let i = 0; i < beat.frames; i++) this.load(frameUrl(beat, i))
-  }
-  nearest(beat: Beat, index: number): HTMLImageElement | null {
-    // fall back to the closest loaded frame so scrubbing never blanks
-    for (let d = 0; d < beat.frames; d++) {
-      for (const i of [index - d, index + d]) {
-        if (i < 0 || i >= beat.frames) continue
-        const im = this.imgs.get(frameUrl(beat, i))
-        if (im && im.complete && im.naturalWidth) return im
-      }
-    }
-    return null
-  }
+/** Draw an image to cover the canvas (like object-fit: cover). */
+export function drawCover(ctx: CanvasRenderingContext2D, im: HTMLImageElement, cw: number, ch: number) {
+  const s = Math.max(cw / im.naturalWidth, ch / im.naturalHeight)
+  const w = im.naturalWidth * s, h = im.naturalHeight * s
+  ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h)
 }

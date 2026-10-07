@@ -1,16 +1,32 @@
-# Safari Smoke — The Drive
+# React + TypeScript + Vite
 
-One long-form page. Scroll is the truck. Eight chapters, first-person, back row.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-- `docs/` — the creative package for approval: concept, scene list, character bible plan, impact library, generation plan, design system, QA, supply blanks and overrules. **Read `docs/00-start-here.md` first.**
-- `src/` — React + TypeScript + Tailwind + Vite. GSAP ScrollTrigger for progress. The film is currently a **pre-viz animatic** drawn in palette silhouettes so the flow can be felt before any cinematic asset is generated.
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
-npm i
-npm run dev        # local
-npm run build      # dist/
-npm run preview    # serve dist/ on :4173
-node scripts/qa-screens.mjs http://localhost:4173/   # screenshots at 320/375/768/1024/1440
-```
 
-Placeholders on purpose this phase: the stockist route (`#/stockists`), analytics (`src/lib/analytics.ts` stubs), the proof photographs, and the film frames.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

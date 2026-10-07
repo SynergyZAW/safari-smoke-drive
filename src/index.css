@@ -1,99 +1,144 @@
 @import "tailwindcss";
 
-/* Badaboom Pro BB — licensed, supplied by Jon. Subset to Latin, display only, all caps. */
-@font-face {
-  font-family: "Badaboom";
-  src: url("/fonts/badaboom-subset.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-/* Atkinson Hyperlegible (OFL) — the one quiet sans for body and UI. Self-hosted. */
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  src: url("/fonts/atkinson-400-latin.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122;
-}
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  src: url("/fonts/atkinson-700-latin.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122;
+:root {
+  --ink: #1b0b2e;
+  --cream: #fff4e3;
+  --lime: #9ad51d;
+  --grape: #5a2d9c;
+  --orange: #f26a1b;
+  --teal: #16a4a0;
+  --sand: #e9b85c;
+  --display: "Lilita One", "Arial Black", sans-serif;
+  --body: "Nunito", system-ui, sans-serif;
 }
 
-@theme {
-  /* The whole palette. Sampled from the SOIL2OIL pack. Nothing else. */
-  --color-gold: #c99a2e;
-  --color-crimson: #d8253f;
-  --color-cobalt: #3a96e5;
-  --color-flag: #007a4d;
-  --color-ink: #0b0b0b;
-  --color-paper: #fffdf7;
-  /* Product materials (not palette, product truth) */
-  --color-bone: #ede4d0;
-  --color-bone-base: #8d8378;
-  --color-rosin: #f6c945;
-  --color-rosin-hot: #fff2a8;
-
-  --font-display: "Badaboom", "Impact", "Arial Narrow", sans-serif;
-  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
-  --ease-hit: cubic-bezier(0.2, 0.9, 0.1, 1);
-}
-
-html {
-  color-scheme: dark;
-  scroll-behavior: auto;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: auto; }
 body {
   margin: 0;
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+.display { font-family: var(--display); letter-spacing: 0.01em; }
 
-/* Display type: Badaboom is comic lettering. Never below 18px, never for paragraphs. */
-.display {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.95;
-  font-weight: 400;
+/* ---------- stage ---------- */
+.journey { position: relative; }
+.stage {
+  position: relative; height: 100vh; height: 100svh; width: 100%;
+  overflow: hidden; background: #2b1247;
 }
-/* Comic lettering treatment: fat ink outline + hard drop, like the pack balloons. */
-.lettering {
-  color: var(--color-paper);
-  -webkit-text-stroke: 0.06em var(--color-ink);
-  paint-order: stroke fill;
-  text-shadow: 0.08em 0.08em 0 var(--color-ink);
+.world {
+  position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform;
 }
-.lettering-gold {
-  color: var(--color-gold);
+.world > img.master {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; -webkit-user-drag: none;
 }
-.lettering-crimson {
-  color: var(--color-crimson);
+.station {
+  position: absolute; transform: translate(-50%, -100%); pointer-events: none;
+  filter: drop-shadow(0 18px 14px rgba(20, 5, 0, 0.35));
 }
-
-.visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+.station img { width: 100%; height: auto; display: block; }
+.station.vape-pending {
+  width: 14%; aspect-ratio: 3/4; border: 3px dashed rgba(255,244,227,0.6); border-radius: 18px;
+  display: grid; place-items: center; color: var(--cream); font-size: 0.6em; text-align: center; padding: 6%;
+  background: rgba(27,11,46,0.35); backdrop-filter: blur(2px);
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-gold);
-  outline-offset: 3px;
+/* ---------- the drop ---------- */
+.drop {
+  position: absolute; left: 0; top: 0; width: 120px; height: 120px; margin: -60px 0 0 -60px;
+  pointer-events: none; will-change: transform, opacity;
+  filter: drop-shadow(0 10px 10px rgba(20, 5, 0, 0.35));
+}
+.drop canvas { width: 100%; height: 100%; display: block; }
+.splash {
+  position: absolute; left: 0; top: 0; width: 160px; height: 60px; margin: -30px 0 0 -80px;
+  border: 4px solid rgba(255,255,255,0.85); border-radius: 50%; opacity: 0; pointer-events: none; will-change: transform, opacity;
 }
 
-.stage-copy {
-  transition: opacity 180ms linear, transform 180ms var(--ease-hit);
-  will-change: opacity, transform;
+/* ---------- overlays ---------- */
+.hud { position: absolute; inset: 0; pointer-events: none; }
+.hud > * { pointer-events: auto; }
+.brand {
+  position: absolute; top: max(14px, env(safe-area-inset-top)); left: 18px; right: 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.wordmark { font-family: var(--display); font-size: clamp(22px, 3vw, 30px); color: var(--cream); text-shadow: 0 2px 0 rgba(0,0,0,0.35); text-decoration: none; }
+.pill {
+  font-family: var(--display); font-size: 14px; letter-spacing: 0.04em; color: var(--ink);
+  background: var(--lime); border-radius: 999px; padding: 8px 14px; text-decoration: none; box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+}
+
+.title {
+  position: absolute; left: 0; right: 0; top: 16vh; text-align: center; padding: 0 20px; will-change: opacity, transform;
+}
+.title h1 {
+  font-family: var(--display); margin: 0; line-height: 0.92;
+  font-size: clamp(56px, 12vw, 150px); color: var(--cream);
+  text-shadow: 0 5px 0 var(--grape), 0 12px 24px rgba(0,0,0,0.35);
+}
+.title h1 span { display: block; color: var(--lime); -webkit-text-stroke: 0; }
+.title p { font-family: var(--body); font-weight: 800; font-size: clamp(16px, 2.2vw, 24px); margin: 14px 0 0; color: var(--cream); text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); font-weight: 800; font-size: 13px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--cream); opacity: 0.9; text-shadow: 0 2px 6px rgba(0,0,0,0.6); will-change: opacity;
+}
+.scroll-cue::after { content: ""; display: block; width: 2px; height: 28px; margin: 8px auto 0; background: var(--cream); animation: cue 1.4s ease-in-out infinite; }
+@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+.note {
+  position: absolute; left: 16px; right: 16px; bottom: max(18px, env(safe-area-inset-bottom));
+  background: var(--cream); color: var(--ink); border-radius: 22px; padding: 16px 18px 18px;
+  box-shadow: 0 10px 0 rgba(27,11,46,0.35), 0 22px 40px rgba(0,0,0,0.35);
+  opacity: 0; transform: translateY(24px); will-change: opacity, transform;
+}
+.note .kicker { font-family: var(--display); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin: 0 0 4px; }
+.note h2 { font-family: var(--display); font-size: clamp(26px, 5.5vw, 38px); margin: 0 0 6px; line-height: 1; }
+.note p { margin: 0; font-weight: 700; font-size: 15px; line-height: 1.35; }
+.note .swatch { position: absolute; right: 14px; top: -34px; width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 4px solid var(--cream); box-shadow: 0 6px 14px rgba(0,0,0,0.3); background: #2b1247; }
+.note .swatch img { width: 100%; height: 100%; object-fit: cover; }
+@media (orientation: landscape) and (min-width: 900px) {
+  .note { left: auto; right: 40px; bottom: 40px; width: 360px; padding: 22px 24px 24px; }
+  .note p { font-size: 16px; }
+}
+
+.debug-dot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #ff2d9b; border: 2px solid #fff; }
+
+/* ---------- store ---------- */
+.store { position: relative; background: linear-gradient(#0e5f6a, #0b3b4a 18%, var(--ink) 55%); color: var(--cream); }
+.store .cover { position: relative; width: 100%; display: block; }
+.store .cover img { width: 100%; height: auto; display: block; }
+.store .cover::after { content: ""; position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(transparent, #0b3b4a); }
+.card { background: rgba(255,244,227,0.06); border: 1px solid rgba(255,244,227,0.14); border-radius: 22px; overflow: hidden; transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.btn { font-family: var(--display); letter-spacing: 0.04em; color: var(--ink); background: var(--lime); border-radius: 999px; padding: 10px 18px; display: inline-block; text-decoration: none; box-shadow: 0 4px 0 rgba(0,0,0,0.3); }
+.btn.ghost { background: transparent; color: var(--cream); border: 2px solid rgba(255,244,227,0.5); box-shadow: none; }
+
+/* ---------- age gate ---------- */
+.gate { position: fixed; inset: 0; z-index: 50; background: rgba(27,11,46,0.92); display: grid; place-items: center; padding: 20px; }
+.gate .box { background: var(--cream); color: var(--ink); border-radius: 26px; padding: 28px 26px; max-width: 420px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+@media (prefers-reduced-motion: reduce) { .scroll-cue::after { animation: none; } }
+
+/* ---------- film stage ---------- */
+canvas.film { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: #2b1247; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--cream); font-size: 18px; letter-spacing: 0.04em; }
+.card-beat {
+  position: absolute; left: 16px; right: 16px; bottom: max(22px, env(safe-area-inset-bottom));
+  color: var(--cream); opacity: 0; transform: translateY(24px); will-change: opacity, transform;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.8);
+}
+.card-beat .kicker { font-family: var(--display); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin: 0 0 6px; }
+.card-beat h2 { font-family: var(--display); font-size: clamp(30px, 7vw, 56px); line-height: 0.95; margin: 0 0 8px; }
+.card-beat h2.hero { font-size: clamp(60px, 14vw, 150px); color: var(--cream); text-shadow: 0 5px 0 var(--grape), 0 12px 24px rgba(0,0,0,0.45); }
+.card-beat p { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.35; max-width: 34ch; }
+.card-beat.center { text-align: center; bottom: auto; top: 14vh; }
+.card-beat.center p { margin: 0 auto; }
+@media (orientation: landscape) and (min-width: 900px) {
+  .card-beat { left: 56px; right: auto; bottom: 56px; max-width: 420px; }
+  .card-beat.right { left: auto; right: 56px; }
+  .card-beat p { font-size: 18px; }
 }
