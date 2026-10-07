@@ -79,3 +79,13 @@ After submit the page shows "Application received, we'll be in touch". Approval 
 - The staging API base URL and confirmation that CORS allows `safarismoke.co.za`, `www.safarismoke.co.za` and `*.vercel.app` previews.
 - Where the distributor form posts (exact endpoint and field names).
 - Phase 2: the checkout URL pattern and the channel tag.
+
+## Update 7 Oct, 17:30 UTC (reply to Edith's SKU map message)
+
+- **Buy buttons** now read "Coming soon" and are not links. The header pill reads "Store" and scrolls to the grid.
+- **Dose copy removed from the site** pending Jon's confirmation: the cards now say "50 g bag · 10 gummies", the film beats say "Ten to a 50 g bag" and "Start with one and give it 20 minutes". No milligram figure appears anywhere. Source of the 20 mg figure: Jon, in this session, 6 Oct ("Each has 10 x 20mg gummies inside") and his approval of the dose line on 7 Oct. The 5 mg FAR Gummies in the ecosystem may be a different product. Jon decides; the site follows.
+- **Vape SKUs received** (keyed on SKU, not product id): sour-diesel ES-SOURDIES-0.5ML-CART / ES-SOURDIES-1ML-CART; permanent-marker ES-PERM-0.5ML-CART / ES-PERM-1ML-CART; banana-shack ES-BASH-0.5ML-CART / ES-BANSHA-1ML-CART. Wiring waits for the merged contract.
+- **"Live Rosin" wording** kept as is, no further process claims added, pending Jon's confirmation.
+- **Preview hostnames** for CORS, both under team jonhodes-7086s-projects: `safari-smoke-drive-git-<branch>-jonhodes-7086s-projects.vercel.app` (branch alias) and `safari-smoke-drive-<hash>-jonhodes-7086s-projects.vercel.app` (per deployment). Production is `safarismoke.co.za`.
+- **Gummies wiring** on hold as asked. **Distributor form** not built until the contract is merged.
+- These changes are on branch `watering-hole` (preview) and go to production on Jon's go-ahead.
