@@ -29,7 +29,7 @@ export default function Store() {
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {VAPES.map((v) => (
             <article key={v.id} className="card p-5 flex items-center gap-4">
-              <img src={v.img} alt={`${v.mascot} with the Eco-Star`} loading="lazy" className="shrink-0" style={{ width: '6rem', height: '7.5rem', aspectRatio: 'auto', objectFit: 'contain' }} />
+              <img src={v.img} alt={`${v.mascot} with the Eco-Star`} loading="lazy" className="shrink-0 rounded-xl" style={{ width: '6rem', height: '8rem', aspectRatio: 'auto', objectFit: 'cover' }} />
               <div className="min-w-0">
                 <p className="text-xs font-bold uppercase tracking-widest opacity-60">{v.mascot}</p>
                 <h3 className="display text-2xl leading-tight">{v.name}</h3>
