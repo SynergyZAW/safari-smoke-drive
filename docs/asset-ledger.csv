@@ -50,7 +50,7 @@ k1-macro-gummy-p,pullback,refs/out/k1-macro-gummy-p.png,alibaba/qwen-image-3/edi
 k2-hare-closeup-p,pullback,refs/out/k2-hare-closeup-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;gummy-hero-v2,K2 portrait,PENDING APPROVAL,
 k3-hare-on-gorilla-p,pullback,refs/out/k3-hare-on-gorilla-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;gummy-hero-v2,K3 portrait,REJECTED,Two hares
 k3-hare-on-gorilla-p-v2,pullback,refs/out/k3-hare-on-gorilla-p-v2.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;gummy-hero-v2,"K3 portrait, exactly one hare",PENDING APPROVAL,Chosen over v3 for matching the master framing
-k4-crew-at-counter-p,pullback,refs/out/k4-crew-at-counter-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;ref-ecostar-sheets,K4 portrait,PENDING APPROVAL,
+k4-crew-at-counter-p,pullback,refs/out/k4-crew-at-counter-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;ref-ecostar-sheets,K4 portrait,REJECTED,"Hare standing on the ground, inconsistent with K3 and K5"
 k6-veranda-rangers-p,pullback,refs/out/k6-veranda-rangers-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;ref-ecostar-sheets,K6 portrait,PENDING APPROVAL,
 k7-counter-products-p,pullback,refs/out/k7-counter-products-p.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-ecostar-sheets;gummy-hero-v2,K7 portrait,PENDING APPROVAL,
 film-l-s1,film,scratch film-l/s1.mp4,bytedance/seedance-2.5/image-to-video,k1-macro-gummy;k2-hare-closeup,"Desktop segment 1: pull back from the gummy macro to the hare close-up, 5 s 720p, first+last frame",APPROVED,Frames 0-60 of public/film/landscape
@@ -59,9 +59,12 @@ film-l-s3,film,scratch film-l/s3.mp4,bytedance/seedance-2.5/image-to-video,k3-ha
 film-l-s4,film,scratch film-l/s4.mp4,bytedance/seedance-2.5/image-to-video,k4-crew-at-counter;master-wide-landscape-v1,Desktop segment 4: pull back to the whole trading post,APPROVED,Frames 181-240
 film-l-s5,film,scratch film-l/s5.mp4,bytedance/seedance-2.5/image-to-video,master-wide-landscape-v1;k6-veranda-rangers,Desktop segment 5: push in to the rangers on the veranda,APPROVED,Frames 241-300
 film-l-s6,film,scratch film-l/s6.mp4,bytedance/seedance-2.5/image-to-video,k6-veranda-rangers;k7-counter-products-v2,"Desktop segment 6: tilt down to the counter, jar and pens",APPROVED,"Frames 301-360. Film assembled by scripts/film-frames.py at 12 fps, 1280x720"
-film-p-s1,film,scratch film-p/s1.mp4,bytedance/seedance-2.5/image-to-video,"k1-macro-gummy-p;k2-hare-closeup-p","Phone segment 1",PENDING APPROVAL,"public/film/portrait frames 0-60"
-film-p-s2,film,scratch film-p/s2.mp4,bytedance/seedance-2.5/image-to-video,"k2-hare-closeup-p;k3-hare-on-gorilla-p-v2","Phone segment 2",PENDING APPROVAL,"frames 61-120"
-film-p-s3,film,scratch film-p/s3.mp4,bytedance/seedance-2.5/image-to-video,"k3-hare-on-gorilla-p-v2;k4-crew-at-counter-p","Phone segment 3",PENDING APPROVAL,"frames 121-180"
-film-p-s4,film,scratch film-p/s4.mp4,bytedance/seedance-2.5/image-to-video,"k4-crew-at-counter-p;master-wide-portrait-v3","Phone segment 4",PENDING APPROVAL,"frames 181-240"
-film-p-s5,film,scratch film-p/s5.mp4,bytedance/seedance-2.5/image-to-video,"master-wide-portrait-v3;k6-veranda-rangers-p","Phone segment 5",PENDING APPROVAL,"frames 241-300"
-film-p-s6,film,scratch film-p/s6.mp4,bytedance/seedance-2.5/image-to-video,"k6-veranda-rangers-p;k7-counter-products-p","Phone segment 6",PENDING APPROVAL,"frames 301-360. 12 fps, 720x1280"
+film-p-s1,film,scratch film-p/s1.mp4,bytedance/seedance-2.5/image-to-video,k1-macro-gummy-p;k2-hare-closeup-p,Phone segment 1,PENDING APPROVAL,public/film/portrait frames 0-60
+film-p-s2,film,scratch film-p/s2.mp4,bytedance/seedance-2.5/image-to-video,k2-hare-closeup-p;k3-hare-on-gorilla-p-v2,Phone segment 2,PENDING APPROVAL,frames 61-120
+film-p-s3,film,scratch film-p/s3.mp4,bytedance/seedance-2.5/image-to-video,k3-hare-on-gorilla-p-v2;k4-crew-at-counter-p,Phone segment 3,SUPERSEDED,Hare hopped down to the ground between K3 and K4. Reshot from k4-crew-at-counter-p-v3
+film-p-s4,film,scratch film-p/s4.mp4,bytedance/seedance-2.5/image-to-video,k4-crew-at-counter-p;master-wide-portrait-v3,Phone segment 4,SUPERSEDED,Hare hopped down to the ground between K3 and K4. Reshot from k4-crew-at-counter-p-v3
+film-p-s5,film,scratch film-p/s5.mp4,bytedance/seedance-2.5/image-to-video,master-wide-portrait-v3;k6-veranda-rangers-p,Phone segment 5,PENDING APPROVAL,frames 241-300
+film-p-s6,film,scratch film-p/s6.mp4,bytedance/seedance-2.5/image-to-video,k6-veranda-rangers-p;k7-counter-products-p,Phone segment 6,PENDING APPROVAL,"frames 301-360. 12 fps, 720x1280"
+k4-crew-at-counter-p-v3,pullback,refs/out/k4-crew-at-counter-p-v3.png,alibaba/qwen-image-3/edit,master-wide-portrait-v3;ref-all-six-sheet;ref-ecostar-sheets,K4 portrait with the hare kept on the gorilla's shoulder,PENDING APPROVAL,v2 also generated; v3 chosen for matching K5
+film-p-s3-v2,film,scratch film-p/s3-v2.mp4,bytedance/seedance-2.5/image-to-video,k3-hare-on-gorilla-p-v2;k4-crew-at-counter-p-v3,"Phone segment 3, reshot",PENDING APPROVAL,frames 121-180
+film-p-s4-v2,film,scratch film-p/s4-v2.mp4,bytedance/seedance-2.5/image-to-video,k4-crew-at-counter-p-v3;master-wide-portrait-v3,"Phone segment 4, reshot",PENDING APPROVAL,frames 181-240
