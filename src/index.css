@@ -122,3 +122,23 @@ body {
 .gate .box { background: var(--cream); color: var(--ink); border-radius: 26px; padding: 28px 26px; max-width: 420px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 
 @media (prefers-reduced-motion: reduce) { .scroll-cue::after { animation: none; } }
+
+/* ---------- film stage ---------- */
+canvas.film { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: #2b1247; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--cream); font-size: 18px; letter-spacing: 0.04em; }
+.card-beat {
+  position: absolute; left: 16px; right: 16px; bottom: max(22px, env(safe-area-inset-bottom));
+  color: var(--cream); opacity: 0; transform: translateY(24px); will-change: opacity, transform;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.8);
+}
+.card-beat .kicker { font-family: var(--display); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin: 0 0 6px; }
+.card-beat h2 { font-family: var(--display); font-size: clamp(30px, 7vw, 56px); line-height: 0.95; margin: 0 0 8px; }
+.card-beat h2.hero { font-size: clamp(60px, 14vw, 150px); color: var(--cream); text-shadow: 0 5px 0 var(--grape), 0 12px 24px rgba(0,0,0,0.45); }
+.card-beat p { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.35; max-width: 34ch; }
+.card-beat.center { text-align: center; bottom: auto; top: 14vh; }
+.card-beat.center p { margin: 0 auto; }
+@media (orientation: landscape) and (min-width: 900px) {
+  .card-beat { left: 56px; right: auto; bottom: 56px; max-width: 420px; }
+  .card-beat.right { left: auto; right: 56px; }
+  .card-beat p { font-size: 18px; }
+}

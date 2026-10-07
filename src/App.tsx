@@ -1,5 +1,5 @@
 import AgeGate from './components/AgeGate'
-import Stage from './components/Stage'
+import FilmStage from './components/FilmStage'
 import Store from './components/Store'
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
     <>
       <a id="top" />
       <AgeGate />
-      <Stage />
+      <FilmStage />
       <Store />
     </>
   )
