@@ -1,3 +1,5 @@
+const ease = (t: number) => t * t * (3 - 2 * t)
+
 export const clamp01 = (v: number) => Math.min(1, Math.max(0, v))
 
 /** 0 outside [a,b], ramps up over `f` of the window at each end, 1 in the middle. */
