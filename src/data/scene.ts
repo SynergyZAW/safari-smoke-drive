@@ -5,9 +5,12 @@ export type Layout = 'portrait' | 'landscape'
 
 export type Cam = { p: number; x: number; y: number; z: number }
 
+export type Layer = { src: string; dx: number; dy: number; w: number }
+
 export type Station = {
   id: string
   src?: string // keyed cut-out; absent = pending artwork
+  layers?: Layer[] // a group of cut-outs placed around the anchor (offsets in master fractions)
   x: number
   y: number
   w: number
@@ -52,8 +55,8 @@ const copy = {
   },
   vape: {
     kicker: 'Ranger note 04',
-    title: 'Live rosin vapes',
-    body: 'The Eco-Star, in 0.5 ml and 1 ml. Live rosin, ready when you are.',
+    title: 'The vape crew',
+    body: 'Live rosin in the Eco-Star, 0.5 ml or 1 ml. Sour Diesel, Permanent Marker and Banana Shack.',
   },
 }
 
@@ -62,13 +65,21 @@ export const STATIONS: Record<Layout, Station[]> = {
     { id: 'hare', src: '/img/station-hare.webp', x: 0.66, y: 0.3, w: 0.2, note: [0.1, 0.25], ...copy.hare },
     { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.22, y: 0.47, w: 0.2, note: [0.29, 0.44], ...copy.gorilla },
     { id: 'tiger', src: '/img/station-tiger.webp', x: 0.76, y: 0.63, w: 0.19, note: [0.48, 0.63], ...copy.tiger },
-    { id: 'vape', x: 0.22, y: 0.78, w: 0.18, note: [0.67, 0.8], ...copy.vape },
+    { id: 'vape', x: 0.3, y: 0.79, w: 0.16, note: [0.67, 0.8], ...copy.vape, layers: [
+      { src: '/img/station-rhino.webp', dx: -0.17, dy: 0.0, w: 0.15 },
+      { src: '/img/station-monkey.webp', dx: 0.0, dy: 0.015, w: 0.16 },
+      { src: '/img/station-ape.webp', dx: 0.17, dy: -0.01, w: 0.14 },
+    ] },
   ],
   landscape: [
     { id: 'hare', src: '/img/station-hare.webp', x: 0.46, y: 0.41, w: 0.085, note: [0.1, 0.25], ...copy.hare },
     { id: 'gorilla', src: '/img/station-gorilla.webp', x: 0.73, y: 0.52, w: 0.09, note: [0.29, 0.44], ...copy.gorilla },
     { id: 'tiger', src: '/img/station-tiger.webp', x: 0.24, y: 0.64, w: 0.085, note: [0.48, 0.63], ...copy.tiger },
-    { id: 'vape', x: 0.83, y: 0.77, w: 0.07, note: [0.67, 0.8], ...copy.vape },
+    { id: 'vape', x: 0.8, y: 0.76, w: 0.07, note: [0.67, 0.8], ...copy.vape, layers: [
+      { src: '/img/station-rhino.webp', dx: -0.085, dy: 0.0, w: 0.065 },
+      { src: '/img/station-monkey.webp', dx: 0.0, dy: 0.01, w: 0.07 },
+      { src: '/img/station-ape.webp', dx: 0.085, dy: -0.005, w: 0.06 },
+    ] },
   ],
 }
 
@@ -107,8 +118,9 @@ export const PRODUCTS = [
 ]
 
 export const VAPES = [
-  { id: 'ecostar-05', name: 'Eco-Star 0.5 ml', blurb: 'Live rosin. Pocket size.' },
-  { id: 'ecostar-1', name: 'Eco-Star 1 ml', blurb: 'Live rosin. The long walk.' },
+  { id: 'sour-diesel', name: 'Sour Diesel', mascot: 'Rhino', img: '/img/station-rhino.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
+  { id: 'permanent-marker', name: 'Permanent Marker', mascot: 'Monkey', img: '/img/station-monkey.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
+  { id: 'banana-shack', name: 'Banana Shack', mascot: 'Ape', img: '/img/station-ape.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
 ]
 
 /** Store links are placeholders until the platform (AFP vs Ecwid) is chosen. */

@@ -161,7 +161,13 @@ export default function Stage() {
         <div className="world" ref={world}>
           <img className="master" src={master.src} width={master.w} height={master.h} alt="" draggable={false} />
           {stations.map((s) =>
-            s.src ? (
+            s.layers ? (
+              s.layers.map((l, i) => (
+                <div key={`${s.id}-${i}`} className="station" style={{ left: `${(s.x + l.dx) * 100}%`, top: `${(s.y + l.dy) * 100}%`, width: `${l.w * 100}%` }}>
+                  <img src={l.src} alt="" draggable={false} />
+                </div>
+              ))
+            ) : s.src ? (
               <div key={s.id} className="station" style={{ left: `${s.x * 100}%`, top: `${s.y * 100}%`, width: `${s.w * 100}%` }}>
                 <img src={s.src} alt="" draggable={false} />
               </div>

@@ -25,14 +25,17 @@ export default function Store() {
         </div>
 
         <h2 className="display text-4xl md:text-5xl mt-16">Live rosin vapes</h2>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <p className="mt-3 max-w-xl font-bold opacity-90">The Eco-Star, in 0.5 ml and 1 ml. Three strains, three rangers.</p>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {VAPES.map((v) => (
-            <article key={v.id} className="card p-5 flex items-center justify-between gap-4">
-              <div>
-                <h3 className="display text-2xl">{v.name}</h3>
+            <article key={v.id} className="card p-5 flex items-center gap-4">
+              <img src={v.img} alt={`${v.mascot} with the Eco-Star`} loading="lazy" className="shrink-0" style={{ width: '6rem', height: '7.5rem', aspectRatio: 'auto', objectFit: 'contain' }} />
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-widest opacity-60">{v.mascot}</p>
+                <h3 className="display text-2xl leading-tight">{v.name}</h3>
                 <p className="text-sm font-bold opacity-80 mt-1">{v.blurb}</p>
+                <a className="btn ghost mt-3 text-sm" href={STORE_URL} data-product={v.id}>Shop</a>
               </div>
-              <a className="btn ghost" href={STORE_URL} data-product={v.id}>Shop</a>
             </article>
           ))}
         </div>
