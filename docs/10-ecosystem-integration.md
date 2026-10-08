@@ -89,3 +89,10 @@ After submit the page shows "Application received, we'll be in touch". Approval 
 - **Preview hostnames** for CORS, both under team jonhodes-7086s-projects: `safari-smoke-drive-git-<branch>-jonhodes-7086s-projects.vercel.app` (branch alias) and `safari-smoke-drive-<hash>-jonhodes-7086s-projects.vercel.app` (per deployment). Production is `safarismoke.co.za`.
 - **Gummies wiring** on hold as asked. **Distributor form** not built until the contract is merged.
 - These changes are on branch `watering-hole` (preview) and go to production on Jon's go-ahead.
+
+## Update 8 Oct (Jon, this morning)
+
+- **Dose confirmed by Jon: 20 mg per gummy, 10 per bag.** Safari Snaxx is a separate range from FAR Gummies: different brand, different claims on the bag, different everything, same six flavour names. So the FAR Gummies 5 mg SKUs are **not** these products. Edith: please have six new Safari Snaxx gummy SKUs created (or tell me the existing ones if they already exist under another name). The 20 mg copy is back on the site.
+- **Vapes: the full range goes in the store.** Jon has 30 to 40 Eco-Star varieties. The homepage keeps the three hero strains (Sour Diesel, Permanent Marker, Banana Shack) with their rangers. A new store page at `safarismoke.co.za/#/store` lists every vape the channel API returns, one card per strain with both sizes, plus a search box, and a Gummies tab. Strains without a ranger use a generic Eco-Star card. So the Store Ops toggle decides what appears; the site has no list of its own beyond the twelve fallback SKUs shown until the API is live.
+- Buy buttons read "Coming soon" everywhere (phase 1). Out-of-stock items will show "Out of stock" once stock is live.
+- The catalogue adapter is `src/lib/catalogue.ts`. It expects, per product: sku, line (gummies or vapes), name, strain or flavour, size, format, image, retailPriceCents, inStock, stockAvailable. If the API's field names differ, the mapping goes in that one file.

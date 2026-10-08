@@ -7,7 +7,7 @@ export default function Store() {
         <p className="display text-sm tracking-[0.2em] uppercase" style={{ color: 'var(--lime)' }}>The watering hole</p>
         <h2 className="display text-5xl md:text-7xl leading-none mt-2">Drink up.</h2>
         <p className="mt-4 max-w-xl font-bold opacity-90">
-          Safari Snaxx premium gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten.
+          Safari Snaxx premium gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten, 20 mg each.
         </p>
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
@@ -17,7 +17,7 @@ export default function Store() {
               <div className="p-4">
                 <h3 className="display text-2xl">{p.name}</h3>
                 <p className="text-sm font-bold opacity-80 mt-1">{p.blurb}</p>
-                <p className="text-xs font-bold opacity-60 mt-2">50 g bag · 10 gummies</p>
+                <p className="text-xs font-bold opacity-60 mt-2">10 × 20 mg · 50 g</p>
                 <span className="btn soon mt-4" data-product={p.id}>Coming soon</span>
               </div>
             </article>
@@ -25,7 +25,7 @@ export default function Store() {
         </div>
 
         <h2 className="display text-4xl md:text-5xl mt-16">Live rosin vapes</h2>
-        <p className="mt-3 max-w-xl font-bold opacity-90">The Eco-Star, in 0.5 ml and 1 ml. Three strains, three rangers.</p>
+        <p className="mt-3 max-w-xl font-bold opacity-90">The Eco-Star, in 0.5 ml and 1 ml. Three rangers up front, the whole range in the store.</p>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {VAPES.map((v) => (
             <article key={v.id} className="card p-5 flex items-center gap-4">
@@ -39,6 +39,8 @@ export default function Store() {
             </article>
           ))}
         </div>
+
+        <p className="mt-8"><a className="btn" href="#/store">See the full range</a></p>
 
         <footer className="mt-20 text-xs font-bold opacity-70 leading-relaxed">
           <p>Safari Smoke. 21+ only. Keep out of reach of children and pets. Do not drive or operate machinery after use.</p>
