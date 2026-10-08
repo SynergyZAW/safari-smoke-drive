@@ -28,7 +28,7 @@ export default function StorePage() {
     <main className="store min-h-screen" id="store">
       <div className="mx-auto max-w-6xl px-4 pt-6 pb-16">
         <div className="flex items-center justify-between">
-          <a className="wordmark" href="#top" style={{ position: 'static' }}>Safari Smoke</a>
+          <a className="wordmark" href="#top" aria-label="Safari Smoke"><img src="/img/logo.webp" alt="Safari Smoke" /></a>
           <a className="btn ghost text-sm" href="#top">Back to the trading post</a>
         </div>
 
@@ -56,7 +56,7 @@ export default function StorePage() {
             <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {strains.map(({ strain, skus }) => (
                 <article key={strain} className="card">
-                  <img src={HERO_STRAINS[strain] ?? STRAIN_ART[strain] ?? GENERIC_VAPE_IMAGE} alt={`${strain} Eco-Star`} loading="lazy" style={{ aspectRatio: '3 / 4', objectFit: 'cover' }} />
+                  <img src={STRAIN_ART[strain] ?? HERO_STRAINS[strain] ?? GENERIC_VAPE_IMAGE} alt={`${strain} Eco-Star`} loading="lazy" style={{ aspectRatio: '3 / 4', objectFit: 'cover' }} />
                   <div className="p-4">
                     {HERO_STRAINS[strain] && <p className="text-xs font-bold uppercase tracking-widest opacity-60">Ranger's pick</p>}
                     <h3 className="display text-2xl leading-tight">{strain}</h3>

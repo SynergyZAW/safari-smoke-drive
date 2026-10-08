@@ -72,14 +72,34 @@ export const FALLBACK: CatalogueItem[] = [
   V('ES-VBFR-1ML-DISP', 'VB Fire', '1 ml'),
 ]
 
-/** Strains with a ranger of their own. Everything else uses the generic Eco-Star card until its art lands. */
+/** The three rangers from the film. The store grid prefers the official box mascot when one exists. */
 export const HERO_STRAINS: Record<string, string> = {
   'Sour Diesel': '/img/card-rhino.webp',
   'Permanent Marker': '/img/card-monkey.webp',
   'Banana Shack': '/img/card-ape.webp',
 }
-/** Strain artwork beyond the three rangers, added as it is approved (keyed by strain name). */
-export const STRAIN_ART: Record<string, string> = {}
+/** Official strain mascots, cropped from the Safari Smoke box art Jon shared on 8 Oct (keyed by strain name). */
+export const STRAIN_ART: Record<string, string> = {
+  'Banana Shack': '/img/card-banana-shack.webp',
+  'Block Berry': '/img/card-block-berry.webp',
+  'Blue Berry Hash Plant': '/img/card-blue-berry-hash-plant.webp',
+  'Cheese': '/img/card-cheese.webp',
+  'Croissant': '/img/card-croissant.webp',
+  'Gelato 41': '/img/card-gelato-41.webp',
+  'GMO': '/img/card-gmo.webp',
+  'Grape Garcia': '/img/card-grape-garcia.webp',
+  'Masterpiece': '/img/card-masterpiece.webp',
+  'Monkey Business': '/img/card-monkey-business.webp',
+  'Nerdz': '/img/card-nerdz.webp',
+  'Papaya Cookies': '/img/card-papaya-cookies.webp',
+  'Permanent Marker': '/img/card-permanent-marker.webp',
+  'Rainbow Marker': '/img/card-rainbow-marker.webp',
+  'Runtz Layer Cake': '/img/card-runtz-layer-cake.webp',
+  'Sour Diesel': '/img/card-sour-diesel.webp',
+  'The Church': '/img/card-the-church.webp',
+  'Sapphire OG': '/img/card-sapphire-og.webp',
+  'Tart Pops': '/img/card-tart-pops.webp',
+}
 export const GENERIC_VAPE_IMAGE = '/img/card-ecostar.webp'
 
 export async function fetchCatalogue(): Promise<{ items: CatalogueItem[]; live: boolean }> {
