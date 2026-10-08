@@ -5,7 +5,8 @@
 export type Line = 'gummies' | 'vapes'
 
 export type CatalogueItem = {
-  sku: string
+  sku: string // '' until the ecosystem issues one
+  id: string // stable key for the page
   line: Line
   name: string // display name without size
   strain?: string
@@ -18,35 +19,68 @@ export type CatalogueItem = {
   stockAvailable?: number
 }
 
-const G = (sku: string, flavour: string, img: string): CatalogueItem => ({
-  sku, line: 'gummies', name: 'Safari Snaxx Premium Gummies', flavour, size: '50 g · 10 × 20 mg', format: 'bag', image: img,
+const G = (id: string, flavour: string, img: string): CatalogueItem => ({
+  // Gummy SKUs do not exist in the ecosystem yet (Edith, 8 Oct). No codes are invented here.
+  sku: '', id, line: 'gummies', name: 'Safari Snaxx Premium Gummies', flavour, size: '50 g · 10 × 20 mg', format: 'bag', image: img,
 })
-const V = (sku: string, strain: string, size: string, image?: string): CatalogueItem => ({
-  sku, line: 'vapes', name: 'Eco-Star Live Rosin Disposable', strain, size, format: 'disposable', image,
+const V = (sku: string, strain: string, size: string): CatalogueItem => ({
+  sku, id: sku, line: 'vapes', name: 'Eco-Star Live Rosin Disposable', strain, size, format: 'disposable',
 })
 
-/** Known SKUs. Gummy SKUs are placeholders until the ecosystem issues them. Vape SKUs are the ecosystem's. */
+/**
+ * Known catalogue, shown until the channel API is live. Vape SKUs are the ecosystem's, keyed on SKU
+ * (Edith, 8 Oct). Which strains are on sale is the ecosystem's channel toggle, never decided here.
+ */
 export const FALLBACK: CatalogueItem[] = [
-  G('SS-GUM-CHERRY', 'Cherry', '/img/gummy-cherry.webp'),
-  G('SS-GUM-PINKLEM', 'Pink Lemonade', '/img/gummy-pink-lemonade.webp'),
-  G('SS-GUM-WATERM', 'Watermelon', '/img/gummy-watermelon.webp'),
-  G('SS-GUM-TANG', 'Tangerine', '/img/gummy-tangerine.webp'),
-  G('SS-GUM-BLUEB', 'Blueberry', '/img/gummy-blueberry.webp'),
-  G('SS-GUM-VARIETY', 'Variety Pack', '/img/gummy-variety.webp'),
-  V('ES-SOURDIES-0.5ML-CART', 'Sour Diesel', '0.5 ml', '/img/card-rhino.webp'),
-  V('ES-SOURDIES-1ML-CART', 'Sour Diesel', '1 ml', '/img/card-rhino.webp'),
-  V('ES-PERM-0.5ML-CART', 'Permanent Marker', '0.5 ml', '/img/card-monkey.webp'),
-  V('ES-PERM-1ML-CART', 'Permanent Marker', '1 ml', '/img/card-monkey.webp'),
-  V('ES-BASH-0.5ML-CART', 'Banana Shack', '0.5 ml', '/img/card-ape.webp'),
-  V('ES-BANSHA-1ML-CART', 'Banana Shack', '1 ml', '/img/card-ape.webp'),
+  G('cherry', 'Cherry', '/img/gummy-cherry.webp'),
+  G('pink-lemonade', 'Pink Lemonade', '/img/gummy-pink-lemonade.webp'),
+  G('watermelon', 'Watermelon', '/img/gummy-watermelon.webp'),
+  G('tangerine', 'Tangerine', '/img/gummy-tangerine.webp'),
+  G('blueberry', 'Blueberry', '/img/gummy-blueberry.webp'),
+  G('variety', 'Variety Pack', '/img/gummy-variety.webp'),
+  V('ES-BASH-0.5ML-CART', 'Banana Shack', '0.5 ml'),
+  V('ES-BANSHA-1ML-CART', 'Banana Shack', '1 ml'),
+  V('ES-BLOBER-0.5ML-CART', 'Block Berry', '0.5 ml'),
+  V('ES-BLOBER-1ML-CART', 'Block Berry', '1 ml'),
+  V('ES-BLUHAS-0.5ML-CART', 'Blue Berry Hash Plant', '0.5 ml'),
+  V('ES-CHEESE-0.5ML-DISP', 'Cheese', '0.5 ml'),
+  V('ES-CHEESE-1ML-CART', 'Cheese', '1 ml'),
+  V('ES-CROICER-0.5ML-DISP', 'Croissant', '0.5 ml'),
+  V('ES-CROICER-1ML-DISP', 'Croissant', '1 ml'),
+  V('ES-GRLS-1ML-DISP', 'G-Rolls', '1 ml'),
+  V('ES-GELA-0.5ML-CART', 'Gelato 41', '0.5 ml'),
+  V('EM-GMO-0.5ML-CART', 'GMO', '0.5 ml'),
+  V('ES-GMO-1ML-CART', 'GMO', '1 ml'),
+  V('ES-GRAGAR-0.5ML-CART', 'Grape Garcia', '0.5 ml'),
+  V('ES-MSPC-0.5ML-CART', 'Masterpiece', '0.5 ml'),
+  V('ES-MAPCE-1ML-CART', 'Masterpiece', '1 ml'),
+  V('ES-MONBUS-0.5ML-CART', 'Monkey Business', '0.5 ml'),
+  V('ES-MONBUS-1ML-CART', 'Monkey Business', '1 ml'),
+  V('ES-NERD-0.5ML-CART', 'Nerdz', '0.5 ml'),
+  V('ES-NERDZ-1ML-CART', 'Nerdz', '1 ml'),
+  V('ES-PAPACOOK-0.5ML-CART', 'Papaya Cookies', '0.5 ml'),
+  V('ES-PAPACOOK-1ML-CART', 'Papaya Cookies', '1 ml'),
+  V('ES-PERM-0.5ML-CART', 'Permanent Marker', '0.5 ml'),
+  V('ES-PERM-1ML-CART', 'Permanent Marker', '1 ml'),
+  V('ES-RAIMAR-0.5ML-CART', 'Rainbow Marker', '0.5 ml'),
+  V('ES-RAIMAR-1ML-CART', 'Rainbow Marker', '1 ml'),
+  V('ES-RLC-0.5ML-CART', 'Runtz Layer Cake', '0.5 ml'),
+  V('ES-RLC-1ML-CART', 'Runtz Layer Cake', '1 ml'),
+  V('ES-SOURDIES-0.5ML-CART', 'Sour Diesel', '0.5 ml'),
+  V('ES-SOURDIES-1ML-CART', 'Sour Diesel', '1 ml'),
+  V('ES-STICGLU-0.5ML-DISP', 'Sticky Glue', '0.5 ml'),
+  V('ES-THECHU-0.5ML-CART', 'The Church', '0.5 ml'),
+  V('ES-VBFR-1ML-DISP', 'VB Fire', '1 ml'),
 ]
 
-/** Strains with a ranger of their own. Everything else uses the generic Eco-Star card. */
+/** Strains with a ranger of their own. Everything else uses the generic Eco-Star card until its art lands. */
 export const HERO_STRAINS: Record<string, string> = {
   'Sour Diesel': '/img/card-rhino.webp',
   'Permanent Marker': '/img/card-monkey.webp',
   'Banana Shack': '/img/card-ape.webp',
 }
+/** Strain artwork beyond the three rangers, added as it is approved (keyed by strain name). */
+export const STRAIN_ART: Record<string, string> = {}
 export const GENERIC_VAPE_IMAGE = '/img/card-ecostar.webp'
 
 export async function fetchCatalogue(): Promise<{ items: CatalogueItem[]; live: boolean }> {
