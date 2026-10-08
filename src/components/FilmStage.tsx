@@ -104,7 +104,7 @@ export default function FilmStage() {
         {missing && <div className="loading display">Film not rendered yet for this screen shape.</div>}
         <div className="hud">
           <div className="brand">
-            <a className="wordmark" href="#top">Safari Smoke</a>
+            <a className="wordmark" href="#top" aria-label="Safari Smoke"><img src="/img/logo.webp" alt="Safari Smoke" /></a>
             <a className="pill" href="#store">Store</a>
           </div>
           {BEATS.map((b, k) => (
