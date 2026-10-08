@@ -105,7 +105,7 @@ export default function FilmStage() {
         <div className="hud">
           <div className="brand">
             <a className="wordmark" href="#top">Safari Smoke</a>
-            <a className="pill" href="#store">Shop</a>
+            <a className="pill" href="#store">Store</a>
           </div>
           {BEATS.map((b, k) => (
             <div key={b.id} className={`card-beat ${b.align ?? 'left'}`} ref={(n) => { cards.current[k] = n }}>

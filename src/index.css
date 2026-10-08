@@ -115,6 +115,7 @@ body {
 .card:hover { transform: translateY(-4px); }
 .card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
 .btn { font-family: var(--display); letter-spacing: 0.04em; color: var(--ink); background: var(--lime); border-radius: 999px; padding: 10px 18px; display: inline-block; text-decoration: none; box-shadow: 0 4px 0 rgba(0,0,0,0.3); }
+.btn.soon { cursor: default; opacity: 0.75; }
 .btn.ghost { background: transparent; color: var(--cream); border: 2px solid rgba(255,244,227,0.5); box-shadow: none; }
 
 /* ---------- age gate ---------- */
