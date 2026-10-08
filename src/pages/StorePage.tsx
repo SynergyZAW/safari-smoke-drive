@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { fetchCatalogue, groupByStrain, money, HERO_STRAINS, GENERIC_VAPE_IMAGE, type CatalogueItem, type Line } from '../lib/catalogue'
+import { fetchCatalogue, groupByStrain, money, HERO_STRAINS, STRAIN_ART, GENERIC_VAPE_IMAGE, type CatalogueItem, type Line } from '../lib/catalogue'
 
 function Buy({ item }: { item?: CatalogueItem }) {
   // Phase 1: no payment on the site. Phase 2 hands off to the ecosystem checkout.
@@ -52,17 +52,17 @@ export default function StorePage() {
 
         {line === 'vapes' ? (
           <section className="mt-8">
-            <p className="font-bold opacity-80">Eco-Star Live Rosin Disposables, 0.5 ml and 1 ml.</p>
+            <p className="font-bold opacity-80">Eco-Star Live Rosin Disposables. {strains.length} strains, in 0.5 ml, 1 ml or both.</p>
             <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {strains.map(({ strain, skus }) => (
                 <article key={strain} className="card">
-                  <img src={HERO_STRAINS[strain] ?? GENERIC_VAPE_IMAGE} alt={`${strain} Eco-Star`} loading="lazy" style={{ aspectRatio: '3 / 4', objectFit: 'cover' }} />
+                  <img src={HERO_STRAINS[strain] ?? STRAIN_ART[strain] ?? GENERIC_VAPE_IMAGE} alt={`${strain} Eco-Star`} loading="lazy" style={{ aspectRatio: '3 / 4', objectFit: 'cover' }} />
                   <div className="p-4">
                     {HERO_STRAINS[strain] && <p className="text-xs font-bold uppercase tracking-widest opacity-60">Ranger's pick</p>}
                     <h3 className="display text-2xl leading-tight">{strain}</h3>
                     <ul className="mt-3 space-y-2">
                       {skus.map((s) => (
-                        <li key={s.sku} className="flex items-center justify-between gap-2 text-sm font-bold">
+                        <li key={s.id} className="flex items-center justify-between gap-2 text-sm font-bold">
                           <span>{s.size}{money(s.retailPriceCents) ? ` · ${money(s.retailPriceCents)}` : ''}</span>
                           <Buy item={s} />
                         </li>
@@ -79,7 +79,7 @@ export default function StorePage() {
             <p className="font-bold opacity-80">Safari Snaxx Premium Gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten, 20 mg each.</p>
             <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {filtered.map((g) => (
-                <article key={g.sku} className="card">
+                <article key={g.id} className="card">
                   <img src={g.image} alt={`${g.flavour} gummy`} loading="lazy" />
                   <div className="p-4">
                     <h3 className="display text-2xl">{g.flavour}</h3>

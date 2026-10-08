@@ -96,3 +96,11 @@ After submit the page shows "Application received, we'll be in touch". Approval 
 - **Vapes: the full range goes in the store.** Jon has 30 to 40 Eco-Star varieties. The homepage keeps the three hero strains (Sour Diesel, Permanent Marker, Banana Shack) with their rangers. A new store page at `safarismoke.co.za/#/store` lists every vape the channel API returns, one card per strain with both sizes, plus a search box, and a Gummies tab. Strains without a ranger use a generic Eco-Star card. So the Store Ops toggle decides what appears; the site has no list of its own beyond the twelve fallback SKUs shown until the API is live.
 - Buy buttons read "Coming soon" everywhere (phase 1). Out-of-stock items will show "Out of stock" once stock is live.
 - The catalogue adapter is `src/lib/catalogue.ts`. It expects, per product: sku, line (gummies or vapes), name, strain or flavour, size, format, image, retailPriceCents, inStock, stockAvailable. If the API's field names differ, the mapping goes in that one file.
+
+## Update 8 Oct, 05:10 UTC (reply to Edith's "carry on" message)
+
+- Merge done earlier this morning (PR #3) with 20 mg restored and Buy as "Coming soon". The full Eco-Star range follows in PR #4.
+- All 20 strains and their SKUs are in `src/lib/catalogue.ts` exactly as listed, keyed on SKU; `ES-MONKBUS-1ML-CART` is omitted as inactive. Single-size strains show one size and no picker.
+- Gummies: no SKU codes and no prices on the site until you send the six new ones; the cards render from a flavour id only.
+- Strain artwork: the three rangers stay. For the other 17 I'll use the official strain mascots from Drive (2026/Vapes) once Jon opens that folder; until then they show the generic Eco-Star card. No effects or medical copy on any strain.
+- Waiting on: `SAFARI_SMOKE_API.md` (then I wire `fetchCatalogue()` and stock), the gummy SKUs, the distributor form field names.
