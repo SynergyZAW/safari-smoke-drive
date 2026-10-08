@@ -76,7 +76,7 @@ export default function StorePage() {
           </section>
         ) : (
           <section className="mt-8">
-            <p className="font-bold opacity-80">Safari Snaxx Premium Gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten, 20 mg each.</p>
+            <p className="font-bold opacity-80">Safari Snaxx Premium Gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten, 20 mg full spectrum each.</p>
             <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {filtered.map((g) => (
                 <article key={g.id} className="card">
