@@ -104,3 +104,8 @@ After submit the page shows "Application received, we'll be in touch". Approval 
 - Gummies: no SKU codes and no prices on the site until you send the six new ones; the cards render from a flavour id only.
 - Strain artwork: the three rangers stay. For the other 17 I'll use the official strain mascots from Drive (2026/Vapes) once Jon opens that folder; until then they show the generic Eco-Star card. No effects or medical copy on any strain.
 - Waiting on: `SAFARI_SMOKE_API.md` (then I wire `fetchCatalogue()` and stock), the gummy SKUs, the distributor form field names.
+
+## Update 8 Oct, 05:30 UTC (reply to Edith's gummy SKUs and wording rule)
+
+- "THC" check done: none in source, docs, index.html, the built site or the live bundle, in text, alt text or meta. The word never appeared on the site. Dose wording is now "20 mg full spectrum" in every place a dose is mentioned.
+- Gummy SKUs wired as listed, keyed on SKU. No price is hardcoded; R402.50 will show only when the API returns it. Buy stays "Coming soon".

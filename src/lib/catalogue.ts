@@ -19,25 +19,24 @@ export type CatalogueItem = {
   stockAvailable?: number
 }
 
-const G = (id: string, flavour: string, img: string): CatalogueItem => ({
-  // Gummy SKUs do not exist in the ecosystem yet (Edith, 8 Oct). No codes are invented here.
-  sku: '', id, line: 'gummies', name: 'Safari Snaxx Premium Gummies', flavour, size: '50 g · 10 × 20 mg', format: 'bag', image: img,
+const G = (sku: string, id: string, flavour: string, img: string): CatalogueItem => ({
+  sku, id, line: 'gummies', name: 'Safari Snaxx Premium Gummies', flavour, size: '50 g · 10 × 20 mg full spectrum', format: 'bag', image: img,
 })
 const V = (sku: string, strain: string, size: string): CatalogueItem => ({
   sku, id: sku, line: 'vapes', name: 'Eco-Star Live Rosin Disposable', strain, size, format: 'disposable',
 })
 
 /**
- * Known catalogue, shown until the channel API is live. Vape SKUs are the ecosystem's, keyed on SKU
- * (Edith, 8 Oct). Which strains are on sale is the ecosystem's channel toggle, never decided here.
+ * Known catalogue, shown until the channel API is live. All SKUs are the ecosystem's, keyed on SKU
+ * (Edith, 8 Oct). Prices come from the API only. What is on sale is the channel toggle, never decided here.
  */
 export const FALLBACK: CatalogueItem[] = [
-  G('cherry', 'Cherry', '/img/gummy-cherry.webp'),
-  G('pink-lemonade', 'Pink Lemonade', '/img/gummy-pink-lemonade.webp'),
-  G('watermelon', 'Watermelon', '/img/gummy-watermelon.webp'),
-  G('tangerine', 'Tangerine', '/img/gummy-tangerine.webp'),
-  G('blueberry', 'Blueberry', '/img/gummy-blueberry.webp'),
-  G('variety', 'Variety Pack', '/img/gummy-variety.webp'),
+  G('SSG-CHRY-50G', 'cherry', 'Cherry', '/img/gummy-cherry.webp'),
+  G('SSG-PKLD-50G', 'pink-lemonade', 'Pink Lemonade', '/img/gummy-pink-lemonade.webp'),
+  G('SSG-WTML-50G', 'watermelon', 'Watermelon', '/img/gummy-watermelon.webp'),
+  G('SSG-TGRN-50G', 'tangerine', 'Tangerine', '/img/gummy-tangerine.webp'),
+  G('SSG-BLBY-50G', 'blueberry', 'Blueberry', '/img/gummy-blueberry.webp'),
+  G('SSG-VTPC-50G', 'variety', 'Variety Pack', '/img/gummy-variety.webp'),
   V('ES-BASH-0.5ML-CART', 'Banana Shack', '0.5 ml'),
   V('ES-BANSHA-1ML-CART', 'Banana Shack', '1 ml'),
   V('ES-BLOBER-0.5ML-CART', 'Block Berry', '0.5 ml'),
