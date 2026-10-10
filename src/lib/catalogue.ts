@@ -99,6 +99,8 @@ export const STRAIN_ART: Record<string, string> = {
   'The Church': '/img/card-the-church.webp',
   'Sapphire OG': '/img/card-sapphire-og.webp',
   'Tart Pops': '/img/card-tart-pops.webp',
+  'G-Rolls': '/img/card-g-rolls.webp',
+  'VB Fire': '/img/card-vb-fire.webp',
 }
 export const GENERIC_VAPE_IMAGE = '/img/card-ecostar.webp'
 
