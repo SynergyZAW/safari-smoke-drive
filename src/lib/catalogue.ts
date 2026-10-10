@@ -74,11 +74,11 @@ export const FALLBACK: CatalogueItem[] = [
 
 /** The three rangers from the film. The store grid prefers the official box mascot when one exists. */
 export const HERO_STRAINS: Record<string, string> = {
-  'Sour Diesel': '/img/card-rhino.webp',
-  'Permanent Marker': '/img/card-monkey.webp',
-  'Banana Shack': '/img/card-ape.webp',
+  'Sour Diesel': '/img/card-sour-diesel.webp',
+  'Permanent Marker': '/img/card-permanent-marker.webp',
+  'Banana Shack': '/img/card-banana-shack.webp',
 }
-/** Official strain mascots, cropped from the Safari Smoke box art Jon shared on 8 Oct (keyed by strain name). */
+/** Strain mascots: the 3D renders composited onto the warm savanna plates (10 Oct). Box-art crops are kept in /img/boxart as the fallback. */
 export const STRAIN_ART: Record<string, string> = {
   'Banana Shack': '/img/card-banana-shack.webp',
   'Block Berry': '/img/card-block-berry.webp',
