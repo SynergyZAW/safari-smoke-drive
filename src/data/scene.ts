@@ -10,9 +10,9 @@ export const PRODUCTS = [
 ]
 
 export const VAPES = [
-  { id: 'sour-diesel', name: 'Sour Diesel', mascot: 'Rhino', img: '/img/card-rhino.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
-  { id: 'permanent-marker', name: 'Permanent Marker', mascot: 'Monkey', img: '/img/card-monkey.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
-  { id: 'banana-shack', name: 'Banana Shack', mascot: 'Ape', img: '/img/card-ape.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
+  { id: 'sour-diesel', name: 'Sour Diesel', mascot: 'Rhino', img: '/img/card-sour-diesel.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
+  { id: 'permanent-marker', name: 'Permanent Marker', mascot: 'Monkey', img: '/img/card-permanent-marker.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
+  { id: 'banana-shack', name: 'Banana Shack', mascot: 'Ape', img: '/img/card-banana-shack.webp', blurb: 'Live rosin Eco-Star. 0.5 ml or 1 ml.' },
 ]
 
 /** Store links are placeholders until the platform (AFP vs Ecwid) is chosen. */

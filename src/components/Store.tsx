@@ -4,8 +4,8 @@ export default function Store() {
   return (
     <section className="store" id="store">
       <div className="mx-auto max-w-6xl px-4 pt-14 pb-16 relative">
-        <p className="display text-sm tracking-[0.2em] uppercase" style={{ color: 'var(--lime)' }}>The watering hole</p>
-        <h2 className="display text-5xl md:text-7xl leading-none mt-2">Drink up.</h2>
+        <p className="display text-sm tracking-[0.2em] uppercase" style={{ color: 'var(--lime)' }}>The trading post</p>
+        <h2 className="display text-5xl md:text-7xl leading-none mt-2">Everything on the counter.</h2>
         <p className="mt-4 max-w-xl font-bold opacity-90">
           Safari Snaxx premium gummies. Fast-acting, full-spectrum rosin. 50 g bags of ten, 20 mg full spectrum each.
         </p>

@@ -17,3 +17,9 @@
 
 - Store: official mascots for G-Rolls and VB Fire added from Jon's dielines; only Sticky Glue still uses the generic Eco-Star card (no asset yet, on hold).
 - Assets outside the site: 21 3D mascot renders and two Eco-Star device masters (cream 0.5 ml, black 1 ml, amber oil) delivered to Jon's studio; reference copies in `refs/mascots` and `refs/out`.
+
+## 10 Oct, PR #8 (live)
+
+- Store and homepage: every vape card now shows the 3D mascot composited onto one of three warm savanna plates (rotating A/B/C); Sticky Glue shows the cream Eco-Star on the same plate. Box-art crops kept in `public/img/boxart/` as fallback, not referenced.
+- Homepage store section copy: "The trading post / Everything on the counter." (the last trace of the rejected watering-hole concept).
+- Catalogue contract unchanged (keyed on SKU; prices and stock from the API when it lands).
