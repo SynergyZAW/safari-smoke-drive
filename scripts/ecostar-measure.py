@@ -4,6 +4,8 @@ def body_mask(path, mode):
     im = Image.open(path).convert('RGB'); a = np.asarray(im).astype(int)
     if mode == 'black':   # photo on black
         m = a.max(axis=2) > 40
+    elif mode == 'white': # product render on white
+        m = a.min(axis=2) < 215
     else:                 # render on chroma green
         R,G,B = a[...,0],a[...,1],a[...,2]
         m = ~((G > 150) & (G > R + 60) & (G > B + 60))
@@ -20,7 +22,9 @@ def window(path, mode, x0,x1,y0,y1):
     ys, xs = np.where(top > 90)
     if len(ys) == 0: return None
     return (np.median(xs)/(x1-x0), np.median(ys)/(y1-y0))
-for path, mode in ((sys.argv[1],'black'), (sys.argv[2],'green'), (sys.argv[3],'green')):
+args=sys.argv[1:]
+for spec in args:
+    path, mode = spec.rsplit(':',1)
     m,x0,x1,y0,y1 = body_mask(path, mode)
     w,h = x1-x0, y1-y0
     # width at 3 heights
