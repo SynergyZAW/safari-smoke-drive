@@ -6,9 +6,9 @@ def body_mask(path, mode):
         m = a.max(axis=2) > 40
     elif mode == 'white': # product render on white
         m = a.min(axis=2) < 215
-    else:                 # render on chroma green
-        R,G,B = a[...,0],a[...,1],a[...,2]
-        m = ~((G > 150) & (G > R + 60) & (G > B + 60))
+    else:                 # render on a flat background: sample the corner colour
+        bg = np.median(np.concatenate([a[:20,:20].reshape(-1,3), a[:20,-20:].reshape(-1,3), a[-20:,:20].reshape(-1,3), a[-20:,-20:].reshape(-1,3)]), axis=0)
+        m = np.abs(a - bg).sum(axis=2) > 60
     # keep the largest connected blob roughly: use column/row profiles with a threshold
     cols = np.where(m.sum(axis=0) > m.shape[0]*0.02)[0]; rows = np.where(m.sum(axis=1) > m.shape[1]*0.01)[0]
     return m, cols.min(), cols.max(), rows.min(), rows.max()
