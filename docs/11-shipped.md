@@ -12,3 +12,8 @@
 - Store: 19 official strain mascots from Jon's box art as 3:4 cards (`public/img/card-<strain>.webp`), wired through `STRAIN_ART`; store grid prefers the official mascot, the three film rangers stay the homepage trio. G-Rolls, Sticky Glue and VB Fire still use the generic Eco-Star card until art arrives.
 - Brand: Safari Smoke logo in the header and as favicon.
 - No change to the catalogue contract: still keyed on SKU, prices and stock still come from the API once `SAFARI_SMOKE_API.md` lands.
+
+## 10 Oct, PR #7 (live)
+
+- Store: official mascots for G-Rolls and VB Fire added from Jon's dielines; only Sticky Glue still uses the generic Eco-Star card (no asset yet, on hold).
+- Assets outside the site: 21 3D mascot renders and two Eco-Star device masters (cream 0.5 ml, black 1 ml, amber oil) delivered to Jon's studio; reference copies in `refs/mascots` and `refs/out`.
